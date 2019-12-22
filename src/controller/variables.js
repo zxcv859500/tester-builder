@@ -39,29 +39,23 @@ module.exports = {
         let defScript = '';
 
         for (const prop of props) {
-            defScript += `const data['${prop}'];`
+            defScript += `const ${prop} = variables['${prop}'];`
         }
 
         return defScript + script;
     },
 
     parser(varLst) {
-        let variables = [];
+        let variables = {};
 
         // Type: int_random or float_random부터 처리
         for (const data of varLst) {
             if (data['type'] === 'int_random') {
-                variables.push({
-                    name: data['name'],
-                    value: this.int_random(data['decimalScope'])
-                })
+                variables[data['name']] = this.int_random(data['deciamlScope']);
             }
 
             else if (data['type'] === 'float_random') {
-                variables.push({
-                    name: data['name'],
-                    value: this.float_random(data['decimalScope'], data['fix'])
-                })
+                variables[data['name']] = this.float_random(data['decimalScope'], data['fix']);
             }
         }
 
@@ -69,10 +63,7 @@ module.exports = {
         for (const data of varLst) {
             if (data['type'] === 'eval') {
                 const script = this.eval_script(data['value'], data['props']);
-                variables.push({
-                    name: data['name'],
-                    value: eval(script)
-                })
+                variables[data['name']] = this.eval(script);
             }
         }
 
