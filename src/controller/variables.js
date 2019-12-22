@@ -34,6 +34,7 @@ module.exports = {
      * @param props evalScript 에 쓰이는 변수들 리스트
      * @returns 처리된 eval script
      */
+    // TODO: 해당 prop이 없을 때 예외 발생
     eval_script(script, props) {
         let defScript = '';
 
