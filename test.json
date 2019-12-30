@@ -1,0 +1,66 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimal": 1,
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimal": 1,
+			"type": "int_random"
+		}
+	],
+	"comp": [
+		{
+			"name": "v1",
+			"location": {
+				"x": 100,
+				"y": 100
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v2",
+			"location": {
+				"x": 150,
+				"y": 100
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v3",
+			"location": {
+				"x": 200,
+				"y": 100
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v4",
+			"location": {
+				"x": 250,
+				"y": 100
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v5",
+			"location": {
+				"x": 300,
+				"y": 100
+			},
+			"value": "A + B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 5
+}

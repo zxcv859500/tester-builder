@@ -18,11 +18,12 @@ module.exports = class Variables {
                 variables[data['name']] = Variables.float_random(data['decimalScope'], data['fix']);
             }
         }
+        this.variables = variables;
 
         // 나머지 eval
         for (const data of varLst) {
             if (data['type'] === 'eval') {
-                variables[data['name']] = Variables.eval_script(data['value'], data['props']);
+                variables[data['name']] = this.eval_script(data['value'], data['props']);
             }
         }
 
@@ -73,9 +74,8 @@ module.exports = class Variables {
         let defScript = '';
 
         for (const prop of props) {
-            defScript += `const ${prop} = ${this.variables[`${prop}`]};`
+            defScript += `const ${prop} = ${this.variables[`${prop}`]};`;
         }
-
         return eval(defScript + script);
     }
 };
