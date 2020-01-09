@@ -2,12 +2,23 @@ const Variables = require('./variables');
 const Components = require('./components');
 
 module.exports = class controller {
-    constructor(problemData) {
+    constructor(problemData, mode) {
+        this.saveVariables = [];
+        this.build(problemData, mode)
+        this.problemData = problemData;
+    }
+
+    rebuild(mode) {
+        this.build(this.problemData, mode, 1);
+    }
+
+    build(problemData, mode, re=0) {
         this.width = problemData['width'];
         this.height = problemData['height'];
 
         this.variables = new Variables(problemData['var']);
-        this.components = new Components(problemData['comp'], this.variables, 1);
+        if (re === 1) this.variables = this.saveVariables[0];
+        this.components = new Components(problemData['comp'], this.variables, 1, mode);
 
         let templateScript = '';
         let problemNumber = 1;
@@ -25,8 +36,10 @@ module.exports = class controller {
                     }
                 }
 
+                if (re !== 1) this.saveVariables.push(this.variables);
                 this.variables = new Variables(problemData['var']);
-                this.components = new Components(problemData['comp'], this.variables, problemNumber + 1);
+                if (re === 1 && problemNumber !== this.width * this.height) this.variables = this.saveVariables[problemNumber];
+                this.components = new Components(problemData['comp'], this.variables, problemNumber + 1, mode);
                 columnScript += `<div class="problem-${problemNumber}">
         <p class="number">${problemNumber}</p>
         ${tempScript}
@@ -35,8 +48,8 @@ module.exports = class controller {
         .problem-${problemNumber} {
             position: relative;
             margin: 5px;
-            width: 300px;
-            height: 300px;
+            width: ${problemData['problemWidth']}px;
+            height: ${problemData['problemHeight']}px;
         } 
         .number {
             position: absolute;
@@ -81,6 +94,8 @@ module.exports = class controller {
         this.paperInform['chapter2'] = problemData['chapter2'];
         this.paperInform['chapter2_small'] = problemData['chapter2_small'];
         this.paperInform['badge'] = problemData['badge'];
+
+        console.log(this.saveVariables);
     }
 
     get template() {

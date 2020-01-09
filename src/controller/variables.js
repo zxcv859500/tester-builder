@@ -59,7 +59,7 @@ module.exports = class Variables {
         const min = decimalScope[0];
         const max = decimalScope[1];
 
-        return (Math.random()*(max-min+1) + min).toFixed(fix)
+        return (Math.random()*(max-min) + min).toFixed(fix)
     }
 
     /**

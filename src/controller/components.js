@@ -4,20 +4,19 @@ module.exports = class Components {
      * @param comLst list 컴포넌트 리스트
      * @param Variables Variables
      * @param number number
+     * @param mode
      */
-    constructor(comLst, Variables, number) {
+    constructor(comLst, Variables, number, mode) {
         this.variables = Variables.data;
         let components = {};
-        console.log(number);
 
         for (const data of comLst) {
             components[data['name']] = {};
 
             if (data.type === 'eval') {
                 components[data['name']]['value'] = this.eval_script(data['value'], data['props']);
-
                 components[data['name']]['template'] =
-                    `<div class='problem${number}-components-${data['name']}'><B>${components[data['name']]['value']}</B></div>
+                    `<div class='problem${number}-components-${data['name']} '><B>${components[data['name']]['value']}</B></div>
                     <style>
                         .problem${number}-components-${data['name']} {
                             position: absolute;
@@ -27,8 +26,10 @@ module.exports = class Components {
                             height: ${data['height']}px;
                             color: ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};
                             letter-spacing: ${data['letter-space']}px;
+                            font-size: ${data['size']}px;
                             text-align: ${data['text-align']};
-                            ${(number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}                            
+                            ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""};
+                            ${eval(data['style_extra'])}                            
                         }
                     </style>
                     `
@@ -40,10 +41,11 @@ module.exports = class Components {
                             position: absolute;
                             top: ${data['location']['y']}px;
                             left: ${data['location']['x']}px;
-                            border-top: ${data['border']}px solid ${(data['mode'] === 'hidden') ? "#0063CC" : "#ddd"};                            
+                            border-top: ${data['border']}px solid ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};                            
                             width: ${data['width']}px;
                             height: ${data['height']}px;
-                            ${(number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}                              
+                            ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}
+                            ${eval(data['style_extra'])}                                                          
                         }
                     </style>
                     `
@@ -58,7 +60,9 @@ module.exports = class Components {
                             border: ${data['border']}px solid ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};
                             width: ${data['width']}px;
                             height: ${data['height']}px;
-                            ${(number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}                            
+                            background-color: ${data['color']};
+                            ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""};
+                            ${eval(data['style_extra'])}   
                         }                       
                     </style>
                     `
@@ -70,11 +74,12 @@ module.exports = class Components {
                             position: absolute;
                             top: ${data['location']['y']}px;
                             left: ${data['location']['x']}px;
-                            color: ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};
-                            font-size: ${data['size']}px;  
+                            color: ${(data['mode'] === 'hidden') ? "#b8b6ae" : "black"};
+                            font-size: ${data['size']}px;                                                                                                            
+                            width: ${data['width']}px;
                             letter-spacing: ${data['letter-space']}px;   
                             text-align: ${data['text-align']};                 
-                            ${(number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}
+                            ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}
                         }
                     </style>`
             }

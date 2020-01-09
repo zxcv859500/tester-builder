@@ -1,66 +1,86 @@
 {
-	"var": [
+	"data": [
 		{
-			"name": "A",
-			"decimal": 1,
-			"type": "int_random"
-		},
-		{
-			"name": "B",
-			"decimal": 1,
-			"type": "int_random"
+			"grade": "1학년",
+			"data": 1,
+			"semester": [
+				{
+					"semester": "1학기",
+					"data": 1,
+					"unit": {
+						"unit": "3. 덧셈과 뺄셈",
+						"data": 3,
+						"problem": [
+							{
+								"problem": "1) 두 수로 가르기(한 자리 수)",
+								"data": 1
+							},
+							{
+								"problem": "2) 두 수를 모으기(한 자리 수)",
+								"data": 2
+							},
+							{
+								"problem": "3) 몇 + 몇 (합이 9이하)",
+								"data": 3
+							},
+							{
+								"problem": "4) 몇 - 몇 (차가 9이하)",
+								"data": 4
+							},
+							{
+								"problem": "5) 한 자리 수 덧셈과 뺄셈의 관계",
+								"data": 5
+							},
+							{
+								"problem": "6) 한 자리 수 뺄셈과 덧셈의 관계",
+								"data": 6
+							},
+							{
+								"problem": "7) 한 자리 수 덧셈/뺄셈에서 □안의 수 찾기",
+								"data": 7
+							}
+						]
+					}
+				},
+				{
+					"semester": "2학기",
+					"data": 2,
+					"unit": {
+						"unit": "3. 덧셈과 뺄셈 (1)",
+						"data": 3,
+						"problem": [
+							{
+								"problem": "1) 몇십 + 몇 (받아올림 없음) A",
+								"data": 1
+							},
+							{
+								"problem": "2) 몇십 + 몇 (받아올림 없음) B",
+								"data": 2
+							},
+							{
+								"problem": "3) 몇십 몇 + 몇 (받아올림 없음) A",
+								"data": 3
+							},
+							{
+								"problem": "4) 몇십 몇 + 몇 (받아올림 없음) B",
+								"data": 4
+							},
+							{
+								"problem": "5) 몇십 + 몇십 (받아올림 없음) A",
+								"data": 5
+							},
+							{
+								"problem": "6) 몇십 + 몇십 (받아올림 없음) B",
+								"data": 6
+							},
+							{
+								"problem": "7) 몇십 몇 + 몇십 몇 (받아올림 없음) A",
+								"data": 7
+							}
+						]
+					}
+				}
+			]
 		}
-	],
-	"comp": [
-		{
-			"name": "v1",
-			"location": {
-				"x": 100,
-				"y": 100
-			},
-			"value": "A",
-			"props": ["A"],
-			"type": "eval"
-		},
-		{
-			"name": "v2",
-			"location": {
-				"x": 150,
-				"y": 100
-			},
-			"value": "+",
-			"type": "static"
-		},
-		{
-			"name": "v3",
-			"location": {
-				"x": 200,
-				"y": 100
-			},
-			"value": "B",
-			"props": ["B"],
-			"type": "eval"
-		},
-		{
-			"name": "v4",
-			"location": {
-				"x": 250,
-				"y": 100
-			},
-			"value": "=",
-			"type": "static"
-		},
-		{
-			"name": "v5",
-			"location": {
-				"x": 300,
-				"y": 100
-			},
-			"value": "A + B",
-			"props": ["A", "B"],
-			"type": "eval"
-		}
-	],
-	"width": 2,
-	"height": 5
+	]
 }
