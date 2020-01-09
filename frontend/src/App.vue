@@ -33,4 +33,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
   }
+  body {
+    margin: 0;
+  }
 </style>
