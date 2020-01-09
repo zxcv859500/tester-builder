@@ -1,0 +1,20 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": []
+		}
+	],
+	"comp": [
+	],
+	"width": 1,
+	"height": 8,
+	"label": "다음 표의 빈 칸에 알맞은 내용을 써 넣으세요.",
+	"grade": "6학년 1학기",
+	"chapter": "4.비와 비율",
+	"chapter2": "비와 비율",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

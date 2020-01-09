@@ -1,0 +1,97 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 10],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([1, A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A - B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"type": "rectangle",
+			"border": 3,
+			"width": 250,
+			"height": 120
+		},
+		{
+			"name": "v_box2",
+			"location": {
+				"x": 100,
+				"y": 113
+			},
+			"type": "rectangle",
+			"border": 1,
+			"width": 125,
+			"height": 60
+		},
+		{
+			"name": "v_box3",
+			"location": {
+				"x": 227,
+				"y": 113
+			},
+			"type": "rectangle",
+			"border": 1,
+			"width": 125,
+			"height": 60
+		},
+		{
+			"name": "v_answer",
+			"value": "A",
+			"location": {
+				"x": 210,
+				"y": 70
+			},
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"value": "B",
+			"location": {
+				"x": 157,
+				"y": 125
+			},
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"value": "C",
+			"location": {
+				"x": 279,
+				"y": 125
+			},
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "다음은 10을 두 수로 가른 것입니다. 빈 곳에 알맞을 수를 쓰세요.",
+	"grade": "1학년 2학기",
+	"chapter": "5.덧셈과 뺄셈(2)",
+	"chapter2": "10을 두 수로 가르기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

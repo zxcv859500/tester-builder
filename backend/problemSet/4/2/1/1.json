@@ -1,0 +1,114 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [1, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [1, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A + B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 160,
+				"y": 33
+			},
+			"value": "0.",
+			"type": "static"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 160,
+				"y": 90
+			},
+			"value": "0.",
+			"type": "static"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 210,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 170,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 115,
+				"y": 80
+			},
+			"value": "+",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 160,
+				"y": 150
+			},
+			"value": "`${Math.floor(C / 10)}.`",
+			"props": ["C"],
+			"type": "eval",
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 210,
+				"y": 150
+			},
+			"value": "C % 10",
+			"props": ["C"],
+			"type": "eval",
+			"mode": "hidden"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "소수의 덧셈을 하세요.",
+	"grade": "4학년 2학기",
+	"chapter": "1.소수의 덧셈과 뺄셈",
+	"chapter2": "자연수가 없는 소수 한 자리 수끼리의 덧셈",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

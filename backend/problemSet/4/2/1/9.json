@@ -1,0 +1,117 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [0.2, 9],
+			"fix": 1,
+			"type": "float_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.float_random([0.1, 0.99 > A - 0.1 ? A - 0.1 : 0.99], 1)",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "(A - B).toFixed(1)",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 160,
+				"y": 33
+			},
+			"value": "`${Math.floor(A)}.`",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 160,
+				"y": 90
+			},
+			"value": "`${Math.floor(B)}.`",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 210,
+				"y": 33
+			},
+			"value": "(A - Math.floor(A)).toFixed(1) * 10",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 90
+			},
+			"value": "(B - Math.floor(B)).toFixed(1) * 10",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 170,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 115,
+				"y": 80
+			},
+			"value": "-",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 160,
+				"y": 150
+			},
+			"value": "`${Math.floor(C)}.`",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 210,
+				"y": 150
+			},
+			"value": "(C - Math.floor(C)).toFixed(1) * 10",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "소수의 뺄셈을 하세요.",
+	"grade": "4학년 2학기",
+	"chapter": "1.소수의 덧셈과 뺄셈",
+	"chapter2": "소수 한 자리 수끼리의 뺄셈",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

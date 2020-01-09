@@ -1,0 +1,107 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 99],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([1, 9])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "Variables.int_random([10 - B + 1, 9])",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "D",
+			"value": "A + B + C",
+			"props": ["A", "B", "C"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 140,
+				"y": 29
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 165,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus2",
+			"location": {
+				"x": 200,
+				"y": 29
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 235,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 280,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 320,
+				"y": 29
+			},
+			"value": "D",
+			"props": ["D"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "계산을 하세요.",
+	"grade": "2학년 1학기",
+	"chapter": "3.덧셈과 뺄셈",
+	"chapter2": "몇십 몇 + 몇 + 몇",
+	"chapter2_small" : "(받아올림 있음)",
+	"badge": "",
+	"problemWidth": 300,
+	"problemHeight": 180
+}

@@ -1,0 +1,123 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [1000, 9000],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [100, 999],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A + B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_round1",
+			"location": {
+				"x": 110,
+				"y": 13
+			},
+			"value": "(A % 1000) + B >= 1000 ? '1' : ''",
+			"props": ["A", "B"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_round2",
+			"location": {
+				"x": 160,
+				"y": 13
+			},
+			"value": "(A % 100) + (B % 100) >= 100 ? '1' : ''",
+			"props": ["A", "B"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_round3",
+			"location": {
+				"x": 210,
+				"y": 13
+			},
+			"value": "(A % 10) + (B % 10) >= 10 ? '1' : ''",
+			"props": ["A", "B"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 110,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 160,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 60,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 220,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 65,
+				"y": 80
+			},
+			"value": "+",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 110,
+				"y": 150
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "덧셈을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "1.덧셈과 뺄셈",
+	"chapter2": "몇백 몇십 몇의 덧셈",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

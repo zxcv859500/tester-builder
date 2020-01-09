@@ -1,0 +1,144 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 999],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([2, (A >= 100 ? 99 : 999)])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A >= 100 || B >= 100 ? Variables.int_random([2, 9]) : Variables.int_random([10, 999])",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 120,
+				"y": 30
+			},
+			"value": "`${A} X ${B} X ${C}`",
+			"props": ["A", "B", "C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 120,
+				"y": 70
+			},
+			"value": "`${A} X ${B} = `",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 280,
+				"y": 70
+			},
+			"border": 3,
+			"width": 150,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 280,
+				"y": 72
+			},
+			"width": 150,
+			"value": "A * B",
+			"props": ["A", "B"],
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box2",
+			"location": {
+				"x": 120,
+				"y": 110
+			},
+			"border": 3,
+			"width": 150,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 120,
+				"y": 112
+			},
+			"width": 150,
+			"value": "A * B",
+			"props": ["A", "B"],
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 280,
+				"y": 112
+			},
+			"value": "`X ${C}`",
+			"props": ["C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 100,
+				"y": 152
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_box3",
+			"location": {
+				"x": 120,
+				"y": 150
+			},
+			"border": 3,
+			"width": 150,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 120,
+				"y": 152
+			},
+			"value": "A * B * C",
+			"props": ["A", "B", "C"],
+			"width": 150,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 5,
+	"label": "곱셈을 하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "2.곱셈과 나눗셈",
+	"chapter2": "세 수의 곱셈",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 500,
+	"problemHeight": 300
+}

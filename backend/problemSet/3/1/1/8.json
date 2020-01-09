@@ -1,0 +1,116 @@
+{
+	"var": [
+		{
+			"name": "third_A",
+			"decimalScope": [1, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "third_B",
+			"value": "Variables.int_random([10 - third_A, 9])",
+			"props": ["second_A", "third_A", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "first_A",
+			"decimalScope": [1, 7],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [1, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "second_B",
+			"value": "Variables.int_random([10 - second_A, 9])",
+			"props": ["second_A", "third_A", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "first_B",
+			"value": "second_A + second_B >= 10 ? Variables.int_random([1, 9 - first_A - 1]) : Variables.int_random([1, 9 - first_A])",
+			"props": ["first_A", "second_A", "second_B"],
+			"type": "eval"
+		},
+		{
+			"name": "A",
+			"value": "first_A * 100 + second_A * 10 + third_A",
+			"props": ["first_A", "second_A", "third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "first_B * 100 + second_B * 10 + third_B",
+			"props": ["first_B", "second_B", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A + B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 163,
+				"y": 29
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 190,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 250,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 270,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "덧셈을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "1.덧셈과 뺄셈",
+	"chapter2": "몇백 몇십 몇의 덧셈",
+	"chapter2_small" : "(받아올림 2번)",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

@@ -1,0 +1,168 @@
+{
+  "var": [
+    {
+      "name": "A_deno",
+      "decimalScope": [2, 20],
+      "type": "int_random"
+    },
+    {
+      "name": "A_num",
+      "value": "let res = 0; while(res % A_deno === 0 || res / A_deno >= 10) res = Variables.int_random([1, 100]); res;",
+      "props": ["A_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "gcd",
+      "value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+      "props": [],
+      "type": "eval"
+    },
+    {
+      "name": "B",
+      "decimalScope": [2, 20],
+      "type": "int_random"
+    },
+    {
+      "name": "modulo",
+      "value": "gcd(A_deno, B)",
+      "props": ["gcd", "A_deno", "B"],
+      "type": "eval"
+    },
+    {
+      "name": "answer_deno",
+      "value": "A_deno / modulo",
+      "props": ["A_deno", "modulo"],
+      "type": "eval"
+    },
+    {
+      "name": "answer_num",
+      "value": "A_num * B / modulo",
+      "props": ["A_num", "B", "modulo"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 100,
+        "y": 30
+      },
+      "value": "A_num > A_deno ? Math.floor(A_num / A_deno) : ''",
+      "props": ["A_num", "A_deno"],
+      "size": 25,
+      "type": "eval"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 120,
+        "y": 20
+      },
+      "value": "A_num % A_deno",
+      "props": ["A_num", "A_deno"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_bar1",
+      "location": {
+        "x": 120,
+        "y": 40
+      },
+      "border": 1,
+      "width": 30,
+      "type": "bar"
+    },
+    {
+      "name": "v_var3",
+      "location": {
+        "x": 120,
+        "y": 40
+      },
+      "value": "A_deno",
+      "props": ["A_deno"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_var4",
+      "location": {
+        "x": 155,
+        "y": 30
+      },
+      "value": "`X ${B} =`",
+      "size": 25,
+      "props": ["B"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var5",
+      "location": {
+        "x": 230,
+        "y": 30
+      },
+      "value": "answer_num > answer_deno ? Math.floor(answer_num / answer_deno) : ''",
+      "size": 25,
+      "width": 40,
+      "text-align": "right",
+      "props": ["answer_num", "answer_deno"],
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_var6",
+      "location": {
+        "x": 275,
+        "y": 20
+      },
+      "value": "answer_num % answer_deno === 0 ? '' : answer_num % answer_deno / gcd(answer_num % answer_deno, answer_deno)",
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "props": ["answer_num", "answer_deno", "gcd"],
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_bar2",
+      "location": {
+        "x": 275,
+        "y": 40
+      },
+      "width": 30,
+      "border": 1,
+      "style_extra": "this.variables['answer_num'] % this.variables['answer_deno'] === 0 ? 'visibility:hidden;' : ''",
+      "mode": "hidden",
+      "type": "bar"
+    },
+    {
+      "name": "v_var7",
+      "location": {
+        "x": 275,
+        "y": 40
+      },
+      "value": "answer_num % answer_deno === 0 ? '' : answer_deno / gcd(answer_num % answer_deno, answer_deno)",
+      "props": ["answer_num", "answer_deno", "gcd"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "mode": "hidden",
+      "type": "eval"
+    }
+  ],
+  "width": 2,
+  "height": 9,
+  "label": "다음을 계산하여 기약분수로 나타내세요.",
+  "grade": "5학년 1학기",
+  "chapter": "6.분수의 곱셈",
+  "chapter2": "분수 X 자연수",
+  "chapter2_small" : "",
+  "badge": "",
+  "problemWidth": 800,
+  "problemHeight": 160
+}

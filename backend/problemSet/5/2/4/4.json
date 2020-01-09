@@ -1,0 +1,54 @@
+{
+  "var": [
+    {
+      "name": "A",
+      "decimalScope": [5, 50],
+      "type": "int_random"
+    },
+    {
+      "name": "B",
+      "value": "let a = 1; while(A % a === 0 || a % A === 0) { a = Variables.int_random([5, 50]); } a;",
+      "props": ["A"],
+      "type": "eval"
+    },
+    {
+      "name": "C",
+      "value": "(A / B).toFixed(1)",
+      "props": ["A","B"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 100,
+        "y": 30
+      },
+      "value": "`${A} ÷ ${B} = `",
+      "props": ["A", "B"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 240,
+        "y": 30
+      },
+      "value": "C",
+      "props": ["C"],
+      "mode": "hidden",
+      "type": "eval"
+    }
+  ],
+  "width": 3,
+  "height": 9,
+  "label": "다음을 계산하여 기약분수로 나타내세요.",
+  "grade": "5학년 2학기",
+  "chapter": "4.소수의 나눗셈",
+  "chapter2": "자연수 ÷ 자연수",
+  "chapter2_small" : "(반올림하여 나타냄)",
+  "badge": "",
+  "problemWidth": 800,
+  "problemHeight": 160
+}

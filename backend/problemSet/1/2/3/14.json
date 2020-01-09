@@ -1,0 +1,83 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"value": "let A = 0; while(A % 10 === 0) { A = Variables.int_random([20, 99]); } A;",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let B = 9; while((A % 10) - (B % 10) <= 0) { B = Variables.int_random([10, A - 1]); } B;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A - B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 153,
+				"y": 29
+			},
+			"value": "-",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 180,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 230,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "뺄셈을 하세요.",
+	"grade": "1학년 2학기",
+	"chapter": "3.덧셈과 뺄셈(1)",
+	"chapter2": "몇십 몇 - 몇십 몇",
+	"chapter2_small" : "(받아내림 없음)",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

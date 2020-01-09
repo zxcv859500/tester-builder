@@ -1,0 +1,252 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "first_B",
+			"value": "let B = 1; while(A >= B || B % A === 0) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "second_B",
+			"value": "let B = 1; while((first_B * 10 + B) % A === 0) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A", "first_B"],
+			"type": "eval"
+		},
+		{
+			"name": "third_B",
+			"value": "let B = 1; while((first_B * 100 + second_B * 10 + B) % A === 0) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A", "first_B", "second_B"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "first_B * 100 + second_B * 10 + third_B",
+			"props": ["first_B", "second_B", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "Math.floor(B / A)",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v1",
+			"location": {
+				"x": 100,
+				"y": 105
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v2",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"value": ")",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v3",
+			"location": {
+				"x": 150,
+				"y": 105
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 15,
+			"type": "eval"
+		},
+		{
+			"name": "v4",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 120,
+			"height": 1
+		},
+		{
+			"name": "v5",
+			"location": {
+				"x": 150,
+				"y": 60
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v6",
+			"location": {
+				"x": 150,
+				"y": 135
+			},
+			"value": "Math.floor((B / A) / 100) * A",
+			"props": ["A", "B"],
+			"type": "eval",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v7",
+			"location": {
+				"x": 120,
+				"y": 170
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 120,
+			"height": 1
+		},
+		{
+			"name": "v8",
+			"location": {
+				"x": 150,
+				"y": 177
+			},
+			"value": "Math.floor(B / 100) - (A * Math.floor(C / 100))",
+			"props": ["A", "B", "C"],
+			"type": "eval",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 183,
+				"y": 177
+			},
+			"value": "Math.floor((B % 100) / 10)",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 150,
+				"y": 217
+			},
+			"value": "(Math.floor((C % 100) / 10) * A) >= 10 ? Math.floor(Math.floor((C % 100) / 10) * A / 10) : ''",
+			"props": ["A", "B", "C"],
+			"mode": "hidden",
+			"letter-space": 15,
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 183,
+				"y": 217
+			},
+			"value": "(Math.floor((C % 100) / 10) * A) % 10",
+			"props": ["A", "C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 183,
+				"y": 262
+			},
+			"value": "(Math.floor(B / 100) - (A * Math.floor(C / 100))) * 10 + Math.floor((B % 100) / 10) - (Math.floor((C % 100) / 10) * A)",
+			"props": ["A", "B", "C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 217,
+				"y": 262
+			},
+			"value": "B % 10",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 183,
+				"y": 302
+			},
+			"value": "(C % 10) * A >= 10 ? Math.floor((C % 10) * A / 10) : ''",
+			"props": ["A", "C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var7",
+			"location": {
+				"x": 217,
+				"y": 302
+			},
+			"value": "((C % 10) * A) % 10",
+			"props": ["A", "C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 120,
+				"y": 255
+			},
+			"width": 120,
+			"height": 1,
+			"border": 3,
+			"type": "bar"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 120,
+				"y": 337
+			},
+			"border": 3,
+			"width": 120,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var8",
+			"location": {
+				"x": 217,
+				"y": 352
+			},
+			"value": "B % A",
+			"props": ["B", "A"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 4,
+	"height": 4,
+	"label": "나눗셈의 몫과 나머지를 구하세요.",
+	"grade": "3학년 2학기",
+	"chapter": "2.나눗셈",
+	"chapter2": "몇백 몇십 몇 ÷ 몇",
+	"chapter2_small" : "(내림 / 나머지 있음)",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 350
+}

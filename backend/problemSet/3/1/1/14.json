@@ -1,0 +1,82 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [1000, 8999],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([1000, 10000 - A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A + B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 183,
+				"y": 29
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 290,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 310,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "덧셈을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "1.덧셈과 뺄셈",
+	"chapter2": "네 자리 수 + 네 자리 수",
+	"chapter2_small" : "",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

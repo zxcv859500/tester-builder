@@ -1,0 +1,70 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 99],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "let B = 1; while(B % 100 !== 0) { B = Variables.int_random([100, 900]); } B;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "mode",
+			"decimalScope": [0, 1],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B * (mode === 0 ? 1 : 10)",
+			"props": ["A", "B", "mode"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "`${A} X ${B * (mode === 0 ? 1 : 10)} = `",
+			"props": ["A", "B", "mode"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 260,
+				"y": 30
+			},
+			"value": "(mode === 0 ? C : '')",
+			"props": ["C", "mode"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 280,
+				"y": 30
+			},
+			"value": "(mode === 1 ? C : '')",
+			"props": ["C", "mode"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 10,
+	"label": "곱셈을 하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "2.곱셈과 나눗셈",
+	"chapter2": "두 자리 수 X 몇백/몇천",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 400,
+	"problemHeight": 140
+}

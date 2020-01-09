@@ -1,0 +1,140 @@
+{
+	"var": [
+		{
+			"name": "A_natural",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "B_natural",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"decimalScope": [10, 80],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "let temp; while(true) { temp = Variables.int_random([10, 99]);  console.log(A, temp); if ((A % 10) + (temp % 10) <= 9 && A + temp >= 100) break; } temp;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A + B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 180,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 130,
+				"y": 33
+			},
+			"value": "`${A_natural}.`",
+			"props": ["A_natural"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 180,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 130,
+				"y": 90
+			},
+			"value": "`${B_natural}.`",
+			"props": ["B_natural"],
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 190,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 90,
+				"y": 80
+			},
+			"value": "+",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 180,
+				"y": 150
+			},
+			"value": "Math.floor((C % 100) / 10)",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 230,
+				"y": 150
+			},
+			"value": "C % 10",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 130,
+				"y": 150
+			},
+			"value": "`${Math.floor(C / 100) + A_natural + B_natural}.`",
+			"props": ["C", "A_natural", "B_natural"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "소수의 덧셈을 하세요.",
+	"grade": "4학년 2학기",
+	"chapter": "1.소수의 덧셈과 뺄셈",
+	"chapter2": "자연수가 있는 소수 두 자리 수끼리의 덧셈",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

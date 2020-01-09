@@ -1,0 +1,158 @@
+{
+	"var": [
+		{
+			"name": "third_A",
+			"decimalScope": [0, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "third_B",
+			"value": "Variables.int_random([third_A + 1, 9])",
+			"props": ["second_A", "third_A", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "first_A",
+			"decimalScope": [3, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [1, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "second_B",
+			"value": "Variables.int_random([second_A + 1, 9])",
+			"props": ["second_A", "third_A", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "first_B",
+			"value": "Variables.int_random([1, first_A - 2])",
+			"props": ["first_A", "second_A", "second_B"],
+			"type": "eval"
+		},
+		{
+			"name": "A",
+			"value": "first_A * 100 + second_A * 10 + third_A",
+			"props": ["first_A", "second_A", "third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "first_B * 100 + second_B * 10 + third_B",
+			"props": ["first_B", "second_B", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A - B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_round1",
+			"location": {
+				"x": 123,
+				"y": 13
+			},
+			"value": "(second_A - second_B) < 0 ? first_A - 1 : ''",
+			"props": ["second_A", "second_B", "first_A"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_round2",
+			"location": {
+				"x": 170,
+				"y": 13
+			},
+			"value": "(third_A - third_B) < 0 ? 10 + second_A - 1 : '10'",
+			"props": ["third_A", "third_B", "second_A"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_round3",
+			"location": {
+				"x": 220,
+				"y": 13
+			},
+			"value": "(third_A - third_B) < 0 ? '10' : ''",
+			"props": ["third_A", "third_B"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 120,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 120,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 170,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 75,
+				"y": 80
+			},
+			"value": "-",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 120,
+				"y": 150
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "뺄셈을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "1.덧셈과 뺄셈",
+	"chapter2": "몇백 몇십 몇의 뺄셈",
+	"chapter2_small" : "(받아내림 2번)",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

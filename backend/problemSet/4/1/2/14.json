@@ -1,0 +1,133 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 49],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "while(true) { const tmp = Variables.int_random([10, 99]); if (tmp !== A && tmp % A === 0) { tmp; break; } }",
+			"props": ["A"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 120,
+				"y": 30
+			},
+			"value": "`${B} ÷ ${A}`",
+			"props": ["B", "A"],
+			"type": "eval"
+		},
+		{
+			"name": "v1",
+			"location": {
+				"x": 80,
+				"y": 105
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v2",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"value": ")",
+			"size": 40,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v3",
+			"location": {
+				"x": 150,
+				"y": 105
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 15,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v4",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 100,
+			"height": 1,
+			"mode": "hidden"
+		},
+		{
+			"name": "v5",
+			"location": {
+				"x": 116,
+				"y": 60
+			},
+			"value": "B / A",
+			"props": ["A", "B"],
+			"type": "eval",
+			"letter-space": 15,
+			"width": 100,
+			"text-align": "right",
+			"mode": "hidden"
+		},
+		{
+			"name": "v6",
+			"location": {
+				"x": 118,
+				"y": 135
+			},
+			"value": "B",
+			"props": ["A", "B"],
+			"type": "eval",
+			"width": 100,
+			"text-align": "right",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v7",
+			"location": {
+				"x": 120,
+				"y": 170
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 100,
+			"height": 1,
+			"mode": "hidden"
+		},
+		{
+			"name": "v8",
+			"location": {
+				"x": 185,
+				"y": 177
+			},
+			"value": 0,
+			"mode": "hidden",
+			"type": "static"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "나눗셈의 몫을 구하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "2.곱셈과 나눗셈",
+	"chapter2": "두 자리 수 ÷ 두 자리 수",
+	"chapter2_small" : "(나머지 없음)",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

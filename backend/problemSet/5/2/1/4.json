@@ -1,0 +1,76 @@
+{
+  "var": [
+    {
+      "name": "A_random_fix",
+      "decimalScope": [1, 2],
+      "type": "int_random"
+    },
+    {
+      "name": "B_random_fix",
+      "decimalScope": [1, 2],
+      "type": "int_random"
+    },
+    {
+      "name": "C_random_fix",
+      "decimalScope": [1, 2],
+      "type": "int_random"
+    },
+    {
+      "name": "A",
+      "value": "Variables.float_random([0.1, 9], A_random_fix)",
+      "props": ["A_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "B",
+      "value": "Variables.float_random([0.1, 9], B_random_fix)",
+      "props": ["B_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "C",
+      "value": "Variables.float_random([0.1, 9], C_random_fix)",
+      "props": ["C_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "answer",
+      "value": "(A * B * C).toFixed(A_random_fix + B_random_fix + C_random_fix)",
+      "props": ["A", "B", "C","A_random_fix", "B_random_fix", "C_random_fix"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 100,
+        "y": 30
+      },
+      "value": "`${A} X ${B} X ${C}`",
+      "props": ["A", "B", "C"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 120,
+        "y": 70
+      },
+      "value": "`= ${answer}`",
+      "props": ["answer"],
+      "mode": "hidden",
+      "type": "eval"
+    }
+  ],
+  "width": 3,
+  "height": 9,
+  "label": "다음을 계산하세요.",
+  "grade": "5학년 2학기",
+  "chapter": "1.소수의 곱셈",
+  "chapter2": "세 소수의 곱셈",
+  "chapter2_small" : "",
+  "badge": "",
+  "problemWidth": 800,
+  "problemHeight": 160
+}

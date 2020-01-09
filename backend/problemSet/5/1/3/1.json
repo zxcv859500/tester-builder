@@ -1,0 +1,189 @@
+{
+	"var": [
+		{
+			"name": "A_denomination",
+			"decimalScope": [4, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = A_denomination; while (A_denomination % A === 0) A = Variables.int_random([1, A_denomination - 1]); A;",
+			"props": ["A_denomination"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 150,
+				"y": 35
+			},
+			"value": "→",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 190,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator * 2",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 190,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 190,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination * 2",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 230,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator * 3",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar3",
+			"location": {
+				"x": 230,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 230,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination * 4",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var7",
+			"location": {
+				"x": 270,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator * 4",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar4",
+			"location": {
+				"x": 270,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var8",
+			"location": {
+				"x": 270,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination * 4",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 8,
+	"label": "다음 분수와 크기가 같은 분수를 3개씩 만들어 보세요.",
+	"grade": "5학년 1학기",
+	"chapter": "3.약분과 통분",
+	"chapter2": "크기가 같은 분수 만들기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

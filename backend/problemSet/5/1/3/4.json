@@ -1,0 +1,275 @@
+{
+	"var": [
+		{
+			"name": "A_denomination",
+			"decimalScope": [3, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = A_denomination; while ((A !== 1 && A_denomination % A === 0) || A === A_denomination) A = Variables.int_random([1, A_denomination - 1]); A;",
+			"props": ["A_denomination"],
+			"type": "eval"
+		},
+		{
+			"name": "B_denomination",
+			"value": "let B = A_denomination; while(B === A_denomination) { B = Variables.int_random([3, 9]); } B;",
+			"props": ["A_denomination"],
+			"type": "eval"
+		},
+		{
+			"name": "B_numerator",
+			"value": "let A = B_denomination; while ((A !== 1 && B_denomination % A === 0) || A === B_denomination) A = Variables.int_random([1, B_denomination - 1]); A;",
+			"props": ["B_denomination"],
+			"type": "eval"
+		},
+		{
+			"name": "gcd",
+			"value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+			"props": [],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"size": 40,
+			"value": "(",
+			"type": "static"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 170,
+				"y": 30
+			},
+			"size": 40,
+			"value": ")",
+			"type": "static"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 110,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 110,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 110,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 200,
+				"y": 35
+			},
+			"value": "→",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 145,
+				"y": 30
+			},
+			"size": 20,
+			"value": "B_numerator",
+			"props": ["B_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 145,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 145,
+				"y": 50
+			},
+			"size": 20,
+			"value": "B_denomination",
+			"props": ["B_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"size": 40,
+			"value": "(",
+			"type": "static"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 170,
+				"y": 30
+			},
+			"size": 40,
+			"value": ")",
+			"type": "static"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 200,
+				"y": 35
+			},
+			"value": "→",
+			"type": "static"
+		},
+		{
+			"name": "v_static4",
+			"location": {
+				"x": 230,
+				"y": 30
+			},
+			"size": 40,
+			"value": "(",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_static5",
+			"location": {
+				"x": 300,
+				"y": 30
+			},
+			"size": 40,
+			"value": ")",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_var9",
+			"location": {
+				"x": 240,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator * B_denomination",
+			"props": ["A_numerator", "B_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar3",
+			"location": {
+				"x": 240,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var10",
+			"location": {
+				"x": 240,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination * B_denomination",
+			"props": ["A_denomination", "B_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var11",
+			"location": {
+				"x": 275,
+				"y": 30
+			},
+			"size": 20,
+			"value": "B_numerator * A_denomination",
+			"props": ["B_numerator", "A_denomination", "gcd"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar4",
+			"location": {
+				"x": 275,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var12",
+			"location": {
+				"x": 275,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination * B_denomination",
+			"props": ["A_denomination", "B_denomination", "gcd"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 9,
+	"label": "분모의 곱을 공통분모로 하여 두 분수를 통분하세요.",
+	"grade": "5학년 1학기",
+	"chapter": "3.약분과 통분",
+	"chapter2": "분수의 통분",
+	"chapter2_small" : "(곱을 공통분모로)",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

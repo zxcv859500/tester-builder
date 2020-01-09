@@ -1,0 +1,100 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [8, 50],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "let B = A; while(A === B) { B = Variables.int_random([10, 50]); } B;",
+			"props": ["A"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "`${A}의 약수`",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 100,
+				"y": 70
+			},
+			"value": "`${B}의 약수`",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 300,
+				"y": 30
+			},
+			"value": "let res = '1'; for (let i = 2; i <= A; i++) if(A % i === 0) res += `,${i}`; res;",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 300,
+				"y": 70
+			},
+			"value": "let res = '1'; for (let i = 2; i <= B; i++) if(B % i === 0) res += `,${i}`; res;",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 800,
+				"y": 30
+			},
+			"value": "let res = '1'; for (let i = 2; i <= B; i++) if(A % i === 0 && B % i === 0) res += `,${i}`; res;",
+			"props": ["A", "B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 250,
+				"y": 50
+			},
+			"value": "→",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 750,
+				"y": 50
+			},
+			"value": "→",
+			"size": 40,
+			"type": "static"
+		}
+	],
+	"width": 1,
+	"height": 8,
+	"label": "두 수의 공약수를 구하세요.",
+	"grade": "5학년 1학기",
+	"chapter": "1.약수와 배수",
+	"chapter2": "공약수 구하기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

@@ -1,0 +1,182 @@
+{
+	"var": [
+		{
+			"name": "mode",
+			"decimalScope": [0, 1],
+			"type": "int_random"
+		},
+		{
+			"name": "A_natural",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_denominator",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = A_denominator; while(A_denominator % A === 0 && A !== 1) { A = Variables.int_random([1, A_denominator - 1]); console.log(A, A_denominator, A_denominator % A); } A;",
+			"props": ["A_denominator"],
+			"type": "eval"
+		},
+		{
+			"name": "A_answer_numerator",
+			"value": "A_natural * A_denominator + A_numerator",
+			"props": ["A_natural", "A_denominator", "A_numerator"],
+			"type": "eval"
+		},
+		{
+			"name": "B_natural",
+			"value": "let B = -1; while(B < 0 || A_natural === B) { B = Variables.int_random([1, 9]) } B;",
+			"props": ["A_natural"],
+			"type": "eval"
+		},
+		{
+			"name": "B_numerator",
+			"value": "let A = A_denominator; while((A_denominator % A === 0 || A_numerator === A) && A !== 1) { A = Variables.int_random([1, A_denominator - 1]); console.log(A, A_denominator, A_denominator % A); } A;",
+			"props": ["A_denominator", "A_numerator"],
+			"type": "eval"
+		},
+		{
+			"name": "B_answer_numerator",
+			"value": "B_natural * A_denominator + B_numerator",
+			"props": ["B_natural", "A_denominator", "B_numerator"],
+			"type": "eval"
+		},
+		{
+			"name": "answer",
+			"value": "A_answer_numerator > B_answer_numerator ? 0 : 1",
+			"props": ["A_answer_numerator", "B_answer_numerator"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 220,
+				"y": 45
+			},
+			"value": "mode === 1 ? A_natural : ''",
+			"props": ["A_natural", "mode"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 240,
+				"y": 55
+			},
+			"border": 1,
+			"width": 40,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 240,
+				"y": 30
+			},
+			"value": "mode === 1 ? A_numerator : A_answer_numerator",
+			"width": 40,
+			"text-align": "center",
+			"props": ["A_numerator", "A_answer_numerator", "mode"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 255,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 190,
+				"y": 45
+			},
+			"size": 20,
+			"value": "answer === 1 ? '>' : '<'",
+			"props": ["answer"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 185,
+				"y": 43
+			},
+			"border": 2,
+			"width": 20,
+			"height": 20,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 130,
+				"y": 55
+			},
+			"border": 1,
+			"width": 40,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 130,
+				"y": 30
+			},
+			"value": "mode === 1 ? B_numerator : B_answer_numerator",
+			"props": ["B_answer_numerator", "B_numerator", "mode"],
+			"width": 40,
+			"text-align": "center",
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 142,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 110,
+				"y": 45
+			},
+			"value": "mode === 1 ? B_natural : ''",
+			"props": ["mode", "B_natural"],
+			"size": 20,
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 9,
+	"label": "두 분수의 크기를 비교하여  □안에 >, <를 알맞게 써 넣으세요.",
+	"grade": "3학년 2학기",
+	"chapter": "4.분수",
+	"chapter2": "분모가 같은 가분수/대분수끼리의 크기 비교",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 250,
+	"problemHeight": 150
+}

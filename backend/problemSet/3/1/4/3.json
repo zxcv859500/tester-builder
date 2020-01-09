@@ -1,0 +1,155 @@
+{
+	"var": [
+		{
+			"name": "first_A",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"value": "first_A * 10 + second_A",
+			"props": ["first_A", "second_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let B = 100000; while(first_A * B >= 10 || second_A * B >= 10) { B = Variables.int_random([2,4]) } B;",
+			"props": ["first_A", "second_A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_round1",
+			"location": {
+				"x": 110,
+				"y": 5
+			},
+			"value": "백",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round2",
+			"location": {
+				"x": 160,
+				"y": 5
+			},
+			"value": "십",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round3",
+			"location": {
+				"x": 210,
+				"y": 5
+			},
+			"value": "일",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 160,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 170,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 110,
+				"y": 90
+			},
+			"value": "X",
+			"size": 30,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 110,
+				"y": 150
+			},
+			"value": "''",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 160,
+				"y": 150
+			},
+			"value": "Math.floor((C % 100) / 10)",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 210,
+				"y": 150
+			},
+			"value": "C % 10",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "곱셈을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "4.곱셈",
+	"chapter2": "몇십 X 몇",
+	"chapter2_small" : "(올림 없음)",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

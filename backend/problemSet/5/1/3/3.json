@@ -1,0 +1,118 @@
+{
+	"var": [
+		{
+			"name": "A_denomination",
+			"value": "const a = Variables.int_random([10, 33]); const b = Variables.int_random([2, 3]); a * b;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = A_denomination; while (A === 1 || A_denomination % A !== 0 || A === A_denomination) A = Variables.int_random([1, A_denomination - 1]); A;",
+			"props": ["A_denomination"],
+			"type": "eval"
+		},
+		{
+			"name": "gcd",
+			"value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+			"props": [],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 150,
+				"y": 35
+			},
+			"value": "→",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 190,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator / gcd(A_denomination, A_numerator)",
+			"props": ["A_numerator", "A_denomination", "gcd"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 190,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 190,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination / gcd(A_denomination, A_numerator)",
+			"props": ["A_denomination", "A_numerator", "gcd"],
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 9,
+	"label": "다음 분수를 기약분수로 나타내세요.",
+	"grade": "5학년 1학기",
+	"chapter": "3.약분과 통분",
+	"chapter2": "기약분수 구하기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

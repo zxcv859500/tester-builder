@@ -1,0 +1,130 @@
+{
+	"var": [
+		{
+			"name": "pmMode",
+			"decimalScope": [0, 1],
+			"type": "int_random"
+		},
+		{
+			"name": "decA",
+			"value": "let decA = 109; while(decA % 10 !== 0) { decA = Variables.int_random([20, 80]); } decA;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "oneA",
+			"decimalScope": [2, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"value": "decA + oneA",
+			"props": ["decA", "oneA"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let temp; while(true) { temp = Variables.int_random([1, 9]); if (pmMode === 1 && (A % 10) + (temp % 10) >= 10 && A + temp <= 100) break; if (pmMode === 0 && (A % 10) - temp < 0) break;} temp;",
+			"props": ["A", "pmMode"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "if(pmMode === 1){ A + B } else { A - B }",
+			"props": ["A", "B", "pmMode"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_round1",
+			"location": {
+				"x": 160,
+				"y": 13
+			},
+			"value": "pmMode === 1 ? '1' : Math.floor(A / 10) - 1",
+			"size": 20,
+			"props": ["pmMode", "A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_round2",
+			"location": {
+				"x": 205,
+				"y": 13
+			},
+			"value": "pmMode === 0 ? '10' : ''",
+			"size": 20,
+			"props": ["pmMode", "A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 160,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 170,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 120,
+				"y": 80
+			},
+			"value": "pmMode === 1 ? '+' : '-'",
+			"props": ["pmMode"],
+			"size": 40,
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 160,
+				"y": 150
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "계산을 하세요.",
+	"grade": "2학년 1학기",
+	"chapter": "3.덧셈과 뺄셈",
+	"chapter2": "몇십 몇 ± 몇",
+	"chapter2_small" : "(받아올림/내림 있음)",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

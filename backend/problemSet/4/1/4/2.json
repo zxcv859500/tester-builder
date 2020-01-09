@@ -1,0 +1,224 @@
+{
+	"var": [
+		{
+			"name": "A_denominator",
+			"decimalScope": [4, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = A_denominator; while(A_denominator % A === 0 && A !== 1) { A = Variables.int_random([2, A_denominator - 1]);} A;",
+			"props": ["A_denominator"],
+			"type": "eval"
+		},
+		{
+			"name": "B_numerator",
+			"value": "let A = A_denominator; while((A_denominator % A === 0 && A !== 1) || A + A_numerator <= A_denominator) { A = Variables.int_random([2, A_denominator - 1]);} A;",
+			"props": ["A_denominator", "A_numerator"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 120,
+				"y": 55
+			},
+			"border": 1,
+			"width": 30,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 127,
+				"y": 30
+			},
+			"value": "A_numerator",
+			"props": ["A_numerator"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 127,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 160,
+				"y": 45
+			},
+			"value": "+",
+			"size": 20,
+			"type": "static"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 185,
+				"y": 55
+			},
+			"border": 1,
+			"width": 30,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 180,
+				"y": 30
+			},
+			"value": "B_numerator",
+			"props": ["B_numerator"],
+			"width": 40,
+			"text-align": "center",
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 192,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 225,
+				"y": 45
+			},
+			"value": "=",
+			"size": 20,
+			"type": "static"
+		},
+		{
+			"name": "v_bar3",
+			"location": {
+				"x": 245,
+				"y": 55
+			},
+			"border": 1,
+			"width": 30,
+			"height": 1,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 245,
+				"y": 30
+			},
+			"value": "A_numerator + B_numerator",
+			"props": ["A_numerator", "B_numerator"],
+			"size": 20,
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var7",
+			"location": {
+				"x": 245,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"text-align": "center",
+			"width": 30,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 285,
+				"y": 45
+			},
+			"value": "=",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_bar4",
+			"location": {
+				"x": 325,
+				"y": 55
+			},
+			"border": 1,
+			"width": 30,
+			"height": 1,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var8",
+			"location": {
+				"x": 325,
+				"y": 30
+			},
+			"value": "(A_numerator + B_numerator) % A_denominator",
+			"props": ["A_numerator", "B_numerator", "A_denominator"],
+			"size": 20,
+			"width": 30,
+			"text-align": "center",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var9",
+			"location": {
+				"x": 325,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"text-align": "center",
+			"width": 30,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var10",
+			"location": {
+				"x": 305,
+				"y": 45
+			},
+			"value": "Math.floor((A_numerator + B_numerator) / A_denominator)",
+			"props": ["A_numerator", "B_numerator", "A_denominator"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 9,
+	"label": "두 분수의 합을 구하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "4.분수의 덧셈과 뺄셈",
+	"chapter2": "분모가 같은 진분수의 덧셈",
+	"chapter2_small" : "(합이 가분수)",
+	"badge": "",
+	"problemWidth": 250,
+	"problemHeight": 150
+}

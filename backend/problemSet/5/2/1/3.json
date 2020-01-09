@@ -1,0 +1,142 @@
+{
+  "var": [
+    {
+      "name": "A_random_fix",
+      "decimalScope": [1, 2],
+      "type": "int_random"
+    },
+    {
+      "name": "B_random_fix",
+      "decimalScope": [1, 2],
+      "type": "int_random"
+    },
+    {
+      "name": "A",
+      "value": "while(1) { let a = Variables.float_random([0.01, 9], A_random_fix); if (a % 1 !== 0) { a; break; }}",
+      "props": ["A_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "B",
+      "value": "while(1) { let a = Variables.float_random([0.01, 9], B_random_fix); if (a % 1 !== 0) { a; break; }}",
+      "props": ["B_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "answer",
+      "value": "(A * B).toFixed(A_random_fix + B_random_fix)",
+      "props": ["A", "B", "A_random_fix", "B_random_fix"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 130,
+        "y": 30
+      },
+      "width": 250,
+      "text-align": "right",
+      "value": "String(A).split('.')[1]",
+      "letter-space": 30,
+      "props": ["A", "A_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 130,
+        "y": 70
+      },
+      "width": 250,
+      "text-align": "right",
+      "value": "String(B).split('.')[1]",
+      "letter-space": 30,
+      "props": ["B", "B_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var3",
+      "location": {
+        "x": 230,
+        "y": 30
+      },
+      "value": "let A_random_fix = String(A).split('.')[1].length;A_random_fix === 2 ? `${Math.floor(A)}.` : ''",
+      "props": ["A"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var4",
+      "location": {
+        "x": 283,
+        "y": 30
+      },
+      "value": "A_random_fix === 1 ? `${Math.floor(A)}.` : ''",
+      "props": ["A", "A_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var5",
+      "location": {
+        "x": 220,
+        "y": 70
+      },
+      "value": "let B_random_fix = String(B).split('.')[1].length;B_random_fix === 2 ? `${Math.floor(B)}.` : ''",
+      "props": ["B"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var6",
+      "location": {
+        "x": 283,
+        "y": 70
+      },
+      "value": "B_random_fix === 1 ? `${Math.floor(B)}.` : ''",
+      "props": ["B", "B_random_fix"],
+      "type": "eval"
+    },
+    {
+      "name": "v_bar1",
+      "location": {
+        "x": 80,
+        "y": 100
+      },
+      "width": 290,
+      "border": 2,
+      "type": "bar"
+    },
+    {
+      "name": "v_static1",
+      "location": {
+        "x": 120,
+        "y": 70
+      },
+      "value": "X",
+      "type": "static"
+    },
+    {
+      "name": "var7",
+      "location": {
+        "x": 0,
+        "y": 100
+      },
+      "value": "let res = ''; let temp = String(answer); for (let i = 0; i < temp.length; i++) { if(temp[i + 1] === '.') res += `&emsp;${temp[i]}.`; else if(temp[i] === '.') continue; else res += '&emsp;' + temp[i]; } res;",
+      "props": ["answer"],
+      "width": 350,
+      "text-align": "right",
+      "mode": "hidden",
+      "type": "eval"
+    }
+  ],
+  "width": 2,
+  "height": 4,
+  "label": "다음을 계산하세요.",
+  "grade": "5학년 2학기",
+  "chapter": "1.소수의 곱셈",
+  "chapter2": "소수 X 소수",
+  "chapter2_small" : "",
+  "badge": "",
+  "problemWidth": 1500,
+  "problemHeight": 320
+}

@@ -1,0 +1,55 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [1.00, 9.99],
+			"fix": 2,
+			"type": "float_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.float_random([9.99 - A, 9.99], 2)",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "(A + B).toFixed(2)",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 120,
+				"y": 30
+			},
+			"value": "`${A} + ${B} = `",
+			"props": ["A", "B", "C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 310,
+				"y": 30
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "소수의 덧셈을 하세요.",
+	"grade": "4학년 2학기",
+	"chapter": "1.소수의 덧셈과 뺄셈",
+	"chapter2": "자연수가 있는 소수 두 자리 수 범위의 덧셈",
+	"chapter2_small" : "",
+	"badge": "B",
+	"problemWidth": 400,
+	"problemHeight": 180
+}

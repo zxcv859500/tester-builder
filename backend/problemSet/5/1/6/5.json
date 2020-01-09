@@ -1,0 +1,276 @@
+{
+  "var": [
+    {
+      "name": "A_deno",
+      "decimalScope": [2, 20],
+      "type": "int_random"
+    },
+    {
+      "name": "A_num",
+      "value": "Variables.int_random([1, A_deno - 1])",
+      "props": ["A_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "gcd",
+      "value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+      "props": [],
+      "type": "eval"
+    },
+    {
+      "name": "B_deno",
+      "decimalScope": [2, 20],
+      "type": "int_random"
+    },
+    {
+      "name": "B_num",
+      "value": "Variables.int_random([1, B_deno - 1])",
+      "props": ["B_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "C_deno",
+      "decimalScope": [2, 20],
+      "type": "int_random"
+    },
+    {
+      "name": "C_num",
+      "value": "Variables.int_random([1, C_deno - 1])",
+      "props": ["C_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "modulo",
+      "value": "gcd(A_deno * B_deno * C_deno, B_num * A_num * C_num)",
+      "props": ["gcd", "A_deno", "B_deno", "A_num", "B_num", "C_num", "C_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "answer_deno",
+      "value": "A_deno * B_deno * C_deno / modulo",
+      "props": ["A_deno", "modulo", "B_deno", "C_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "answer_num",
+      "value": "A_num * B_num * C_num / modulo",
+      "props": ["A_num", "B_num", "modulo", "C_num"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 100,
+        "y": 30
+      },
+      "value": "A_num > A_deno ? Math.floor(A_num / A_deno) : ''",
+      "props": ["A_num", "A_deno"],
+      "size": 25,
+      "type": "eval"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 120,
+        "y": 20
+      },
+      "value": "A_num % A_deno",
+      "props": ["A_num", "A_deno"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_bar1",
+      "location": {
+        "x": 120,
+        "y": 40
+      },
+      "border": 1,
+      "width": 30,
+      "type": "bar"
+    },
+    {
+      "name": "v_var3",
+      "location": {
+        "x": 120,
+        "y": 40
+      },
+      "value": "A_deno",
+      "props": ["A_deno"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_var5",
+      "location": {
+        "x": 185,
+        "y": 20
+      },
+      "value": "B_num",
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "props": ["B_num"],
+      "type": "eval"
+    },
+    {
+      "name": "v_var6",
+      "location": {
+        "x": 185,
+        "y": 40
+      },
+      "value": "B_deno",
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "props": ["B_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "v_bar2",
+      "location": {
+        "x": 185,
+        "y": 40
+      },
+      "border": 1,
+      "width": 30,
+      "type": "bar"
+    },
+    {
+      "name": "v_var13",
+      "location": {
+        "x": 235,
+        "y": 20
+      },
+      "value": "C_num",
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "props": ["C_num"],
+      "type": "eval"
+    },
+    {
+      "name": "v_static3",
+      "location": {
+        "x": 215,
+        "y": 30
+      },
+      "value": "X",
+      "size": 25,
+      "type": "static"
+    },
+    {
+      "name": "v_var11",
+      "location": {
+        "x": 235,
+        "y": 40
+      },
+      "value": "C_deno",
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "props": ["C_deno"],
+      "type": "eval"
+    },
+    {
+      "name": "v_bar4",
+      "location": {
+        "x": 235,
+        "y": 40
+      },
+      "border": 1,
+      "width": 30,
+      "type": "bar"
+    },
+    {
+      "name": "v_var12",
+      "location": {
+        "x": 230,
+        "y": 30
+      },
+      "value": "answer_num > answer_deno ? Math.floor(answer_num / answer_deno) : ''",
+      "size": 25,
+      "width": 40,
+      "text-align": "right",
+      "props": ["answer_num", "answer_deno"],
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_var9",
+      "location": {
+        "x": 305,
+        "y": 20
+      },
+      "value": "answer_num % answer_deno === 0 ? '' : answer_num % answer_deno / gcd(answer_num % answer_deno, answer_deno)",
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "props": ["answer_num", "answer_deno", "gcd"],
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_static1",
+      "location": {
+        "x": 160,
+        "y": 30
+      },
+      "size": 25,
+      "value": "X",
+      "type": "static"
+    },
+    {
+      "name": "v_static2",
+      "location": {
+        "x": 280,
+        "y": 30
+      },
+      "size": 25,
+      "value": "=",
+      "type": "static"
+    },
+    {
+      "name": "v_bar3",
+      "location": {
+        "x": 305,
+        "y": 40
+      },
+      "width": 30,
+      "border": 1,
+      "style_extra": "this.variables['answer_num'] % this.variables['answer_deno'] === 0 ? 'visibility:hidden;' : ''",
+      "mode": "hidden",
+      "type": "bar"
+    },
+    {
+      "name": "v_var10",
+      "location": {
+        "x": 305,
+        "y": 40
+      },
+      "value": "answer_num % answer_deno === 0 ? '' : answer_deno / gcd(answer_num % answer_deno, answer_deno)",
+      "props": ["answer_num", "answer_deno", "gcd"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "mode": "hidden",
+      "type": "eval"
+    }
+  ],
+  "width": 2,
+  "height": 9,
+  "label": "다음을 계산하여 기약분수로 나타내세요.",
+  "grade": "5학년 1학기",
+  "chapter": "6.분수의 곱셈",
+  "chapter2": "세 분수의 곱셈",
+  "chapter2_small" : "(진분수)",
+  "badge": "",
+  "problemWidth": 800,
+  "problemHeight": 160
+}

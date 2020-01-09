@@ -1,0 +1,97 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [3, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([1, A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A - B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"type": "rectangle",
+			"border": 3,
+			"width": 250,
+			"height": 120
+		},
+		{
+			"name": "v_box2",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"type": "rectangle",
+			"border": 1,
+			"width": 125,
+			"height": 60
+		},
+		{
+			"name": "v_box3",
+			"location": {
+				"x": 227,
+				"y": 50
+			},
+			"type": "rectangle",
+			"border": 1,
+			"width": 125,
+			"height": 60
+		},
+		{
+			"name": "v_answer",
+			"value": "A",
+			"location": {
+				"x": 220,
+				"y": 125
+			},
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"value": "B",
+			"location": {
+				"x": 157,
+				"y": 70
+			},
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"value": "C",
+			"location": {
+				"x": 279,
+				"y": 70
+			},
+			"props": ["C"],
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "위에 있는 두 수를 모으면 아래에 있는 수가 됩니다. 빈 곳에 알맞은 수를 쓰세요.",
+	"grade": "1학년 1학기",
+	"chapter": "3.덧셈과 뺄셈",
+	"chapter2": "두 수를 모으기",
+	"chapter2_small" : "(한 자리 수)",
+	"badge": "",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

@@ -1,0 +1,79 @@
+{
+  "var": [
+    {
+      "name": "random_fix",
+      "decimalScope": [1, 4],
+      "type": "int_random"
+    },
+    {
+      "name": "loc",
+      "decimalScope": [1, 2],
+      "type": "int_random"
+    },
+    {
+      "name": "mode",
+      "decimalScope": [0, 1],
+      "type": "int_random"
+    },
+    {
+      "name": "A",
+      "value": "const lst = [0.1, 0.01, 0.001, 0.0001]; mode === 0 ? Variables.float_random([1, 9], random_fix) : lst[Math.floor(Math.random() * lst.length)]",
+      "props": ["random_fix", "mode"],
+      "type": "eval"
+    },
+    {
+      "name": "B",
+      "value": "const lst = [10, 100, 1000, 10000]; mode === 0 ? Variables.int_random([1, 9]) : lst[Math.floor(Math.random() * lst.length)]",
+      "props": ["mode"],
+      "type": "eval"
+    },
+    {
+      "name": "answer",
+      "value": "(A * B).toFixed(random_fix)",
+      "props": ["A", "B", "random_fix"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 100,
+        "y": 30
+      },
+      "value": "`${loc === 1 ? A : B} X ${loc === 1 ? B : A}`",
+      "props": ["A", "B", "loc"],
+      "type": "eval"
+    },
+    {
+      "name": "v_static1",
+      "location": {
+        "x": 120,
+        "y": 60
+      },
+      "value": "=",
+      "type": "static"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 140,
+        "y": 60
+      },
+      "value": "answer",
+      "props": ["answer"],
+      "mode": "hidden",
+      "type": "eval"
+    }
+  ],
+  "width": 3,
+  "height": 9,
+  "label": "다음을 계산하세요.",
+  "grade": "5학년 2학기",
+  "chapter": "1.소수의 곱셈",
+  "chapter2": "곱의 소수점의 위치",
+  "chapter2_small" : "",
+  "badge": "",
+  "problemWidth": 800,
+  "problemHeight": 160
+}

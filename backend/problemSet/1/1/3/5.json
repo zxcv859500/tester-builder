@@ -1,0 +1,187 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [3, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([1, A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A - B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_minus",
+			"location": {
+				"x": 140,
+				"y": 29
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 180,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 220,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_first_answer_var1",
+			"location": {
+				"x": 100,
+				"y": 80
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_first_answer_minus",
+			"location": {
+				"x": 140,
+				"y": 80
+			},
+			"value": "-",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_first_answer_var2",
+			"location": {
+				"x": 180,
+				"y": 80
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_first_answer_equal",
+			"location": {
+				"x": 220,
+				"y": 80
+			},
+			"value": "=",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_first_answer_var3",
+			"location": {
+				"x": 260,
+				"y": 80
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_second_answer_var1",
+			"location": {
+				"x": 100,
+				"y": 140
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_second_answer_minus",
+			"location": {
+				"x": 140,
+				"y": 140
+			},
+			"value": "-",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_second_answer_var2",
+			"location": {
+				"x": 180,
+				"y": 140
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_second_answer_equal",
+			"location": {
+				"x": 220,
+				"y": 140
+			},
+			"value": "=",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_second_answer_var3",
+			"location": {
+				"x": 260,
+				"y": 140
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 8,
+	"label": "덧셈식을 보고 뺄셈식을 만들어 보세요.",
+	"grade": "1학년 1학기",
+	"chapter": "3.덧셈과 뺄셈",
+	"chapter2": "한 자리 수 덧셈과 뺄셈의 관계",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

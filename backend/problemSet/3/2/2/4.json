@@ -1,0 +1,182 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 5],
+			"type": "int_random"
+		},
+		{
+			"name": "first_B",
+			"value": "let B = 1; while(B % A !== 0) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "second_B",
+			"value": "let B = 1; while(B % A !== 0) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "first_B * 10 + second_B",
+			"props": ["first_B", "second_B"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "B / A",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var10",
+			"location": {
+				"x": 100,
+				"y": 28
+			},
+			"value": "`${B} ÷ ${A}`",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "v1",
+			"location": {
+				"x": 100,
+				"y": 105
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval",
+			"mode": "hidden"
+		},
+		{
+			"name": "v2",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"value": ")",
+			"size": 40,
+			"type": "static",
+			"mode": "hidden"
+		},
+		{
+			"name": "v3",
+			"location": {
+				"x": 150,
+				"y": 105
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 15,
+			"type": "eval",
+			"mode": "hidden"
+		},
+		{
+			"name": "v4",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 100,
+			"height": 1,
+			"mode": "hidden"
+		},
+		{
+			"name": "v5",
+			"location": {
+				"x": 150,
+				"y": 60
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v6",
+			"location": {
+				"x": 150,
+				"y": 135
+			},
+			"value": "Math.floor((B / A) / 10) * A",
+			"props": ["A", "B"],
+			"type": "eval",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v7",
+			"location": {
+				"x": 120,
+				"y": 170
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 100,
+			"height": 1,
+			"mode": "hidden"
+		},
+		{
+			"name": "v8",
+			"location": {
+				"x": 180,
+				"y": 177
+			},
+			"value": "B % 10",
+			"props": ["B"],
+			"type": "eval",
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 180,
+				"y": 217
+			},
+			"value": "B % 10",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 180,
+				"y": 262
+			},
+			"value": "0",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 120,
+				"y": 255
+			},
+			"width": 100,
+			"height": 1,
+			"border": 3,
+			"mode": "hidden",
+			"type": "bar"
+		}
+	],
+	"width": 4,
+	"height": 4,
+	"label": "나눗셈의 몫을 구하세요.",
+	"grade": "3학년 2학기",
+	"chapter": "2.나눗셈",
+	"chapter2": "몇십 몇 ÷ 몇",
+	"chapter2_small" : "(내림이 없고 나머지도 없음)",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 350
+}

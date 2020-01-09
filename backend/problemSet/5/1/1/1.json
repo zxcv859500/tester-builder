@@ -1,0 +1,53 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 80],
+			"type": "int_random"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "`${A}의 약수`",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 250,
+				"y": 30
+			},
+			"value": "let cnt = 1; let answer_list = []; for (let i = 1; i <= A; i++) { if (A % i === 0) answer_list.push(i); } let res = `${A} `; for (let i = 0; i < answer_list.length / 2; i++, cnt++) {res += `=${answer_list[i]}X${answer_list[answer_list.length - i - 1]}`; if(cnt % 3 === 0) res += '<br>'}; res;",
+			"props": ["answer", "A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 800,
+				"y": 30
+			},
+			"value": "let res = '1'; let cnt = 1; for (let i = 2; i <= A; i++) { if (A % i === 0) {res += `,${i}`; cnt++; if (cnt % 7 === 0) res += '<br>'}} res;",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 1,
+	"height": 8,
+	"label": "곱셈을 이용하여 약수를 구하세요.",
+	"grade": "5학년 1학기",
+	"chapter": "1.약수와 배수",
+	"chapter2": "약수 구하기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

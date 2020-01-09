@@ -1,0 +1,131 @@
+{
+	"var": [
+		{
+			"name": "A_natural",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_denominator",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = A_denominator; while(A_denominator % A === 0 && A !== 1) { A = Variables.int_random([1, A_denominator - 1]); console.log(A, A_denominator, A_denominator % A); } A;",
+			"props": ["A_denominator"],
+			"type": "eval"
+		},
+		{
+			"name": "answer_numerator",
+			"value": "A_natural * A_denominator + A_numerator",
+			"props": ["A_natural", "A_denominator", "A_numerator"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 180,
+				"y": 45
+			},
+			"value": "A_natural",
+			"props": ["A_natural"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 200,
+				"y": 55
+			},
+			"border": 1,
+			"width": 30,
+			"height": 1,
+			"mode": "hidden",
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 207,
+				"y": 30
+			},
+			"value": "A_numerator",
+			"props": ["A_numerator"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 207,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 160,
+				"y": 45
+			},
+			"value": "=",
+			"size": 20,
+			"type": "static"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 100,
+				"y": 55
+			},
+			"border": 1,
+			"width": 40,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "answer_numerator",
+			"props": ["answer_numerator"],
+			"width": 40,
+			"text-align": "center",
+			"size": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 112,
+				"y": 60
+			},
+			"value": "A_denominator",
+			"props": ["A_denominator"],
+			"size": 20,
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 9,
+	"label": "가분수를 대분수로 나타내어 보세요.",
+	"grade": "3학년 2학기",
+	"chapter": "4.분수",
+	"chapter2": "가분수를 대분수로 나타내기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 250,
+	"problemHeight": 150
+}

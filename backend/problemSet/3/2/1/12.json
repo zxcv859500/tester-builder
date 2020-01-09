@@ -1,0 +1,149 @@
+{
+	"var": [
+		{
+			"name": "first_A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"value": "first_A * 10 + second_A",
+			"props": ["first_A", "second_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let B = 0; while(first_A * Math.floor(B / 10) < 10 || second_A * (B % 10) < 10) { B = Variables.int_random([20,99]) } B;",
+			"props": ["first_A", "second_A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var0",
+			"location": {
+				"x": 100,
+				"y": 28
+			},
+			"value": "`${A} X ${B}`",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 210,
+				"y": 60
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 120
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 160
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 220,
+			"height": 1,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 110,
+				"y": 120
+			},
+			"value": "X",
+			"size": 30,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 160,
+				"y": 180
+			},
+			"value": "A * (B % 10)",
+			"props": ["A", "B"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 110,
+				"y": 240
+			},
+			"value": "A * (B - (B % 10))",
+			"props": ["A", "B"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 110,
+				"y": 300
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 80,
+				"y": 280
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 220,
+			"height": 1,
+			"mode": "hidden"
+		}
+	],
+	"width": 3,
+	"height": 4,
+	"label": "곱셈을 하세요.",
+	"grade": "3학년 2학기",
+	"chapter": "1.곱셈",
+	"chapter2": "두 자리 수 X 두 자리 수",
+	"chapter2_small" : "",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 350
+}

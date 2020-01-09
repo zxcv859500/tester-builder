@@ -1,0 +1,81 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [6, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 140,
+				"y": 29
+			},
+			"value": "X",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 180,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 220,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "곱셈을 하세요.",
+	"grade": "2학년 2학기",
+	"chapter": "2.곱셈구구",
+	"chapter2": "6, 7, 8, 9의 단 곱셈구구",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

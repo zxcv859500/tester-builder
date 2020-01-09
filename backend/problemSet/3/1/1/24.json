@@ -1,0 +1,121 @@
+{
+	"var": [
+		{
+			"name": "third_A",
+			"decimalScope": [0, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "third_B",
+			"value": "Variables.int_random([third_A + 1, 9])",
+			"props": ["third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "first_A",
+			"decimalScope": [2, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [2, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "thousand_A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "second_B",
+			"value": "Variables.int_random([second_A + 1, 9])",
+			"props": ["second_A", "third_A", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "first_B",
+			"value": "Variables.int_random([first_A + 1, 9])",
+			"props": ["first_A", "second_A", "second_B"],
+			"type": "eval"
+		},
+		{
+			"name": "A",
+			"value": "thousand_A * 1000 + first_A * 100 + second_A * 10 + third_A",
+			"props": ["first_A", "second_A", "third_A", "thousand_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "first_B * 100 + second_B * 10 + third_B",
+			"props": ["first_B", "second_B", "third_B"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A - B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 183,
+				"y": 29
+			},
+			"value": "-",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 270,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 300,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 8,
+	"label": "뺄셈을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "1.덧셈과 뺄셈",
+	"chapter2": "네 자리 수 - 세 자리 수",
+	"chapter2_small" : "",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

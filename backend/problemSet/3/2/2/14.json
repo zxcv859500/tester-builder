@@ -1,0 +1,225 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "let B = 0; while(A * B <= 10) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "D",
+			"value": "Variables.int_random([1, A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B + D",
+			"props": ["A", "B", "D"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 160,
+				"y": 29
+			},
+			"value": "X",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 200,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 230,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 290,
+				"y": 29
+			},
+			"value": "⋯",
+			"type": "static"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 325,
+				"y": 29
+			},
+			"value": "D",
+			"props": ["D"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 252,
+				"y": 25
+			},
+			"border": 3,
+			"width": 30,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_box2",
+			"location": {
+				"x": 317,
+				"y": 25
+			},
+			"border": 3,
+			"width": 30,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 625,
+				"y": 29
+			},
+			"value": "`(검산) ${B} X`",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 765,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box3",
+			"location": {
+				"x": 757,
+				"y": 25
+			},
+			"border": 3,
+			"width": 30,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 795,
+				"y": 29
+			},
+			"value": "+",
+			"type": "static"
+		},
+		{
+			"name": "v_var7",
+			"location": {
+				"x": 825,
+				"y": 29
+			},
+			"value": "D",
+			"props": ["D"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box4",
+			"location": {
+				"x": 817,
+				"y": 25
+			},
+			"border": 3,
+			"width": 30,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 860,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var8",
+			"location": {
+				"x": 885,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	,
+		{
+			"name": "v_box5",
+			"location": {
+				"x": 879,
+				"y": 25
+			},
+			"border": 3,
+			"width": 45,
+			"height": 30,
+			"type": "rectangle"
+		}
+	],
+	"width": 1,
+	"height": 14,
+	"label": "□안에 알맞은 수를 써 넣으세요.",
+	"grade": "3학년 2학기",
+	"chapter": "2.나눗셈",
+	"chapter2": "나눗셈의 검산",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 1000,
+	"problemHeight": 100
+}

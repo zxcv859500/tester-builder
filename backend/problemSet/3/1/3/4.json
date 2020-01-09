@@ -1,0 +1,105 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 200,
+				"y": 20
+			},
+			"width": 100,
+			"height": 40,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 190,
+				"y": 70
+			},
+			"width": 120,
+			"height": 10,
+			"border": 3,
+			"type": "bar"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 188,
+				"y": 70
+			},
+			"value": ")",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 270,
+				"y": 25
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 168,
+				"y": 75
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 270,
+				"y": 75
+			},
+			"value": "C % 10",
+			"props": ["C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 220,
+				"y": 75
+			},
+			"value": "Math.floor(C / 10)",
+			"props": ["C"],
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "나눗셈의 몫을 구하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "3.나눗셈",
+	"chapter2": "곱셈구구 내에서의 나눗셈",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 180
+}

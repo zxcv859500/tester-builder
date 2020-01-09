@@ -1,0 +1,146 @@
+{
+	"var": [
+		{
+			"name": "A_denomination",
+			"value": "Variables.int_random([10, 99]);",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "A_numerator",
+			"value": "let A = Variables.int_random([1, A_denomination - 1]); A;",
+			"props": ["A_denomination"],
+			"type": "eval"
+		},
+		{
+			"name": "gcd",
+			"value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "B_denomination",
+			"value": "const a = Variables.int_random([10, 99]);a;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "B_numerator",
+			"value": "let A = Variables.int_random([1, B_denomination - 1]); A;",
+			"props": ["B_denomination"],
+			"type": "eval"
+		},
+		{
+			"name": "gcd",
+			"value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+			"props": [],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"size": 20,
+			"value": "A_numerator",
+			"props": ["A_numerator"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"type": "bar"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 100,
+				"y": 50
+			},
+			"size": 20,
+			"value": "A_denomination",
+			"props": ["A_denomination"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 145,
+				"y": 35
+			},
+			"border": 3,
+			"width": 30,
+			"height": 30,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 153,
+				"y": 37
+			},
+			"value": "const res = (A_numerator / A_denomination) - (B_numerator / B_denomination);`${res > 0 ? '>' : res === 0 ? '=' : '<'}`",
+			"props": ["A_numerator", "A_denomination", "B_numerator", "B_denomination"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 190,
+				"y": 30
+			},
+			"size": 20,
+			"value": "B_numerator",
+			"props": ["B_numerator", "B_denomination", "gcd"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 190,
+				"y": 50
+			},
+			"border": 1,
+			"width": 30,
+			"type": "bar"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 190,
+				"y": 50
+			},
+			"size": 20,
+			"value": "B_denomination",
+			"props": ["B_denomination", "A_numerator", "gcd"],
+			"width": 30,
+			"text-align": "center",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 9,
+	"label": "두 분수의 크기를 비교하여 □ 안에 >,=,<를 알맞게 써 넣으세요.",
+	"grade": "5학년 1학기",
+	"chapter": "3.약분과 통분",
+	"chapter2": "분수의 크기 비교",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

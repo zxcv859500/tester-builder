@@ -1,0 +1,151 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"value": "while(true) { const tmp = Variables.int_random([10, 90]); tmp; break; }",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "while(true) { const tmp = Variables.int_random([100, 900]); if (tmp % A === 0) { tmp; break; } }",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "Variables.int_random([1, A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v1",
+			"location": {
+				"x": 80,
+				"y": 105
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v2",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"value": ")",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v3",
+			"location": {
+				"x": 150,
+				"y": 105
+			},
+			"value": "B + C",
+			"props": ["B", "C"],
+			"letter-space": 15,
+			"type": "eval"
+		},
+		{
+			"name": "v4",
+			"location": {
+				"x": 120,
+				"y": 100
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 130,
+			"height": 1
+		},
+		{
+			"name": "v5",
+			"location": {
+				"x": 150,
+				"y": 60
+			},
+			"value": "B / A",
+			"props": ["A", "B"],
+			"type": "eval",
+			"letter-space": 15,
+			"width": 100,
+			"text-align": "right",
+			"mode": "hidden"
+		},
+		{
+			"name": "v6",
+			"location": {
+				"x": 150,
+				"y": 135
+			},
+			"value": "B",
+			"props": ["A", "B"],
+			"type": "eval",
+			"width": 100,
+			"text-align": "right",
+			"letter-space": 15,
+			"mode": "hidden"
+		},
+		{
+			"name": "v7",
+			"location": {
+				"x": 120,
+				"y": 170
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 130,
+			"height": 1
+		},
+		{
+			"name": "v8",
+			"location": {
+				"x": 150,
+				"y": 177
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 15,
+			"width": 100,
+			"text-align": "right",
+			"mode": "hidden"
+		},
+		{
+			"name": "v9",
+			"location": {
+				"x": 145,
+				"y": 58
+			},
+			"type": "rectangle",
+			"border": 3,
+			"width": 90,
+			"height": 30
+		},
+		{
+			"name": "v11",
+			"location": {
+				"x": 145,
+				"y": 133
+			},
+			"type": "rectangle",
+			"border": 3,
+			"width": 90,
+			"height": 30
+		}
+	],
+	"width": 4,
+	"height": 6,
+	"label": "나눗셈의 몫을 구하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "2.곱셈과 나눗셈",
+	"chapter2": "세 자리 수 ÷ 두 자리 수",
+	"chapter2_small" : "(나머지 있음)",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

@@ -1,0 +1,65 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"value": "let A = Variables.int_random([2, 5]); let B = Variables.int_random([2, 13]); A * B",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "gcd",
+			"value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let B = A; while(A === B || gcd(A, B) === 1) { B = Variables.int_random([10, 99]); } B;",
+			"props": ["A", "gcd"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "`${A}, ${B}`",
+			"props": ["A","B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 750,
+				"y": 30
+			},
+			"value": "→",
+			"size": 40,
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 800,
+				"y": 30
+			},
+			"value": "gcd(A, B)",
+			"props": ["A", "B", "gcd"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 1,
+	"height": 8,
+	"label": "두 수의 최대공약수를 구하세요.",
+	"grade": "5학년 1학기",
+	"chapter": "1.약수와 배수",
+	"chapter2": "최대 공약수 구하기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

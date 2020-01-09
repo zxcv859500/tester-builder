@@ -1,0 +1,92 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [1, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 140,
+				"y": 29
+			},
+			"value": "X",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 180,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 174,
+				"y": 24
+			},
+			"border": 3,
+			"width": 29,
+			"height": 31,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 220,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "□안에 알맞은 수를 써 넣으세요.",
+	"grade": "2학년 2학기",
+	"chapter": "2.곱셈구구",
+	"chapter2": "곱셈구구에서 □안의 수 찾기",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

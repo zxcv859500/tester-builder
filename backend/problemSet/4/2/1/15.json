@@ -1,0 +1,159 @@
+{
+	"var": [
+		{
+			"name": "A_float",
+			"decimalScope": [1, 999],
+			"type": "int_random"
+		},
+		{
+			"name": "B_float",
+			"decimalScope": [1, 999],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"decimalScope": [3, 49],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([1, A - 2])",
+			"props": ["A"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 150,
+				"y": 30
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 20,
+			"width": 80,
+			"text-align": "right",
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 210,
+				"y": 30
+			},
+			"value": ".",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 230,
+				"y": 30
+			},
+			"value": "A_float",
+			"props": ["A_float"],
+			"letter-space": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 150,
+				"y": 80
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 20,
+			"width": 80,
+			"text-align": "right",
+			"type": "eval"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 210,
+				"y": 80
+			},
+			"value": ".",
+			"type": "static"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 230,
+				"y": 80
+			},
+			"value": "B_float",
+			"props": ["B_float"],
+			"letter-space": 20,
+			"type": "eval"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 110,
+				"y": 75
+			},
+			"value": "-",
+			"type": "static"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 100,
+				"y": 115
+			},
+			"border": 3,
+			"width": 250,
+			"height": 1,
+			"type": "bar"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 150,
+				"y": 130
+			},
+			"value": "(A - B) - (A_float > B_float ? 0 : 1)",
+			"props": ["B", "A", "A_float", "B_float"],
+			"letter-space": 20,
+			"width": 80,
+			"text-align": "right",
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 210,
+				"y": 130
+			},
+			"value": ".",
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 230,
+				"y": 130
+			},
+			"value": "((A * 1000 + A_float) - (B * 1000 + B_float)) % 1000",
+			"props": ["B_float", "A_float", "A", "B"],
+			"letter-space": 20,
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 7,
+	"label": "소수의 뺼셈을 하세요.",
+	"grade": "4학년 2학기",
+	"chapter": "1.소수의 덧셈과 뺄셈",
+	"chapter2": "자연수가 있는 소수 세 자리 수 범위의 뺄셈",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 400,
+	"problemHeight": 180
+}

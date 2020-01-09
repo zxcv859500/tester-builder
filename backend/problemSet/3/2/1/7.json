@@ -1,0 +1,133 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"value": "let A = 1; while(A % 10 !== 0) { A = Variables.int_random([20, 90]) } A;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let A = 1; while(A % 10 !== 0) { A = Variables.int_random([20, 90]) } A;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_round1",
+			"location": {
+				"x": 160,
+				"y": 5
+			},
+			"value": "백",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round2",
+			"location": {
+				"x": 210,
+				"y": 5
+			},
+			"value": "십",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round3",
+			"location": {
+				"x": 260,
+				"y": 5
+			},
+			"value": "일",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round4",
+			"location": {
+				"x": 110,
+				"y": 5
+			},
+			"value": "천",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 210,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 210,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 220,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 110,
+				"y": 90
+			},
+			"value": "X",
+			"size": 30,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 110,
+				"y": 150
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 3,
+	"height": 3,
+	"label": "곱셈을 하세요.",
+	"grade": "3학년 2학기",
+	"chapter": "1.곱셈",
+	"chapter2": "몇십 X 몇십",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 500
+}

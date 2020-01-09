@@ -1,0 +1,98 @@
+{
+	"var": [
+		{
+			"name": "first_A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "third_A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"value": "first_A * 100 + second_A * 10 + third_A",
+			"props": ["first_A", "second_A", "third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let B = 0; while(first_A * B < 10 || second_A * B < 10 || third_A * B < 10) { B = Variables.int_random([2,9]) } B;",
+			"props": ["first_A", "second_A", "third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 170,
+				"y": 29
+			},
+			"value": "X",
+			"type": "static"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 200,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 230,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "곱셈을 하세요.",
+	"grade": "3학년 2학기",
+	"chapter": "1.곱셈",
+	"chapter2": "세 자리 수 X 한 자리 수",
+	"chapter2_small" : "(올림 있음)",
+	"badge": "C",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

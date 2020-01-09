@@ -1,0 +1,276 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [1000, 9999],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [10, 99],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "first_result",
+			"value": "A * (B % 10)",
+			"props": ["A", "B"],
+			"type": "eval"
+		},
+		{
+			"name": "second_result",
+			"value": "A * (Math.floor(B / 10))",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 210,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 310,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 310,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 110,
+				"y": 90
+			},
+			"value": "X",
+			"size": 30,
+			"type": "static"
+		},
+		{
+			"name": "v_var17",
+			"location": {
+				"x": 160,
+				"y": 150
+			},
+			"value": "const res = Math.floor(first_result / 10000); res !== 0 ? res: ''",
+			"props": ["first_result"],
+			"type": "eval",
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 210,
+				"y": 150
+			},
+			"value": "const res = Math.floor((first_result % 10000) / 1000); res !== 0 || first_result >= 10000 ? res : ''",
+			"props": ["first_result"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 260,
+				"y": 150
+			},
+			"value": "const res = Math.floor((first_result % 1000) / 100); res !== 0 || first_result >= 1000 ? res : ''",
+			"props": ["first_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 310,
+				"y": 150
+			},
+			"value": "const res = Math.floor((first_result % 100) / 10); res !== 0 || first_result >= 100? res : ''",
+			"props": ["first_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 360,
+				"y": 150
+			},
+			"value": "first_result % 10",
+			"props": ["first_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var18",
+			"location": {
+				"x": 110,
+				"y": 210
+			},
+			"value": "const res = Math.floor(second_result / 10000); res !== 0 ? res : ''",
+			"props": ["second_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var7",
+			"location": {
+				"x": 160,
+				"y": 210
+			},
+			"value": "const res = Math.floor((second_result % 10000) / 1000); res !== 0 || second_result >= 10000 ? res : ''",
+			"props": ["second_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var8",
+			"location": {
+				"x": 210,
+				"y": 210
+			},
+			"value": "const res = Math.floor((second_result % 1000) / 100); res !== 0 || second_result >= 1000 ? res : ''",
+			"props": ["second_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var9",
+			"location": {
+				"x": 260,
+				"y": 210
+			},
+			"value": "const res = Math.floor((second_result % 100) / 10); res !== 0 || second_result >= 100 ? res : ''",
+			"props": ["second_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var10",
+			"location": {
+				"x": 310,
+				"y": 210
+			},
+			"value": "second_result % 10",
+			"props": ["second_result"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_bar2",
+			"location": {
+				"x": 80,
+				"y": 250
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 310,
+			"height": 1
+		},
+		{
+			"name": "v_var11",
+			"location": {
+				"x": 110,
+				"y": 270
+			},
+			"value": "const res = Math.floor(C / 100000); res !== 0 ? res : ''",
+			"props": ["C"],
+			"mode": "hidden",
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var12",
+			"location": {
+				"x": 160,
+				"y": 270
+			},
+			"value": "const res = Math.floor((C % 100000) / 10000); res !== 0 || C >= 100000 ? res : ''",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var13",
+			"location": {
+				"x": 210,
+				"y": 270
+			},
+			"value": "const res = Math.floor((C % 10000) / 1000); res !== 0 || C >= 10000 ? res : ''",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var14",
+			"location": {
+				"x": 260,
+				"y": 270
+			},
+			"value": "const res = Math.floor((C % 1000) / 100); res !== 0 || C >= 1000 ? res : ''",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var15",
+			"location": {
+				"x": 310,
+				"y": 270
+			},
+			"value": "const res = Math.floor((C % 100) / 10); res !== 0 || C >= 100 ? res : ''",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var16",
+			"location": {
+				"x": 360,
+				"y": 270
+			},
+			"value": "C % 10",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 4,
+	"label": "곱셈을 하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "2.곱셈과 나눗셈",
+	"chapter2": "네 자리 수 X 두 자리 수",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 350
+}

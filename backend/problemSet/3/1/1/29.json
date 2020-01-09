@@ -1,0 +1,95 @@
+{
+	"var": [
+		{
+			"name": "pmMode",
+			"value": "Variables.int_random([0, 1])",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "A",
+			"decimalScope": [3000, 8999],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "pmMode === 1 ? Variables.int_random([1000, 10000 - A - 1]) : Variables.int_random([1000, A - 1000])",
+			"props": ["A", "pmMode"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "pmMode === 1 ? A + B : A - B",
+			"props": ["A", "B", "pmMode"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 120,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 120,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 220,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 75,
+				"y": 80
+			},
+			"value": "pmMode === 1 ? '+' : '-'",
+			"size": 40,
+			"props": ["pmMode"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 120,
+				"y": 150
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 3,
+	"height": 6,
+	"label": "계산을 하세요.",
+	"grade": "3학년 1학기",
+	"chapter": "1.덧셈과 뺄셈",
+	"chapter2": "네 자리 수 ± 네 자리 수",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 300,
+	"problemHeight": 235
+}

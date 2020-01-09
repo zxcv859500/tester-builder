@@ -1,0 +1,242 @@
+{
+  "var": [
+    {
+      "name": "A_natural",
+      "decimalScope": [2, 5],
+      "type": "int_random"
+    },
+    {
+      "name": "B_natural",
+      "value": "Variables.int_random([1, A_natural - 1])",
+      "props": ["A_denominator", "A_natural"],
+      "type": "eval"
+    },
+    {
+      "name": "A_denominator",
+      "decimalScope": [2, 20],
+      "type": "int_random"
+    },
+    {
+      "name": "B_denominator",
+      "value": "let a = A_denominator; while(a === A_denominator) a = Variables.int_random([6, 20]); a;",
+      "props": ["A_denominator"],
+      "type": "eval"
+    },
+    {
+      "name": "B_numerator",
+      "value": "Variables.int_random([1, B_denominator / 2 - 1])",
+      "props": ["B_denominator"],
+      "type": "eval"
+    },
+    {
+      "name": "A_numerator",
+      "value": "let a = Variables.int_random([1, A_denominator - 1]); while(a / A_denominator - B_numerator / B_denominator < 0) a = Variables.int_random([1, A_denominator - 1]); a;",
+      "props": ["B_denominator", "A_denominator", "B_numerator"],
+      "type": "eval"
+    },
+    {
+      "name": "gcd",
+      "value": "function gcd(a, b) { if (!b) return a; return gcd(b, a % b); } gcd;",
+      "props": [],
+      "type": "eval"
+    },
+    {
+      "name": "answer_denominator",
+      "value": "B_denominator * A_denominator / gcd(A_denominator, B_denominator); ",
+      "props": ["A_denominator", "B_denominator", "gcd"],
+      "type": "eval"
+    },
+    {
+      "name": "answer_numerator",
+      "value": "(A_numerator * B_denominator - B_numerator * A_denominator) / gcd(A_denominator, B_denominator)",
+      "props": ["B_denominator", "A_denominator", "gcd", "A_numerator", "B_numerator"],
+      "type": "eval"
+    },
+    {
+      "name": "modulo",
+      "value": "gcd(answer_denominator, answer_numerator)",
+      "props": ["gcd", "answer_denominator", "answer_numerator"],
+      "type": "eval"
+    }
+  ],
+  "comp": [
+    {
+      "name": "v_natural1",
+      "location": {
+        "x": 100,
+        "y": 40
+      },
+      "value": "A_natural",
+      "props": ["A_natural"],
+      "size": 20,
+      "type": "eval"
+    },
+    {
+      "name": "v_var1",
+      "location": {
+        "x": 120,
+        "y": 30
+      },
+      "value": "A_numerator",
+      "props": ["A_numerator"],
+      "width": 30,
+      "size": 20,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_var2",
+      "location": {
+        "x": 120,
+        "y": 50
+      },
+      "value": "A_denominator",
+      "props": ["A_denominator"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_bar1",
+      "location": {
+        "x": 120,
+        "y": 50
+      },
+      "border": 1,
+      "width": 30,
+      "height": 1,
+      "type": "bar"
+    },
+    {
+      "name": "v_static1",
+      "location": {
+        "x": 170,
+        "y": 40
+      },
+      "value": "-",
+      "size": 20,
+      "type": "static"
+    },
+    {
+      "name": "v_natural2",
+      "location": {
+        "x": 200,
+        "y": 40
+      },
+      "value": "B_natural",
+      "props": ["B_natural"],
+      "size": 20,
+      "type": "eval"
+    },
+    {
+      "name": "v_var3",
+      "location": {
+        "x": 220,
+        "y": 30
+      },
+      "value": "B_numerator",
+      "props": ["B_numerator"],
+      "width": 30,
+      "size": 20,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_var4",
+      "location": {
+        "x": 220,
+        "y": 50
+      },
+      "value": "B_denominator",
+      "props": ["B_denominator"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "type": "eval"
+    },
+    {
+      "name": "v_bar2",
+      "location": {
+        "x": 220,
+        "y": 50
+      },
+      "border": 1,
+      "width": 30,
+      "height": 1,
+      "type": "bar"
+    },
+    {
+      "name": "v_static2",
+      "location": {
+        "x": 270,
+        "y": 40
+      },
+      "value": "=",
+      "size": 20,
+      "type": "static"
+    },
+    {
+      "name": "v_natural3",
+      "location": {
+        "x": 300,
+        "y": 40
+      },
+      "value": "A_natural - B_natural",
+      "props": ["B_natural", "A_natural", "answer_numerator", "answer_denominator"],
+      "size": 20,
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_var5",
+      "location": {
+        "x": 320,
+        "y": 30
+      },
+      "value": "(answer_numerator / modulo) % (answer_denominator / modulo)",
+      "props": ["answer_numerator", "answer_denominator", "gcd", "modulo"],
+      "width": 30,
+      "size": 20,
+      "text-align": "center",
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_var6",
+      "location": {
+        "x": 320,
+        "y": 50
+      },
+      "value": "answer_denominator / modulo",
+      "props": ["answer_denominator", "modulo"],
+      "size": 20,
+      "width": 30,
+      "text-align": "center",
+      "mode": "hidden",
+      "type": "eval"
+    },
+    {
+      "name": "v_bar3",
+      "location": {
+        "x": 320,
+        "y": 50
+      },
+      "border": 1,
+      "width": 30,
+      "height": 1,
+      "type": "bar",
+      "mode": "hidden"
+    }
+  ],
+  "width": 3,
+  "height": 9,
+  "label": "다음 두 분수의 차를 구하세요.",
+  "grade": "5학년 1학기",
+  "chapter": "4.분수의 덧셈과 뺄셈",
+  "chapter2": "대분수의 뺄셈",
+  "chapter2_small" : "(받아내림 없음)",
+  "badge": "",
+  "problemWidth": 800,
+  "problemHeight": 160
+}

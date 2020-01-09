@@ -1,0 +1,147 @@
+{
+	"var": [
+		{
+			"name": "first_A",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "second_A",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "third_A",
+			"decimalScope": [1, 4],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"value": "first_A * 100 + second_A * 10 + third_A",
+			"props": ["first_A", "second_A", "third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "Variables.int_random([2, first_A >= 4 || second_A >= 4 || third_A >= 4 ? 2 : 3])",
+			"props": ["first_A", "second_A", "third_A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_round1",
+			"location": {
+				"x": 160,
+				"y": 5
+			},
+			"value": "백",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round2",
+			"location": {
+				"x": 210,
+				"y": 5
+			},
+			"value": "십",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round3",
+			"location": {
+				"x": 260,
+				"y": 5
+			},
+			"value": "일",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_round4",
+			"location": {
+				"x": 110,
+				"y": 5
+			},
+			"value": "천",
+			"size": 20,
+			"mode": "hidden",
+			"type": "static"
+		},
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 160,
+				"y": 33
+			},
+			"value": "A",
+			"props": ["A"],
+			"letter-space": 30,
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 260,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_bar1",
+			"location": {
+				"x": 80,
+				"y": 130
+			},
+			"type": "bar",
+			"border": 3,
+			"width": 220,
+			"height": 1
+		},
+		{
+			"name": "v_plus1",
+			"location": {
+				"x": 110,
+				"y": 90
+			},
+			"value": "X",
+			"size": 30,
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 160,
+				"y": 150
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval",
+			"letter-space": 30,
+			"mode": "hidden"
+		}
+	],
+	"width": 3,
+	"height": 6,
+	"label": "곱셈을 하세요.",
+	"grade": "3학년 2학기",
+	"chapter": "1.곱셈",
+	"chapter2": "세 자리 수 X 한 자리 수",
+	"chapter2_small" : "(올림 없음)",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 230
+}

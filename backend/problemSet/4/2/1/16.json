@@ -1,0 +1,55 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 9.99],
+			"fix": 3,
+			"type": "float_random"
+		},
+		{
+			"name": "B",
+			"value": "Variables.float_random([1, 9.99 > A - 0.1 ? A - 0.1 : 9.99], 3)",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "(A - B).toFixed(3)",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 120,
+				"y": 30
+			},
+			"value": "`${A} - ${B} = `",
+			"props": ["A", "B", "C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 340,
+				"y": 30
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 9,
+	"label": "소수의 뺄셈을 하세요.",
+	"grade": "4학년 2학기",
+	"chapter": "1.소수의 덧셈과 뺄셈",
+	"chapter2": "자연수가 있는 소수 세 자리 수끼리의 뺄셈",
+	"chapter2_small" : "",
+	"badge": "B",
+	"problemWidth": 400,
+	"problemHeight": 160
+}

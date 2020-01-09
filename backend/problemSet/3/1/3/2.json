@@ -1,0 +1,210 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B",
+			"props": ["A", "B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location":{
+				"x": 100,
+				"y": 28
+			},
+			"value": "`${A} X ${B} = ${C}`",
+			"props": ["A", "B", "C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 300,
+				"y": 28
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box3",
+			"location": {
+				"x": 298,
+				"y": 25
+			},
+			"height": 30,
+			"width": 35,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 360,
+				"y": 28
+			},
+			"value": "÷",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 410,
+				"y": 28
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 402,
+				"y": 25
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 470,
+				"y": 28
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 520,
+				"y": 28
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box2",
+			"location": {
+				"x": 512,
+				"y": 25
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 300,
+				"y": 90
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box4",
+			"location": {
+				"x": 298,
+				"y": 87
+			},
+			"height": 30,
+			"width": 35,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 360,
+				"y": 90
+			},
+			"value": "÷",
+			"type": "static"
+		},
+		{
+			"name": "v_var6",
+			"location": {
+				"x": 410,
+				"y": 90
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box5",
+			"location": {
+				"x": 402,
+				"y": 87
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static4",
+			"location": {
+				"x": 470,
+				"y": 90
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var7",
+			"location": {
+				"x": 520,
+				"y": 90
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box6",
+			"location": {
+				"x": 512,
+				"y": 87
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		}
+	],
+	"width": 2,
+	"height": 8,
+	"label": "곱셈식을 보고 나눗셈식을 만드세요.",
+	"grade": "3학년 1학기",
+	"chapter": "3.나눗셈",
+	"chapter2": "곱셈과 나눗셈의 관계",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 300,
+	"problemHeight": 180
+}

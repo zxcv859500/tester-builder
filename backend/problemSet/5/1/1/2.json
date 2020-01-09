@@ -1,0 +1,42 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [10, 50],
+			"type": "int_random"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "`${A}의 배수`",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 500,
+				"y": 30
+			},
+			"value": "let res = ''; for(let i = 1; i <= 5; i++) res += `${A * i},`; res += '......'; res;",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 1,
+	"height": 8,
+	"label": "배수를 작은 수부터 차례로 5개 쓰세요.",
+	"grade": "5학년 1학기",
+	"chapter": "1.약수와 배수",
+	"chapter2": "배수 구하기",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 800,
+	"problemHeight": 160
+}

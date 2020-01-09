@@ -1,0 +1,100 @@
+{
+	"var": [
+		{
+			"name": "pmMode",
+			"decimalScope": [0, 1],
+			"type": "int_random"
+		},
+		{
+			"name": "decA",
+			"value": "let decA = 109; while(decA % 10 !== 0) { decA = Variables.int_random([20, 80]); } decA;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "oneA",
+			"decimalScope": [2, 8],
+			"type": "int_random"
+		},
+		{
+			"name": "A",
+			"value": "decA + oneA",
+			"props": ["decA", "oneA"],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let temp; while(true) { temp = Variables.int_random([10, 99]); if (pmMode === 1 && (A % 10) + (temp % 10) >= 10) break; if (pmMode === 0 && (A % 10) - (temp % 10) < 0 && A - temp > 0) break;} temp;",
+			"props": ["A", "pmMode"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "if(pmMode === 1){ A + B } else { A - B }",
+			"props": ["A", "B", "pmMode"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 29
+			},
+			"value": "A",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "v_plus",
+			"location": {
+				"x": 152,
+				"y": 29
+			},
+			"value": "pmMode === 1 ? '+' : '-'",
+			"props": ["pmMode"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 180,
+				"y": 29
+			},
+			"value": "B",
+			"props": ["B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_equal",
+			"location": {
+				"x": 230,
+				"y": 29
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 260,
+				"y": 29
+			},
+			"value": "C",
+			"props": ["C"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 3,
+	"height": 8,
+	"label": "계산을 하세요.",
+	"grade": "2학년 1학기",
+	"chapter": "3.덧셈과 뺄셈",
+	"chapter2": "몇십 몇 ± 몇십 몇",
+	"chapter2_small" : "",
+	"badge": "B",
+	"problemWidth": 300,
+	"problemHeight": 170
+}

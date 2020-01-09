@@ -1,0 +1,87 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"value": "let B = 1; while(B % 100 !== 0) { B = Variables.int_random([100, 900]); } B;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "B",
+			"value": "let B = 1; while(B % 100 !== 0) { B = Variables.int_random([100, 900]); } B;",
+			"props": [],
+			"type": "eval"
+		},
+		{
+			"name": "mode_A",
+			"decimalScope": [0, 1],
+			"type": "int_random"
+		},
+		{
+			"name": "mode_B",
+			"decimalScope": [0, 1],
+			"type": "int_random"
+		},
+		{
+			"name": "C",
+			"value": "A * B * (mode_A === 0 ? 1 : 10) * (mode_B === 0 ? 1 : 10)",
+			"props": ["A", "B", "mode_A", "mode_B"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location": {
+				"x": 100,
+				"y": 30
+			},
+			"value": "`${A * (mode_A === 0 ? 1 : 10)} X ${B * (mode_B === 0 ? 1 : 10)} = `",
+			"props": ["A", "B", "mode_A", "mode_B"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 280,
+				"y": 30
+			},
+			"value": "(mode_A === 0 && mode_B === 0 ? C : '')",
+			"props": ["C", "mode_A", "mode_B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 300,
+				"y": 30
+			},
+			"value": "((mode_A === 1 || mode_B === 1) && mode_A !== mode_B ? C : '')",
+			"props": ["C", "mode_A", "mode_B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 320,
+				"y": 30
+			},
+			"value": "mode_A === 1 && mode_B ? C : ''",
+			"props": ["C", "mode_A", "mode_B"],
+			"mode": "hidden",
+			"type": "eval"
+		}
+	],
+	"width": 2,
+	"height": 10,
+	"label": "곱셈을 하세요.",
+	"grade": "4학년 1학기",
+	"chapter": "2.곱셈과 나눗셈",
+	"chapter2": "몇백, 몇천의 곱",
+	"chapter2_small" : "",
+	"badge": "",
+	"problemWidth": 400,
+	"problemHeight": 140
+}

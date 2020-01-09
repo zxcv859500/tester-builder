@@ -1,0 +1,152 @@
+{
+	"var": [
+		{
+			"name": "A",
+			"decimalScope": [2, 9],
+			"type": "int_random"
+		},
+		{
+			"name": "B",
+			"value": "let B = 0; while(A * B <= 10) { B = Variables.int_random([2, 9]) } B;",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "D",
+			"value": "Variables.int_random([1, A - 1])",
+			"props": ["A"],
+			"type": "eval"
+		},
+		{
+			"name": "C",
+			"value": "A * B + D",
+			"props": ["A", "B", "D"],
+			"type": "eval"
+		}
+	],
+	"comp": [
+		{
+			"name": "v_var1",
+			"location":{
+				"x": 100,
+				"y": 28
+			},
+			"value": "let temp_string = C; for (let i = 0; i < B; i++) { temp_string += ' - ' + A } temp_string += ' = ' + D",
+			"props": ["A", "B", "C", "D"],
+			"type": "eval"
+		},
+		{
+			"name": "v_var2",
+			"location": {
+				"x": 800,
+				"y": 28
+			},
+			"value": "C",
+			"props": ["C"],
+			"type": "eval"
+		},
+		{
+			"name": "v_static1",
+			"location": {
+				"x": 860,
+				"y": 28
+			},
+			"value": "÷",
+			"type": "static"
+		},
+		{
+			"name": "v_var3",
+			"location": {
+				"x": 910,
+				"y": 28
+			},
+			"value": "A",
+			"props": ["A"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box1",
+			"location": {
+				"x": 902,
+				"y": 25
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static2",
+			"location": {
+				"x": 970,
+				"y": 28
+			},
+			"value": "=",
+			"type": "static"
+		},
+		{
+			"name": "v_var4",
+			"location": {
+				"x": 1020,
+				"y": 28
+			},
+			"value": "B",
+			"props": ["B"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box2",
+			"location": {
+				"x": 1012,
+				"y": 25
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		},
+		{
+			"name": "v_static3",
+			"location": {
+				"x": 1060,
+				"y": 25
+			},
+			"value": "⋯",
+			"type": "static"
+		},
+		{
+			"name": "v_var5",
+			"location": {
+				"x": 1100,
+				"y": 28
+			},
+			"value": "D",
+			"props": ["D"],
+			"mode": "hidden",
+			"type": "eval"
+		},
+		{
+			"name": "v_box3",
+			"location": {
+				"x": 1092,
+				"y": 25
+			},
+			"height": 30,
+			"width": 30,
+			"border": 3,
+			"type": "rectangle"
+		}
+	],
+	"width": 1,
+	"height": 8,
+	"label": "□안에 알맞은 수를 써 넣으세요.",
+	"grade": "3학년 2학기",
+	"chapter": "2.나눗셈",
+	"chapter2": "나눗셈의 몫과 나머지",
+	"chapter2_small" : "",
+	"badge": "A",
+	"problemWidth": 1000,
+	"problemHeight": 180
+}
