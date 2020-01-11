@@ -5,7 +5,6 @@
     </div>
     <div class="main">
       <div class="main-board">
-
         <div class="right-aside">
           <right-aside></right-aside>
         </div>
@@ -46,6 +45,7 @@ export default {
     clear: both;
     height: auto;
     margin: 0 auto;
+    min-width: 1887px;
   }
   .main > div {
     display: inline-block;
