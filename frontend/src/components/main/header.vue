@@ -113,9 +113,11 @@
                             if (data.semester.indexOf("1") !== -1) this.chapterOptions[0]['options'].push(temp);
                             else this.chapterOptions[1]['options'].push(temp);
                         }
-                        this.chapterValue = '';
+                        this.chapterValue = this.chapterOptions[0]['options'][0].value;
                         this.problemValue = '';
                         this.problemOptions = [];
+
+                        this.changeChapter();
                     })
             },
             changeChapter() {
