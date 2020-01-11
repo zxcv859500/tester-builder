@@ -3,12 +3,12 @@ import './plugins/axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
-import Vuex from 'vuex'
+import store from './store/index'
 
 Vue.use(ElementUI)
-Vue.use(Vuex)
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
+  store
 }).$mount('#app')

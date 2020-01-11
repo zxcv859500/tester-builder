@@ -36,10 +36,10 @@
                     <span>중3</span>
                 </div>
                 <div class="menu-chapter">
-                    <div class="semester">
+                    <div class="chapter">
                         <el-select></el-select>
                     </div>
-                    <div class="chapter">
+                    <div class="problem">
                         <el-select></el-select>
                     </div>
                 </div>
