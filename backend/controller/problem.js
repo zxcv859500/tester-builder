@@ -1,12 +1,12 @@
 const knex = require('./knexfile');
 
 module.exports = {
-    async getProblems(grade, unit, semester) {
+    async getProblems(grade, chapter, semester) {
         return await knex('problem')
             .select('*')
             .where({
                 idgrade: grade,
-                idunit: unit,
+                idchapter: chapter,
                 idsemester: semester
             });
     }

@@ -1,7 +1,7 @@
-const unit= require('./unit');
+const chapter = require('./chapter');
 const problem = require('./problem');
 
 module.exports = {
-    unit,
+    chapter,
     problem
 };
