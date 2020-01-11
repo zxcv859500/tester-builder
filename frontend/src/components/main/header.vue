@@ -55,6 +55,10 @@
 </script>
 
 <style scoped>
+    .main-page-header {
+        width: 100%;
+        height: 241px;
+    }
     .main-page-top-header {
         font-size: 12pt;
         font-family: "나눔스퀘어 Regular";
@@ -68,7 +72,7 @@
     .main-page-bottom-header {
         position: absolute;
         margin-top: 110px;
-        width: 912.719px;
+        width: 912px;
         left: 50%;
         float: top;
         transform: translate(-50%, -50%)

@@ -1,39 +1,75 @@
 <template>
   <div class="app">
-    <el-header>
+    <div class="header">
       <mainHeader></mainHeader>
-    </el-header>
+    </div>
     <div class="main">
-      <mainPage></mainPage>
+      <div class="main-board">
+
+        <div class="right-aside">
+          <right-aside></right-aside>
+        </div>
+        <mainPage></mainPage>
+        <div class="left-aside">
+          <left-aside></left-aside>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <main-footer></main-footer>
     </div>
   </div>
 </template>
 
 <script>
-  import mainHeader from './components/header'
-  import mainPage from './components/main'
+  import mainHeader from './components/main/header'
+  import mainPage from './components/main/main'
+  import mainFooter from './components/main/footer'
+  import rightAside from "./components/main/rightAside"
+  import leftAside from "./components/main/leftAside";
 
 export default {
   name: 'app',
   components: {
     mainHeader,
-    mainPage
+    mainPage,
+    mainFooter,
+    rightAside,
+    leftAside
   }
 }
 </script>
 
 <style>
   .main {
-    position: absolute;
-    width:100%;
     text-align: center;
+    clear: both;
+    height: auto;
+    margin: 0 auto;
   }
   .main > div {
     display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+  }
+  .main-board {
+    margin: 0 auto;
+  }
+  .main-board > div {
+    float: right;
   }
   body {
     margin: 0;
+  }
+  .footer {
+    clear: both;
+    height: auto;
+    position: relative;
+    top: -4px;
+    left: -38px;
+  }
+  .app > div{
+    height: auto;
+  }
+  .header {
+    clear: both;
   }
 </style>
