@@ -1,8 +1,8 @@
 const knex = require('./knexfile');
 
 module.exports = {
-    async getUnits(grade) {
-        return await knex('unit')
+    async getChapter(grade) {
+        return await knex('chpater')
             .select('*')
             .where('idgrade', grade);
     }
