@@ -4,7 +4,7 @@
                 <div class="main-page-top-header-menu">
                 <span class="astext">공지사항</span>
                 <el-divider direction="vertical"></el-divider>
-                <span class="astext">로그인</span>
+                    <router-link to="/login"><span class="astext">로그인</span></router-link>
                 <el-divider direction="vertical"></el-divider>
                 <span class="astext">회원가입</span>
                 <el-divider direction="vertical"></el-divider>
