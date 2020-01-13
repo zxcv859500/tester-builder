@@ -72,4 +72,13 @@ export default {
   .header {
     clear: both;
   }
+  .app {
+    -webkit-transform: scale(0.67); /* Saf3.1+, Chrome */
+    -moz-transform: scale(0.67); /* FF3.5+ */
+    -ms-transform: scale(0.67); /* IE9 */
+    -o-transform: scale(0.67); /* Opera 10.5+ */
+    transform: scale(0.67);
+    position: relative;
+    top: -280px;
+  }
 </style>

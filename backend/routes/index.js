@@ -21,20 +21,20 @@ router.get('/chapter/:grade', function(req, res) {
 });
 
 router.get('/problems/:grade/:semester/:chapter', function(req, res) {
-  const { grade, chapter, semester } = req.params;
-  console.log(semester);
+    const { grade, chapter, semester } = req.params;
+    console.log(semester);
 
-  controller.problem.getProblems(grade, chapter, semester)
-      .then((result) => {
-        res.send(result);
-      })
+    controller.problem.getProblems(grade, chapter, semester)
+        .then((result) => {
+            res.send(result);
+        })
 });
 
 router.get('/problem/:grade/:semester/:chapter/:problem', function(req, res) {
-  const { grade, semester, chapter, problem } = req.params;
-  fs.readFile(`problemSet/${grade}/${semester}/${unit}/${problem}.json`, 'utf-8', (err, data) => {
-    res.send(data);
-  })
+    const { grade, semester, chapter, problem } = req.params;
+    fs.readFile(`problemSet/${grade}/${semester}/${unit}/${problem}.json`, 'utf-8', (err, data) => {
+        res.send(data);
+    })
 });
 
 module.exports = router;

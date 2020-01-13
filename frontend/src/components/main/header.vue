@@ -12,7 +12,7 @@
             </div>
         </div>
         <el-row class="main-page-bottom-header">
-            <el-col :span="5" class="main-page-logo">
+            <el-col :span="5" class="main-page-logo img-div">
                 <img src="@/assets/logo.jpg">
             </el-col>
             <el-col :span="19" class="main-page-bottom-header-menu">
@@ -28,12 +28,12 @@
                     <span class="astext" @click="clickGrade('초5')">초5</span>
                     <el-divider direction="vertical"></el-divider>
                     <span class="astext" @click="clickGrade('초6')">초6</span>
-                    <el-divider direction="vertical"></el-divider>
+                    <!-- <el-divider direction="vertical"></el-divider>
                     <span class="astext" @click="clickGrade('중1')">중1</span>
                     <el-divider direction="vertical"></el-divider>
                     <span class="astext" @click="clickGrade('중2')">중2</span>
                     <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('중3')">중3</span>
+                    <span class="astext" @click="clickGrade('중3')">중3</span> -->
                 </div>
                 <div class="menu-chapter">
                     <div class="problem">
@@ -162,7 +162,7 @@
 
 <style scoped>
     .main-page-header {
-        width: 100%;
+        width: 85%;
         height: 241px;
     }
     .main-page-top-header {
