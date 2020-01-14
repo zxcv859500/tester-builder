@@ -8,7 +8,7 @@
                 <div class="right-aside">
                     <right-aside></right-aside>
                 </div>
-                <mainPage></mainPage>
+                <router-view></router-view>
                 <div class="left-aside">
                     <left-aside></left-aside>
                 </div>
@@ -22,7 +22,7 @@
 
 <script>
     import mainHeader from './main/header';
-    import mainPage from './main/main';
+    //import mainPage from './main/main';
     import mainFooter from './main/footer';
     import rightAside from './main/rightAside';
     import leftAside from './main/leftAside';
@@ -31,7 +31,7 @@
         name: "Page",
         components: {
             mainHeader,
-            mainPage,
+            //mainPage,
             mainFooter,
             rightAside,
             leftAside
@@ -62,8 +62,8 @@
         -ms-transform: scale(0.67); /* IE9 */
         -o-transform: scale(0.67); /* Opera 10.5+ */
         transform: scale(0.67);
-        position: relative;
-        top: -280px;
+        position: absolute;
+        top: -150px;
         display: inline-block;
         width: 100%;
         height: 100%;

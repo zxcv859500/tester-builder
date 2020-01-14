@@ -2,23 +2,23 @@ const Variables = require('./variables');
 const Components = require('./components');
 
 module.exports = class controller {
-    constructor(problemData, mode) {
-        this.saveVariables = [];
-        this.build(problemData, mode)
-        this.problemData = problemData;
+    constructor(compJson, varJsonList, mode) {
+        this.variables = [];
+        for (const varJson of varJsonList) {
+            this.variables[varJson['number']] = new Variables(varJson['json']);
+            console.log(this.variables);
+        }
+        this.build(compJson, mode);
+        this.compJson = compJson;
     }
 
     rebuild(mode) {
-        this.build(this.problemData, mode, 1);
+        this.build(this.compJson, mode, 1);
     }
 
-    build(problemData, mode, re=0) {
-        this.width = problemData['width'];
-        this.height = problemData['height'];
-
-        this.variables = new Variables(problemData['var']);
-        if (re === 1) this.variables = this.saveVariables[0];
-        this.components = new Components(problemData['comp'], this.variables, 1, mode);
+    build(compJson, mode) {
+        this.width = compJson['width'];
+        this.height = compJson['height'];
 
         let templateScript = '';
         let problemNumber = 1;
@@ -28,6 +28,8 @@ module.exports = class controller {
             let columnScript = '';
 
             for (let j = 1; j <= this.height; j++, problemNumber++) {
+                console.log(this.variables);
+                this.components = new Components(compJson['comp'], this.variables[problemNumber], problemNumber, mode);
                 const compData = this.components.data;
                 tempScript = '';
                 for (const compName in compData) {
@@ -36,10 +38,6 @@ module.exports = class controller {
                     }
                 }
 
-                if (re !== 1) this.saveVariables.push(this.variables);
-                this.variables = new Variables(problemData['var']);
-                if (re === 1 && problemNumber !== this.width * this.height) this.variables = this.saveVariables[problemNumber];
-                this.components = new Components(problemData['comp'], this.variables, problemNumber + 1, mode);
                 columnScript += `<div class="problem-${problemNumber}">
         <p class="number">${problemNumber}</p>
         ${tempScript}
@@ -48,8 +46,8 @@ module.exports = class controller {
         .problem-${problemNumber} {
             position: relative;
             margin: 5px;
-            width: ${problemData['problemWidth']}px;
-            height: ${problemData['problemHeight']}px;
+            width: ${compJson['problemWidth']}px;
+            height: ${compJson['problemHeight']}px;
         } 
         .number {
             position: absolute;
@@ -70,7 +68,7 @@ module.exports = class controller {
             }
             templateScript += `<div class=problem-column style="width:${100 / this.width}%; float: left;">${columnScript}</div>`
         }
-        const label = problemData['label'];
+        const label = compJson['label'];
         templateScript = `<div class='test-paper'>
                           <h4 class="paper-label">${label}</h4>
     ${templateScript}
@@ -89,13 +87,11 @@ module.exports = class controller {
         this.templates = templateScript;
 
         this.paperInform = {};
-        this.paperInform['grade'] = problemData['grade'];
-        this.paperInform['chapter'] = problemData['chapter'];
-        this.paperInform['chapter2'] = problemData['chapter2'];
-        this.paperInform['chapter2_small'] = problemData['chapter2_small'];
-        this.paperInform['badge'] = problemData['badge'];
-
-        console.log(this.saveVariables);
+        this.paperInform['grade'] = compJson['grade'];
+        this.paperInform['chapter'] = compJson['chapter'];
+        this.paperInform['chapter2'] = compJson['chapter2'];
+        this.paperInform['chapter2_small'] = compJson['chapter2_small'];
+        this.paperInform['badge'] = compJson['badge'];
     }
 
     get template() {

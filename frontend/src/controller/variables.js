@@ -9,9 +9,10 @@ module.exports = class Variables {
      */
     constructor(varLst) {
         let variables = {};
+        console.log(varLst);
 
         // Type: int_random or float_random 부터 처리
-        for (const data of varLst) {
+        for (const data of varLst.vars) {
             if (data['type'] === 'int_random') {
                 variables[data['name']] = Variables.int_random(data['decimalScope']);
             } else if (data['type'] === 'float_random') {
@@ -21,7 +22,7 @@ module.exports = class Variables {
         this.variables = variables;
 
         // 나머지 eval
-        for (const data of varLst) {
+        for (const data of varLst.vars) {
             if (data['type'] === 'eval') {
                 variables[data['name']] = this.eval_script(data['value'], data['props']);
             }

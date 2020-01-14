@@ -13,9 +13,9 @@
         </div>
         <el-row class="main-page-bottom-header">
             <el-col :span="5" class="main-page-logo img-div">
-                <img src="@/assets/logo.jpg">
+                <router-link to="/home"><img src="@/assets/logo.jpg"></router-link>
             </el-col>
-            <el-col :span="19" class="main-page-bottom-header-menu">
+            <el-col :span="16" class="main-page-bottom-header-menu">
                 <div class="menu-grade">
                     <span class="astext" @click="clickGrade('초1')">초1</span>
                     <el-divider direction="vertical"></el-divider>
@@ -149,6 +149,10 @@
                     {
                         problem: this.problemValue
                 });
+                const rand = Math.floor(Math.random() * 16);
+                const { grade, semester, chapter, problem } = this.inform;
+                const problemId = `${grade}${semester}${chapter}${problem}${rand.toString(16)}`;
+                this.$router.push(`/testviewer/${problemId}`);
             }
         },
         mounted() {
@@ -162,11 +166,11 @@
 
 <style scoped>
     .main-page-header {
-        width: 85%;
+        width: 84%;
         height: 241px;
     }
     .main-page-top-header {
-        font-size: 12pt;
+        font-size: 15pt;
         font-family: "나눔스퀘어 Regular";
         width: 100%;
         margin-top: 20px;
@@ -185,10 +189,14 @@
         transform: translate(-50%, -50%)
     }
     .main-page-bottom-header-menu {
-        font-size: 22pt;
+        font-size: 25pt;
+        margin-left: 100px;
         font-family: "나눔스퀘어 Regular";
         color: #000000;
-        margin-top: 30px;
+        margin-top: 60px;
+    }
+    .menu-grade {
+        float: right;
     }
     .menu-grade > span {
         margin-left: 10px;
@@ -204,5 +212,12 @@
         margin:0;
         padding:0;
         cursor: pointer;
+    }
+    .menu-chapter {
+        -webkit-transform: scale(1.2); /* Saf3.1+, Chrome */
+        -moz-transform: scale(1.2); /* FF3.5+ */
+        -ms-transform: scale(1.2); /* IE9 */
+        -o-transform: scale(1.2); /* Opera 10.5+ */
+        transform: scale(1.2);
     }
 </style>

@@ -4,7 +4,7 @@ module.exports = require('knex') ({
     host: "localhost",
     user: "root",
     password: "rkfaorl453!",
-    database: "testbuilder"
+    database: "e8760dbserver"
   }
 });
 
