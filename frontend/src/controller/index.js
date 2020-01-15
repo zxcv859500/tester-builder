@@ -6,7 +6,6 @@ module.exports = class controller {
         this.variables = [];
         for (const varJson of varJsonList) {
             this.variables[varJson['number']] = new Variables(varJson['json']);
-            console.log(this.variables);
         }
         this.build(compJson, mode);
         this.compJson = compJson;
@@ -28,7 +27,6 @@ module.exports = class controller {
             let columnScript = '';
 
             for (let j = 1; j <= this.height; j++, problemNumber++) {
-                console.log(this.variables);
                 this.components = new Components(compJson['comp'], this.variables[problemNumber], problemNumber, mode);
                 const compData = this.components.data;
                 tempScript = '';

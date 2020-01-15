@@ -9,7 +9,6 @@ module.exports = class Variables {
      */
     constructor(varLst) {
         let variables = {};
-        console.log(varLst);
 
         // Type: int_random or float_random 부터 처리
         for (const data of varLst.vars) {
