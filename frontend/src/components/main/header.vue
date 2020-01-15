@@ -1,69 +1,80 @@
 <template>
     <div class="main-page-header">
         <div class="main-page-top-header">
-                <div class="main-page-top-header-menu">
-                <span class="astext">공지사항</span>
-                <el-divider direction="vertical"></el-divider>
-                <span class="astext" @click="goLogin()">로그인</span>
-                <el-divider direction="vertical"></el-divider>
-                <span class="astext">회원가입</span>
-                <el-divider direction="vertical"></el-divider>
-                <span class="astext">나의정보</span>
+                <div class="container">
+                    <div class="main-page-top-header-menu">
+                    <span class="astext">공지사항</span>
+                    <el-divider direction="vertical"></el-divider>
+                    <span class="astext" @click="goLogin()">{{this.token ? '로그아웃' :'로그인'}}</span>
+                    <el-divider direction="vertical"></el-divider>
+                    <span class="astext">회원가입</span>
+                    <el-divider direction="vertical"></el-divider>
+                    <span class="astext">나의정보</span>
+                </div>
             </div>
         </div>
-        <el-row class="main-page-bottom-header">
-            <el-col :span="5" class="main-page-logo img-div">
-                <router-link to="/home"><img src="@/assets/logo.jpg"></router-link>
-            </el-col>
-            <el-col :span="16" class="main-page-bottom-header-menu">
-                <div class="menu-grade">
-                    <span class="astext" @click="clickGrade('초1')">초1</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('초2')">초2</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('초3')">초3</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('초4')">초4</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('초5')">초5</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('초6')">초6</span>
-                    <!-- <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('중1')">중1</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('중2')">중2</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext" @click="clickGrade('중3')">중3</span> -->
+        <div class="main-page-bottom-header">
+            <div class="wrapper">
+                <div class="main-page-logo img-div">
+                    <router-link to="/home"><img src="@/assets/메인로고.jpg"></router-link>
                 </div>
-                <div class="menu-chapter">
-                    <div class="problem">
-                        <el-select v-model="problemValue" placeholder="소단원" @change="changeProblem">
-                            <el-option
-                                    v-for="item in problemOptions"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
-                            </el-option>
-                        </el-select>
+                <div class="main-page-bottom-header-menu">
+                    <div class="menu-grade">
+                        <span class="astext" @click="clickGrade('초1')">초1</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('초2')">초2</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('초3')">초3</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('초4')">초4</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('초5')">초5</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('초6')">초6</span>
+                        <!-- <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('중1')">중1</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('중2')">중2</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="astext" @click="clickGrade('중3')">중3</span> -->
                     </div>
-                    <div class="chapter">
-                        <el-select v-model="chapterValue" placeholder="대단원" @change="changeChapter">
-                            <el-option-group
-                                    v-for="group in chapterOptions"
-                                    :key="group.label"
-                                    :label="group.label">
+                    <div class="menu-chapter">
+                        <div class="problem">
+                            <el-select v-model="problemValue"
+                                       placeholder="소단원"
+                                       @change="changeProblem"
+                                       size="small">
                                 <el-option
-                                        v-for="item in group.options"
+                                        v-for="item in problemOptions"
                                         :key="item.value"
                                         :label="item.label"
                                         :value="item.value">
                                 </el-option>
-                            </el-option-group>
-                        </el-select>
+                            </el-select>
+                        </div>
+                        <div class="chapter">
+                            <el-select
+                                    v-model="chapterValue"
+                                    placeholder="대단원"
+                                    @change="changeChapter"
+                                    size="small">
+                                <el-option-group
+                                        v-for="group in chapterOptions"
+                                        :key="group.label"
+                                        :label="group.label">
+                                    <el-option
+                                            v-for="item in group.options"
+                                            :key="item.value"
+                                            :label="item.label"
+                                            :value="item.value">
+                                    </el-option>
+                                </el-option-group>
+                            </el-select>
+                        </div>
                     </div>
                 </div>
-            </el-col>
-        </el-row>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -155,48 +166,72 @@
                 this.$router.push(`/testviewer/${problemId}`);
             },
             goLogin() {
-                this.$router.push('/login');
+                if (this.token) {
+                    this.$store.commit('delToken');
+                    this.$router.push('/home');
+                } else {
+                    this.$router.push('/login');
+                }
             }
         },
         mounted() {
             this.clickGrade("초1");
         },
         computed: mapGetters({
-            inform: "getState"
+            inform: "getState",
+            token: "getToken"
         })
     }
 </script>
 
 <style scoped>
     .main-page-header {
-        width: 84%;
-        height: 241px;
+        height: 180px;
+        margin: 0 auto;
+        width: 1640px;
     }
     .main-page-top-header {
-        font-size: 15pt;
+        font-size: 10pt;
         font-family: "나눔스퀘어 Regular";
-        width: 100%;
-        margin-top: 20px;
+        margin: 20px auto;
         height: 20px;
+        width: 1400px;
+        text-align: center;
     }
-    .main-page-top-header-menu {
+    .container {
+        margin: 0 auto;
+        width: 63%;
+    }
+    .main-page-top-header-menu{
         float: right;
-        margin-right: 30px;
     }
     .main-page-bottom-header {
-        position: absolute;
-        margin-top: 110px;
-        width: 912px;
-        left: 50%;
-        float: top;
-        transform: translate(-50%, -50%)
+        width: 100%;
+        display:inline-block;
+        text-align: center;
+        min-width: 1640px;
     }
     .main-page-bottom-header-menu {
-        font-size: 25pt;
+        font-size: 15pt;
         margin-left: 100px;
         font-family: "나눔스퀘어 Regular";
         color: #000000;
-        margin-top: 60px;
+        margin-top: 40px;
+    }
+    .wrapper {
+        margin: 0 auto;
+        width: 900px;
+    }
+    .main-page-logo {
+        float: left;
+        display: inline-block;
+    }
+    .main-page-bottom-header-menu {
+        display: inline-block;
+        float: right;
+    }
+    .main-page-bottom-header-menu > div {
+        float: top;
     }
     .menu-grade {
         float: right;
@@ -215,12 +250,5 @@
         margin:0;
         padding:0;
         cursor: pointer;
-    }
-    .menu-chapter {
-        -webkit-transform: scale(1.2); /* Saf3.1+, Chrome */
-        -moz-transform: scale(1.2); /* FF3.5+ */
-        -ms-transform: scale(1.2); /* IE9 */
-        -o-transform: scale(1.2); /* Opera 10.5+ */
-        transform: scale(1.2);
     }
 </style>

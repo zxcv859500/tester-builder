@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const fs = require('fs');
 const controller = require('../controller');
+const auth = require('./auth');
 
 /* GET home page. */
 router.get('/test', function(req, res) {
@@ -54,6 +55,8 @@ router.get('/problem/:problemId', async function(req, res) {
         "compJson": compJson,
         "varsJsons": varsJsons
     })
-})
+});
+
+router.use('/auth', auth);
 
 module.exports = router;

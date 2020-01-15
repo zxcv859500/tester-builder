@@ -1,7 +1,7 @@
 <template>
     <div class="main-page">
         <div class="main-page-img img-div">
-            <img src="@/assets/mainImg.png">
+            <img src="@/assets/아이연산.png">
         </div>
     </div>
 </template>

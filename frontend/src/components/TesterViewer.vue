@@ -4,7 +4,7 @@
             <div class="paper-head">
                 <div class="logo"></div>
                 <div class="qrcode">
-                    <qrcode-vue :value="currentUrl" size="138" level="L"></qrcode-vue>
+                    <qrcode-vue :value="currentUrl" size="92" level="L"></qrcode-vue>
                 </div>
                 <div class="title">
                     <div class="top">
@@ -91,32 +91,31 @@
 </script>
 
 <style>
-    .visible-mode {
-    }
-    .page {
+    .paper {
+        width: 800px;
+        height: 1123px;
     }
     .paper-bound{
         font-family: "나눔스퀘어라운드 ExtraBold";
-        font-size: 30px;
+        font-size: 20px;
         text-align: left;
     }
     .paper-bound {
         border: 3px solid #dddddd;
-        width: 315mm;
-        height: 435mm;
+        width: 210mm;
+        height: 290mm;
         margin: 0 auto 20px;
         position: relative;
         float: top;
     }
     .paper-head {
-        height: 138px;
+        height: 92px;
         overflow: hidden;
         border: 1px solid #333333;
     }
     .paper-head .logo {
-        width: 193px;
-        height: 138px;
-        padding-top: 10px;
+        width: 128px;
+        height: 92px;
         float: left;
         color: black;
         background-color: white;
@@ -124,8 +123,8 @@
         text-align: center;
     }
     .paper-head .title {
-        margin: 0px 138px 0px 195px;
-        height: 138px;
+        margin: 0px 92px 0px 130px;
+        height: 92px;
         padding: 0px;
         position: relative;
         white-space: nowrap;
@@ -133,45 +132,46 @@
     .paper-head .qrcode {
         float: right;
         border-left: 1px solid #333;
-        width: 138px;
-        height: 138px;
+        width: 92px;
+        height: 92px;
     }
     .id {
         float: right;
         position: relative;
-        bottom: 43px;
-        font-size: 15pt;
+        bottom: 30px;
+        font-size: 10pt;
+        margin-right: 5px;
     }
     .title {
         font-family: "나눔스퀘어라운드";
     }
     .title div.grade {
-        font-size: 22px;
-        line-height: 39px;
-        width: 195px;
+        font-size: 15px;
+        line-height: 26px;
+        width: 130px;
         font-family: inherit;
         margin: 5px;
     }
     .title div.chapter {
-        font-size: 36px;
-        line-height: 39px;
+        font-size: 24px;
+        line-height: 26px;
         font-family: inherit;
     }
     .title div.chapter2 {
-        font-size: 25px;
-        line-height: 39px;
+        font-size: 17px;
+        line-height: 26px;
         font-family: inherit;
     }
     .title div.chapter2 small {
-        font-size: 18px;
+        font-size: 12px;
         font-family: inherit;
     }
     .badge {
         padding: 2px 14px 3px;
         border-radius: 9px;
-        font-size: 17px;
+        font-size: 11px;
         font-weight: bold;
-        line-height: 21px;
+        line-height: 14px;
         color: #fff;
         text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
         white-space: nowrap;

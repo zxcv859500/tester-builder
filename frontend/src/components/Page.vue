@@ -5,13 +5,17 @@
         </div>
         <div class="main">
             <div class="main-board">
+            <div class="container">
                 <div class="right-aside">
                     <right-aside></right-aside>
                 </div>
-                <router-view></router-view>
+                <div class="router-container">
+                    <router-view></router-view>
+                </div>
                 <div class="left-aside">
                     <left-aside></left-aside>
                 </div>
+            </div>
             </div>
         </div>
         <div class="footer">
@@ -45,30 +49,25 @@
         clear: both;
         height: auto;
         margin: 0 auto;
-        min-width: 1887px;
+        width: 100%;
     }
     .main > div {
         display: inline-block;
     }
     .main-board {
         margin: 0 auto;
+        min-width: 1640px;
+        text-align: center;
     }
-    .main-board > div {
+    .container {
+        margin: 0 auto;
+        display: inline-block;
+    }
+    .container > div {
         float: right;
     }
     .page {
-        -webkit-transform: scale(0.67); /* Saf3.1+, Chrome */
-        -moz-transform: scale(0.67); /* FF3.5+ */
-        -ms-transform: scale(0.67); /* IE9 */
-        -o-transform: scale(0.67); /* Opera 10.5+ */
-        transform: scale(0.67);
-        position: absolute;
-        top: -150px;
-        display: inline-block;
-        width: 100%;
-        height: 100%;
     }
-
     .footer {
         clear: both;
         height: auto;
@@ -78,5 +77,9 @@
     }
     .header {
         clear: both;
+    }
+    .router-container {
+        min-width: 800px;
+        min-height: 657px;
     }
 </style>

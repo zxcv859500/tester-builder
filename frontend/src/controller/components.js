@@ -20,13 +20,13 @@ module.exports = class Components {
                     <style>
                         .problem${number}-components-${data['name']} {
                             position: absolute;
-                            top: ${data['location']['y']}px;                                                                                                              
-                            left: ${data['location']['x']}px;                                                                                    
-                            width: ${data['width']}px;
-                            height: ${data['height']}px;
+                            top: ${data['location']['y'] * 2 / 3}px;                                                                                                              
+                            left: ${data['location']['x'] * 2 / 3}px;                                                                                    
+                            width: ${data['width'] * 2 / 3}px;
+                            height: ${data['height'] * 2 / 3}px;
                             color: ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};
-                            letter-spacing: ${data['letter-space']}px;
-                            font-size: ${data['size']}px;
+                            letter-spacing: ${data['letter-space'] * 2 / 3}px;
+                            font-size: ${data['size'] * 2 / 3}px;
                             text-align: ${data['text-align']};
                             ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""};
                             ${eval(data['style_extra'])}                            
@@ -39,11 +39,11 @@ module.exports = class Components {
                     <style>
                         .problem${number}-components-${data['name']} {
                             position: absolute;
-                            top: ${data['location']['y']}px;
-                            left: ${data['location']['x']}px;
+                            top: ${data['location']['y'] * 2 / 3}px;
+                            left: ${data['location']['x'] * 2 / 3}px;
                             border-top: ${data['border']}px solid ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};                            
-                            width: ${data['width']}px;
-                            height: ${data['height']}px;
+                            width: ${data['width'] * 2 / 3}px;
+                            height: ${data['height'] * 2 / 3}px;
                             ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}
                             ${eval(data['style_extra'])}                                                          
                         }
@@ -55,11 +55,11 @@ module.exports = class Components {
                     <style>
                         .problem${number}-components-${data['name']} {
                             position: absolute;
-                            top: ${data['location']['y']}px;
-                            left: ${data['location']['x']}px;
-                            border: ${data['border']}px solid ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};
-                            width: ${data['width']}px;
-                            height: ${data['height']}px;
+                            top: ${data['location']['y'] * 2 / 3}px;
+                            left: ${data['location']['x'] * 2 / 3}px;
+                            border: ${data['border'] * 2 / 3}px solid ${(data['mode'] === 'hidden') ? "#0063CC" : "black"};
+                            width: ${data['width'] * 2 / 3}px;
+                            height: ${data['height'] * 2 / 3}px;
                             background-color: ${data['color']};
                             ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""};
                             ${eval(data['style_extra'])}   
@@ -72,12 +72,12 @@ module.exports = class Components {
                     <style>
                         .problem${number}-components-${data['name']} {
                             position: absolute;
-                            top: ${data['location']['y']}px;
-                            left: ${data['location']['x']}px;
+                            top: ${data['location']['y'] * 2 / 3}px;
+                            left: ${data['location']['x'] * 2 / 3}px;
                             color: ${(data['mode'] === 'hidden') ? "#b8b6ae" : "black"};
-                            font-size: ${data['size']}px;                                                                                                            
-                            width: ${data['width']}px;
-                            letter-spacing: ${data['letter-space']}px;   
+                            font-size: ${data['size'] * 2 / 3}px;                                                                                                            
+                            width: ${data['width'] * 2 / 3}px;
+                            letter-spacing: ${data['letter-space'] * 2 / 3}px;   
                             text-align: ${data['text-align']};                 
                             ${(mode === 0 && number !== 1 && data['mode'] === 'hidden') ? "visibility: hidden;" : ""}
                         }

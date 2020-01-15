@@ -14,17 +14,17 @@ export default {
 
 <style scoped>
     .main-page-left-aside > div {
-        width: 253px;
+        width: 221px;
     }
     .aside-first {
-        height: 520px;
+        height: 328px;
         background-color: #cfa972;
     }
     .aside-second {
-        height: 230px;
+        height: 151px;
     }
     .aside-third {
         background-color: #333333;
-        height: 230px;
+        height: 178px;
     }
 </style>

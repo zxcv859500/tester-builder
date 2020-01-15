@@ -18,7 +18,4 @@ export default {
     margin: 0;
     height: 100%;
   }
-  .app > div{
-    height: auto;
-  }
 </style>

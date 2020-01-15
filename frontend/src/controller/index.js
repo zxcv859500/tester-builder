@@ -46,14 +46,14 @@ module.exports = class controller {
         .problem-${problemNumber} {
             position: relative;
             margin: 5px;
-            width: ${compJson['problemWidth']}px;
-            height: ${compJson['problemHeight']}px;
+            width: ${compJson['problemWidth'] * 2 / 3}px;
+            height: ${compJson['problemHeight'] * 2 / 3}px;
         } 
         .number {
             position: absolute;
-            top: 15px;        
-            left: 80px;
-            margin: 16px 0px 0px -24px;
+            top: 5px;        
+            left: 40px;
+            margin: 11px 0px 0px -16px;
             border: 2px solid black;
             border-radius: 75px;
             text-align: center;
@@ -78,7 +78,7 @@ module.exports = class controller {
                                 position: relative;
                             }
                             .paper-label{
-                                font-size: 18pt;
+                                font-size: 12pt;
                                 padding: 15px 15px 8px;
                                 margin: 0;
                             }

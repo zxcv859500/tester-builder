@@ -3,11 +3,11 @@
         <div class="container">
             <div class="login-box">
                 <div class="logo">
-                    <router-link to="/"><img src="@/assets/logo.jpg"></router-link>
+                    <router-link to="/"><img src="@/assets/로고.png"></router-link>
                 </div>
-                <el-input placeholder="아이디" v-model="form.account" style="margin-bottom: 10px"></el-input>
-                <el-input placeholder="비밀번호" v-model="form.password" style="margin-bottom: 10px"></el-input>
-                <el-button type="primary" style="width:100%; margin-bottom: 10px;">로그인</el-button>
+                <el-input placeholder="아이디" v-model="form.username" @keyup.enter.native="login" style="margin-bottom: 10px"></el-input>
+                <el-input placeholder="비밀번호" v-model="form.password" @keyup.enter.native="login" style="margin-bottom: 10px" show-password></el-input>
+                <el-button type="primary" style="width:100%; margin-bottom: 10px;" @click="login">로그인</el-button>
                 <el-button style="width:100%; margin-left: 0px">회원가입</el-button>
                 <el-divider></el-divider>
                 <div class="find">
@@ -25,14 +25,33 @@
         data() {
             return {
                 form: {
-                    account: '',
+                    username: '',
                     password: ''
                 }
             }
         },
         methods: {
-            goHome() {
+            login() {
+                const regExpId = /^[0-9a-z]+$/;
+                // eslint-disable-next-line no-useless-escape
+                const regExpPw = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/;
+                // eslint-disable-next-line no-useless-escape
+                const regExpEm = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
+                if (!regExpId.test(this.form.username) && !regExpEm.test(this.form.username)) {
+                    alert("올바르지 않은 이메일 형식입니다.");
+                } else if (!regExpPw.test(this.form.password)) {
+                    alert("올바르지 않은 비밀번호 형식입니다.");
+                } else {
+                    this.$axios.post('/api/auth/login', this.form)
+                        .then((result) => {
+                            this.$store.commit('setToken', { token: result.data.token});
+                            this.$router.push('/home');
+                        })
+                        .catch(() => {
+                            alert("이메일 혹은 비밀번호가 잘못되었습니다.")
+                        })
+                }
             }
         }
     }
