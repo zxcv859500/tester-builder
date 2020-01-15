@@ -58,9 +58,9 @@
                 this.controller.rebuild(0);
             },
             fetchData() {
-                this.currentUrl = this.$route.query.page;
                 this.$axios.get(`/api/problem/${this.$route.params.id}`)
                     .then((result) => {
+                        this.currentUrl = window.location.href;
                         const compJson = JSON.parse(result.data.compJson[0]);
                         let varsJsons = [];
                         for (const varsJson of result.data.varsJsons) {
