@@ -3,7 +3,7 @@
         <div class="main-page-top-header">
                 <div class="container">
                     <div class="main-page-top-header-menu">
-                    <span class="astext">공지사항</span>
+                    <span class="astext" @click="goNotice()">공지사항</span>
                     <el-divider direction="vertical"></el-divider>
                     <span class="astext" @click="goLogin()">{{this.token ? '로그아웃' :'로그인'}}</span>
                     <el-divider direction="vertical"></el-divider>
@@ -168,10 +168,14 @@
             goLogin() {
                 if (this.token) {
                     this.$store.commit('delToken');
+                    this.$axios.defaults.headers.common['x-access-token'] = undefined;
                     this.$router.push('/home');
                 } else {
                     this.$router.push('/login');
                 }
+            },
+            goNotice() {
+                this.$router.push('/notice');
             }
         },
         mounted() {

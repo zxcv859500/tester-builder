@@ -31,6 +31,7 @@ const authMiddleware = (req, res, next) => {
         })
     }
 
+
     // process the promise
     p.then((decoded)=>{
         req.decoded = decoded

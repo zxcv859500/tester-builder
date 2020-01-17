@@ -10,7 +10,8 @@ const store = new Vuex.Store({
         semester: 1,
         chapter: '',
         problem: '',
-        token: localStorage.getItem('token')
+        token: localStorage.getItem('token'),
+        username: localStorage.getItem('username')
     },
     getters: {
         getState (state) {
@@ -24,6 +25,10 @@ const store = new Vuex.Store({
         getToken(state) {
             state.token = localStorage.getItem('token');
             return state.token;
+        },
+        getUsername(state) {
+            state.username = localStorage.getItem('username');
+            return state.username;
         }
     },
     mutations: {
@@ -33,11 +38,15 @@ const store = new Vuex.Store({
         setProblem (state, payload) { state.problem = payload.problem },
         setToken (state, payload) {
             localStorage.setItem('token', payload.token);
+            localStorage.setItem('username', payload.username);
             state.token = localStorage.getItem('token');
+            state.username = localStorage.getItem('username');
         },
         delToken (state) {
             localStorage.removeItem('token');
+            localStorage.removeItem('username');
             state.token = null;
+            state.username = null;
         }
     }
 });

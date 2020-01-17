@@ -12,11 +12,11 @@ router.post('/login', (req, res) => {
             controller.user.login(username, password)
                 .then((result) => {
                     res.json({
-                        token: result
+                        token: result,
+                        username: username
                     });
                 })
                 .catch((err) => {
-                    console.log(err);
                     res.status(500).json({
                         error: err.message
                     });

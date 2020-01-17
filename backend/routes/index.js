@@ -3,6 +3,7 @@ var router = express.Router();
 const fs = require('fs');
 const controller = require('../controller');
 const auth = require('./auth');
+const article = require('./article');
 
 /* GET home page. */
 router.get('/test', function(req, res) {
@@ -23,7 +24,6 @@ router.get('/chapter/:grade', function(req, res) {
 
 router.get('/problems/:grade/:semester/:chapter', function(req, res) {
     const { grade, chapter, semester } = req.params;
-    console.log(semester);
 
     controller.problem.getProblems(grade, chapter, semester)
         .then((result) => {
@@ -58,5 +58,6 @@ router.get('/problem/:problemId', async function(req, res) {
 });
 
 router.use('/auth', auth);
+router.use('/article', article);
 
 module.exports = router;
