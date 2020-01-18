@@ -51,12 +51,6 @@
             this.fetchData();
         },
         methods: {
-            answer() {
-                this.controller.rebuild(1);
-            },
-            normal() {
-                this.controller.rebuild(0);
-            },
             fetchData() {
                 this.$axios.get(`/api/problem/${this.$route.params.id}`)
                     .then((result) => {
@@ -70,7 +64,7 @@
                                 }
                             );
                         }
-                        this.controller = new Controller(compJson, varsJsons, 0);
+                        this.controller = new Controller(compJson, varsJsons, this.mode);
 
                         const inform = this.controller.inform;
                         this.grade = inform['grade'];
@@ -82,10 +76,12 @@
             }
         },
         watch: {
-            '$route': 'fetchData'
+            '$route': 'fetchData',
+            'mode': 'fetchData'
         },
         computed: mapGetters({
-            inform: "getState"
+            inform: "getState",
+            mode: "getMode"
         })
     }
 </script>

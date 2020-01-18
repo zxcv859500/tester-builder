@@ -162,7 +162,9 @@
                 });
                 const rand = Math.floor(Math.random() * 16);
                 const { grade, semester, chapter, problem } = this.inform;
-                const problemId = `${grade}${semester}${chapter}${problem}${rand.toString(16)}`;
+                const randomNumber = rand.toString(16);
+                this.$store.commit("setProblemRand", { randomNumber: randomNumber});
+                const problemId = `${grade}${semester}${chapter}${problem}${randomNumber}`;
                 this.$router.push(`/testviewer/${problemId}`);
             },
             goLogin() {

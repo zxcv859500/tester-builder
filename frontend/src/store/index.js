@@ -11,7 +11,9 @@ const store = new Vuex.Store({
         chapter: '',
         problem: '',
         token: localStorage.getItem('token'),
-        username: localStorage.getItem('username')
+        username: localStorage.getItem('username'),
+        mode: 0,
+        problemRand: 0
     },
     getters: {
         getState (state) {
@@ -29,6 +31,12 @@ const store = new Vuex.Store({
         getUsername(state) {
             state.username = localStorage.getItem('username');
             return state.username;
+        },
+        getMode(state) {
+            return state.mode;
+        },
+        getProblemRand(state) {
+            return state.problemRand;
         }
     },
     mutations: {
@@ -47,6 +55,12 @@ const store = new Vuex.Store({
             localStorage.removeItem('username');
             state.token = null;
             state.username = null;
+        },
+        setMode(state, payload) {
+            state.mode = payload.mode;
+        },
+        setProblemRand(state, payload) {
+            state.problemRand = payload.problemRand;
         }
     }
 });
