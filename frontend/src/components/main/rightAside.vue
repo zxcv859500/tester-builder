@@ -3,14 +3,14 @@
         <div class="menu-start">
             <img src="@/assets/시작하기.png">
         </div>
-        <div class="menu-again">
-            <img src="@/assets/다시풀기.png">
+        <div class="menu-again" @click="problemAgain">
+            <img class="astext" src="@/assets/다시풀기.png">
         </div>
         <div class="menu-twin" @click="twinProblem">
             <img class="astext" src="@/assets/쌍둥이문제.png">
         </div>
-        <div class="menu-print">
-            <img src="@/assets/문제지인쇄하기.png">
+        <div class="menu-print" @click="printProblem">
+            <img class="astext" src="@/assets/문제지인쇄하기.png">
         </div>
         <div class="menu-answer" @click="answerMode">
             <img class="astext" src="@/assets/답안지.png">
@@ -46,8 +46,14 @@
                 const path = window.location.href.split('/')[4];
                 if (path !== "testviewer") {
                     alert("문제지를 선택해주세요.");
-                } else if(this.mode === 0) {
+                } else {
                     this.$store.commit('setMode', {mode: 1});
+                }
+            },
+            problemAgain() {
+                const path = window.location.href.split('/')[4];
+                if (path !== "testviewer") {
+                    alert("문제지를 선택해주세요.");
                 } else {
                     this.$store.commit('setMode', {mode: 0});
                 }
@@ -67,6 +73,14 @@
                     this.$store.commit("setProblemRand", {randomNumber : randomNumber});
                     const problemId = `${grade}${semester}${chapter}${problem}${randomNumber}`;
                     this.$router.push(`/testviewer/${problemId}`)
+                }
+            },
+            printProblem() {
+                const path = window.location.href.split('/')[4];
+                if (path !== "testviewer") {
+                    alert("문제지를 선택해주세요.");
+                } else {
+                    this.$store.commit("setPrintState", { printState: 1})
                 }
             }
         },

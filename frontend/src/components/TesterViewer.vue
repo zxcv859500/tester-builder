@@ -1,8 +1,10 @@
 <template>
-    <div class="paper">
+    <div class="paper" id="printPaper">
         <div class="paper-bound" :style="'.visibleMode{ visibility: hidden }'">
             <div class="paper-head">
-                <div class="logo"></div>
+                <div class="logo">
+                    <img src="@/assets/paper_logo.jpg">
+                </div>
                 <div class="qrcode">
                     <qrcode-vue :value="currentUrl" size="92" level="L"></qrcode-vue>
                 </div>
@@ -27,6 +29,8 @@
     import Controller from '@/controller/';
     import { mapGetters } from 'vuex';
     import QrcodeVue from 'qrcode.vue';
+    import printJS from 'print-js';
+    const style = require('@/print/');
 
     export default {
         name: "TesterViewer",
@@ -73,15 +77,35 @@
                         this.chapter2Small = inform['chapter2_small'];
                         this.badge = inform['badge'];
                     })
+            },
+            printProblem() {
+                if (this.mode === 1) {
+                    this.$store.commit("setMode", { mode: 0 });
+                    alert("다시 시도해주세요.");
+                } else {
+                    if (this.printState === 1) {
+                        printJS({
+                            printable: "printPaper",
+                            type: "html",
+                            style: style.style.style,
+                            scanStyles: false,
+                            onPrintDialogClose: () => console.log("The print dialog was closed"),
+                            onError: e => console.log(e)
+                        });
+                    }
+                    this.$store.commit("setPrintState", {printState: 0})
+                }
             }
         },
         watch: {
             '$route': 'fetchData',
-            'mode': 'fetchData'
+            'mode': 'fetchData',
+            'printState': "printProblem"
         },
         computed: mapGetters({
             inform: "getState",
-            mode: "getMode"
+            mode: "getMode",
+            printState: "getPrintState"
         })
     }
 </script>
@@ -174,5 +198,10 @@
         vertical-align: baseline;
         background-color: #999;
         margin-left: 5px;
+    }
+    .logo > img {
+        position: relative;
+        top: 25px;
+        margin: auto auto;
     }
 </style>

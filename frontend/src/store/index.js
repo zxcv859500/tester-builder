@@ -13,7 +13,8 @@ const store = new Vuex.Store({
         token: localStorage.getItem('token'),
         username: localStorage.getItem('username'),
         mode: 0,
-        problemRand: 0
+        problemRand: 0,
+        printState: 0
     },
     getters: {
         getState (state) {
@@ -37,6 +38,9 @@ const store = new Vuex.Store({
         },
         getProblemRand(state) {
             return state.problemRand;
+        },
+        getPrintState(state) {
+            return state.printState;
         }
     },
     mutations: {
@@ -61,6 +65,9 @@ const store = new Vuex.Store({
         },
         setProblemRand(state, payload) {
             state.problemRand = payload.problemRand;
+        },
+        setPrintState(state, payload) {
+            state.printState = payload.printState;
         }
     }
 });

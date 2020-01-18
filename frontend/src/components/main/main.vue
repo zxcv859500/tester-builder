@@ -8,19 +8,19 @@
                 <div class="footer-menu">
                     <div class="menu-container">
                         <div class="menu-understand-math img-menu">
-                            <img src="@/assets/이해수학.png">
+                            <img class="astext" src="@/assets/이해수학.png">
                         </div>
                         <div class="menu-math-anxiety-test img-menu">
-                            <img src="@/assets/수학불안검사.png">
+                            <img class="astext" src="@/assets/수학불안검사.png">
                         </div>
                         <div class="menu-qna img-menu">
-                            <img src="@/assets/질문답변큐앤톡.png">
+                            <img class="astext" src="@/assets/질문답변큐앤톡.png">
                         </div>
                         <div class="menu-onschool img-menu">
-                            <img src="@/assets/실시간화상과외온스쿨.png">
+                            <img class="astext" src="@/assets/실시간화상과외온스쿨.png">
                         </div>
                         <div class="menu-cafe img-menu">
-                            <img src="@/assets/네이버카페.png">
+                            <img class="astext" @click="openNaver" src="@/assets/네이버카페.png">
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,12 @@
 
 <script>
     export default {
-        name: "header.vue"
+        name: "header.vue",
+        methods: {
+            openNaver() {
+                window.open("http://www.naver.com")
+            }
+        }
     }
 </script>
 
@@ -80,5 +85,11 @@
     .main-footer {
         margin: 0 auto;
         width: 874px;
-    }
+    }.astext {
+         background:none;
+         border:none;
+         margin:0;
+         padding:0;
+         cursor: pointer;
+     }
 </style>
