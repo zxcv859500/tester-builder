@@ -32,7 +32,6 @@ module.exports = {
         let result = [];
 
         for (let i = st; i <= ed; i++) result.push(articleList[i]);
-        console.log(page);
         return result;
     },
 

@@ -66,15 +66,15 @@
             }
         },
         mounted() {
-            this.$axios.get('/api/article/notice/count')
+            this.$axios.get(`/api/article/${this.type}/count`)
                 .then((result) => {
                     this.listCount = result.articleCount;
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-            this.getList(1);
             this.type = window.location.href.split('/')[4];
+            this.getList(1);
             if (this.type === "notice" && (this.username === "edumaster" || this.username === "zxcv859500@naver.com")) {
                 this.flag = true;
             } else if (this.type === "notice") {
@@ -83,7 +83,7 @@
         },
         methods: {
             getList(page) {
-                this.$axios.get(`/api/article/${this.flag}/list/${page}`)
+                this.$axios.get(`/api/article/${this.type}/list/${page}`)
                     .then((result) => {
                         this.tableData = result.data;
                         this.tableData = this.tableData.filter(n => n);
