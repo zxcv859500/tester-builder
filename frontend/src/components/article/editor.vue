@@ -28,8 +28,13 @@
         data() {
             return {
                 title: '',
-                content: ''
+                content: '',
+                type: ''
             }
+        },
+        mounted() {
+            this.type = window.location.href.split('/')[4];
+            console.log(this.type);
         },
         methods: {
             writeCancel() {
@@ -42,11 +47,12 @@
                 } else if (this.title === '' || this.content === '') {
                     alert("글과 내용은 필수항목입니다.");
                 } else {
-                    this.$axios.post('/api/article/notice/write', {
+                    this.$axios.post(`/api/article/${this.type}/write`, {
                         title: this.title,
                         content: this.content
                     })
                         .then(() => {
+                            this.$router.push(`/${this.type}`)
                         })
                         .catch((err) => {
                             console.log(err);

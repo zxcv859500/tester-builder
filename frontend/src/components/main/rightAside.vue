@@ -18,8 +18,8 @@
         <div class="menu-media img-div">
             <img src="@/assets/동영상보기.png">
         </div>
-        <div class="menu-ask">
-            <img src="@/assets/질문하기.png">
+        <div class="menu-ask" @click="goQuestion">
+            <img class='astext' src="@/assets/질문하기.png">
         </div>
         <div class="menu-grade">
             <img src="@/assets/성적표.png">
@@ -35,12 +35,20 @@
 
 <script>
     export default {
-        name: "rightAside"
+        name: "rightAside",
+        methods: {
+            goQuestion() {
+                this.$router.push('/question')
+            }
+        }
     }
 </script>
 
 <style scoped>
     .main-page-right-aside > div > img {
         display: block;
+    }
+    .astext {
+        cursor: pointer;
     }
 </style>

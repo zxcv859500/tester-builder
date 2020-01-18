@@ -24,6 +24,7 @@ module.exports = {
         let articleList = await knex('article')
             .select('id', 'date', 'author', 'title')
             .where('type', type);
+        for (let i = 1; i <= articleList.length; i++) articleList[i - 1]['index'] = i;
         articleList = articleList.reverse();
         const st = (page - 1) * 10,
             ed = page * 10 > count ? count : page * 10;
@@ -35,9 +36,22 @@ module.exports = {
         return result;
     },
 
-    async listCount() {
+    async listCount(params) {
+        const { type } = params;
+
         const count = await knex.count('id as cnt')
-            .from('article');
+            .from('article')
+            .where('type', type);
         return count[0].cnt;
+    },
+
+    async getArticle(params) {
+        const { id } = params;
+
+        const article = await knex('article')
+            .select('*')
+            .where('id', id);
+
+        return article[0];
     }
 };

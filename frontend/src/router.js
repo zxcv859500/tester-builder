@@ -7,6 +7,7 @@ import TesterViewer from "./components/TesterViewer";
 import Home from "./components/main/home";
 import Editor from './components/article/editor';
 import list from './components/article/list';
+import ArticleViewer from "./components/article/ArticleViewer";
 
 Vue.use(Router);
 
@@ -41,6 +42,21 @@ export default new Router({
                 {
                     path: '/notice/write',
                     name: "NoticeWrite",
+                    components: { default: Editor }
+                },
+                {
+                    path: '/article/:id',
+                    name: "Article",
+                    components: { default: ArticleViewer }
+                },
+                {
+                    path: "/question",
+                    name: "QuestionList",
+                    components: { default: list }
+                },
+                {
+                    path: "/question/write",
+                    name: "QuestionWrite",
                     components: { default: Editor }
                 }
             ]
