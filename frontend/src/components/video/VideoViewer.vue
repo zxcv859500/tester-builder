@@ -98,7 +98,7 @@
         },
         methods: {
             goList() {
-                this.$router.push('/notice')
+                this.$router.push('/video')
             },
             writeComment() {
                 if (this.username === undefined || this.username === '') {
