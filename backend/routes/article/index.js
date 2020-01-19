@@ -97,6 +97,51 @@ router.get('/question/count', function(req, res) {
         })
 });
 
+router.use('/video/write', auth);
+router.post('/video/write', function(req, res) {
+    const { username } = req.decoded;
+    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    const { title, content } = req.body;
+
+    controller.article.write({
+        author: username,
+        title: title,
+        content: content,
+        date: date,
+        type: "video"
+    })
+        .then(() => {
+            res.status(200).send("Post writing complete");
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+});
+
+router.get('/video/list/:page', function(req, res) {
+    const { page } = req.params;
+    controller.article.list({ type: "video", page: page })
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+});
+
+router.get('/video/count', function(req, res) {
+    controller.article.listCount({ type: 'video'})
+        .then((result) => {
+            res.status(200).send({
+                articleCount: result
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        })
+});
+
 router.get('/:id', function(req, res) {
     const { id } = req.params;
     controller.article.getArticle({ id: id })

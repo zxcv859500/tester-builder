@@ -3,11 +3,11 @@
         <div class="article-container">
             <div class="article-title">
                 <div class="name-wrapper">
-                    <h3>{{ this.type === "notice" ? '공지사항' : '질문하기' }}</h3>
+                    <h3>{{ this.name }}</h3>
                 </div>
             </div>
             <div class="article-demonstrate">
-                <li class="demonstration">{{ this.type === "notice" ? "A아이연산의 신규/업데이트 소식 및 이벤트 관련 소식을 알려 드립니다." : "질문 게시판입니다." }}</li>
+                <li class="demonstration">{{ this.description }}</li>
             </div>
             <div class="article-table">
                 <el-table
@@ -62,7 +62,9 @@
                 tableData: [],
                 listCount: 0,
                 type: '',
-                flag: true
+                flag: true,
+                name: '공지사항',
+                description: "A아이연산의 신규/업데이트 소식 및 이벤트 관련 소식을 알려 드립니다."
             }
         },
         mounted() {
@@ -74,6 +76,13 @@
                     console.log(err);
                 });
             this.type = window.location.href.split('/')[4];
+            if (this.type === "question") {
+                this.name = "질문하기";
+                this.description = "질문 게시판입니다.";
+            } else if (this.type === "video") {
+                this.name = "동영상 게시판";
+                this.description = "동영상 게시판입니다.";
+            }
             this.getList(1);
             if (this.type === "notice" && (this.username === "edumaster" || this.username === "zxcv859500@naver.com")) {
                 this.flag = true;
@@ -91,7 +100,11 @@
                     })
             },
             goArticle(id) {
-                this.$router.push(`/article/${id}`)
+                if (this.type === "video") {
+                    this.$router.push(`/video/${id}`)
+                } else {
+                    this.$router.push(`/article/${id}`)
+                }
             },
             goWrite() {
                 if (this.token === null || this.token === '') {

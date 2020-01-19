@@ -15,8 +15,8 @@
         <div class="menu-answer" @click="answerMode">
             <img class="astext" src="@/assets/답안지.png">
         </div>
-        <div class="menu-media img-div">
-            <img src="@/assets/동영상보기.png">
+        <div class="menu-media img-div" @click="goVideo">
+            <img class="astext" src="@/assets/동영상보기.png">
         </div>
         <div class="menu-ask" @click="goQuestion">
             <img class='astext' src="@/assets/질문하기.png">
@@ -41,6 +41,9 @@
         methods: {
             goQuestion() {
                 this.$router.push('/question')
+            },
+            goVideo() {
+                this.$router.push('/video')
             },
             answerMode() {
                 const path = window.location.href.split('/')[4];

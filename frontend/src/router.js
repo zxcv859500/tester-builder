@@ -8,6 +8,8 @@ import Home from "./components/main/home";
 import Editor from './components/article/editor';
 import list from './components/article/list';
 import ArticleViewer from "./components/article/ArticleViewer";
+import VideoEditor from "./components/video/VideoEditor";
+import VideoViewer from "./components/video/VideoViewer";
 
 Vue.use(Router);
 
@@ -58,6 +60,21 @@ export default new Router({
                     path: "/question/write",
                     name: "QuestionWrite",
                     components: { default: Editor }
+                },
+                {
+                    path: "/video",
+                    name: "VideoList",
+                    components: { default: list }
+                },
+                {
+                    path: "/video/write",
+                    name: "VideoWrite",
+                    components: { default: VideoEditor }
+                },
+                {
+                    path: "/video/:id",
+                    name: "Video",
+                    components: { default: VideoViewer }
                 }
             ]
         },
