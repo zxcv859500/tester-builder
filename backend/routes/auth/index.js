@@ -9,18 +9,18 @@ router.post('/login', (req, res) => {
             Error: "Username and password required"
         })
     } else {
-            controller.user.login(username, password)
-                .then((result) => {
-                    res.json({
-                        token: result,
-                        username: username
-                    });
-                })
-                .catch((err) => {
-                    res.status(500).json({
-                        error: err.message
-                    });
-                })
+        controller.user.login(username, password)
+            .then((result) => {
+                res.json({
+                    token: result,
+                    username: username
+                });
+            })
+            .catch((err) => {
+                res.status(500).json({
+                    error: err.message
+                });
+            })
     }
 });
 

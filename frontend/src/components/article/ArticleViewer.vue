@@ -24,16 +24,60 @@
             <div class="list-button">
                 <el-button size="mini" @click="goList">목록</el-button>
             </div>
+            <div class="article-title">
+                <div class="name-wrapper">
+                    <h3>댓글</h3>
+                </div>
+            </div>
+            <div class="article-comment">
+                <el-input
+                        type="textarea"
+                        placeholder=""
+                        v-model="comment"
+                        resize="none"
+                        show-word-limit>
+                </el-input>
+            </div>
+            <div class="comment-button">
+                <el-button size="mini" @click="writeComment">등록</el-button>
+            </div>
+            <div class="comment-table">
+                <el-table
+                        :data="tableData"
+                        style="width: 100%"
+                        size="small"
+                        empty-text="댓글이 없습니다."
+                        :show-header="false">
+                    <el-table-column
+                            prop="author"
+                            width="200">
+                    </el-table-column>
+                    <el-table-column
+                            prop="content"
+                            width="580"
+                            text-align="left">
+                    </el-table-column>
+                    <el-table-column
+                            prop="date"
+                            label="작성일"
+                            width="90"
+                            align="center">
+                    </el-table-column>
+                </el-table>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     export default {
         name: "ArticleViewer",
         data() {
             return {
-                inform: null
+                inform: null,
+                comment: '',
+                tableData: []
             }
         },
         mounted() {
@@ -43,6 +87,7 @@
                 .then((result) => {
                     this.inform = result.data;
                     this.inform.date = this.inform.date.split('T')[0];
+                    this.getCommentList();
                 })
                 .catch((err) => {
                     console.log(err);
@@ -51,8 +96,46 @@
         methods: {
             goList() {
                 this.$router.push('/notice')
+            },
+            writeComment() {
+                if (this.username === undefined || this.username === '') {
+                    alert("로그인이 필요합니다.");
+                } else if (this.comment === '') {
+                    alert("내용을 입력해주세요.");
+                } else {
+                    this.$axios.defaults.headers['x-access-token'] = this.token;
+                    this.$axios.post('/api/comment/write', {
+                        author: this.username,
+                        content: this.comment,
+                        articleId: this.$route.params.id
+                    })
+                        .then(() => {
+                            this.comment = '';
+                            this.getCommentList();
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                }
+            },
+            getCommentList() {
+                const id = this.$route.params.id;
+
+                this.$axios.get(`/api/comment/${id}`)
+                    .then((result) => {
+                        console.log(result.data);
+                        this.tableData = result.data;
+                        this.tableData.map(dt => dt.date = `${dt.date.split('T')[0]} ${dt.date.split('T')[1].split('.')[0]}`)
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             }
-        }
+        },
+        computed: mapGetters({
+            token: "getToken",
+            username: "getUsername"
+        })
     }
 </script>
 
@@ -148,8 +231,27 @@
     .list-button {
         width: 880px;
         margin: 0 auto;
+        display: inline-block;
     }
     .list-button > button {
         float: left;
+    }
+    .article-comment {
+        width: 880px;
+        margin: 20px auto;
+        display: inline-block;
+    }
+    .comment-button {
+        width: 880px;
+        margin: 0 auto;
+        display: inline-block;
+    }
+    .comment-button > button {
+        float: right;
+    }
+    .comment-table {
+        width: 880px;
+        margin: 30px auto;
+        display: inline-block;
     }
 </style>

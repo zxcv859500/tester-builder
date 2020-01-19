@@ -4,6 +4,7 @@ const fs = require('fs');
 const controller = require('../controller');
 const auth = require('./auth');
 const article = require('./article');
+const comment = require('./comment');
 
 /* GET home page. */
 router.get('/test', function(req, res) {
@@ -59,5 +60,6 @@ router.get('/problem/:problemId', async function(req, res) {
 
 router.use('/auth', auth);
 router.use('/article', article);
+router.use('/comment', comment);
 
 module.exports = router;

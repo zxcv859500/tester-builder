@@ -11,10 +11,6 @@ module.exports = class controller {
         this.compJson = compJson;
     }
 
-    rebuild(mode) {
-        this.build(this.compJson, mode, 1);
-    }
-
     build(compJson, mode) {
         this.width = compJson['width'];
         this.height = compJson['height'];
