@@ -10,28 +10,34 @@ module.exports = {
         encrypted += cipher.final('base64');
 
         const user = await knex('member')
-            .select('userId', 'password', 'nickname')
+            .select('userId', 'password', 'name', 'id')
             .where('userId', username)
             .map((result) => {
                 return {
                     userId: result.userId,
-                    password: result.password
+                    password: result.password,
+                    id: result.id,
+                    name: result.name
                 }
             });
-        console.log(user);
         if (user.length <= 0) {
             throw new Error("Wrong username or password");
         }
 
         if (encrypted === user[0].password) {
-            return await jwt.sign(
-                {
-                    username: user[0].userId
-                },
-                config.secret,
-                {
-                    expiresIn: '7d'
-                })
+            return {
+                token: await jwt.sign(
+                    {
+                        userId: user[0].id,
+                        username: user[0].userId,
+                        name: user[0].name
+                    },
+                    config.secret,
+                    {
+                        expiresIn: '7d'
+                    }),
+                userId: user[0].id
+            }
         } else {
             throw new Error("Wrong username or password");
         }

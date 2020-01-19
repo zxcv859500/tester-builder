@@ -47,6 +47,11 @@ export default new Router({
                     components: { default: Editor }
                 },
                 {
+                    path: '/notice/edit/:id',
+                    name: "NoticeEdit",
+                    components: { default: Editor }
+                },
+                {
                     path: '/article/:id',
                     name: "Article",
                     components: { default: ArticleViewer }
@@ -59,6 +64,11 @@ export default new Router({
                 {
                     path: "/question/write",
                     name: "QuestionWrite",
+                    components: { default: Editor }
+                },
+                {
+                    path: "/question/edit/:id",
+                    name: "QuestionEdit",
                     components: { default: Editor }
                 },
                 {

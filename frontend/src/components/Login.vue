@@ -45,7 +45,8 @@
                 } else {
                     this.$axios.post('/api/auth/login', this.form)
                         .then((result) => {
-                            this.$store.commit('setToken', { token: result.data.token, username: result.data.username });
+                            console.log(result);
+                            this.$store.commit('setToken', { token: result.data.token, username: result.data.username, userId: result.data.userId });
                             this.$axios.defaults.headers.common['x-access-token'] = result.data.token;
                             this.$router.push('/home');
                         })

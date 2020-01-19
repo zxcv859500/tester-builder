@@ -23,6 +23,13 @@
             </div>
             <div class="list-button">
                 <el-button size="mini" @click="goList">목록</el-button>
+                <div class="removeButton" v-if="Number(this.userId) === this.inform.userId">
+                    <el-button class="edit" size="mini" @click="edit">수정</el-button>
+                    <el-button class="remove"
+                               size="mini"
+                               type="danger"
+                               @click="remove">삭제</el-button>
+                </div>
             </div>
             <div class="article-title">
                 <div class="name-wrapper">
@@ -54,7 +61,7 @@
                     </el-table-column>
                     <el-table-column
                             prop="content"
-                            width="580"
+                            width="550"
                             text-align="left">
                     </el-table-column>
                     <el-table-column
@@ -62,6 +69,14 @@
                             label="작성일"
                             width="90"
                             align="center">
+                    </el-table-column>
+                    <el-table-column
+                        width="40">
+                        <template slot-scope="scope">
+                            <div class="icon" v-if="scope.row.flag">
+                            <i @click="removeComment(scope.row.id)" class="el-icon-close"></i>
+                            </div>
+                        </template>
                     </el-table-column>
                 </el-table>
             </div>
@@ -97,6 +112,16 @@
             goList() {
                 this.$router.push('/notice')
             },
+            removeComment(id) {
+                this.$axios.defaults.headers['x-access-token'] = this.token;
+                this.$axios.get(`/api/comment/remove/${id}`)
+                    .then(() => {
+                        this.getCommentList();
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            },
             writeComment() {
                 if (this.username === undefined || this.username === '') {
                     alert("로그인이 필요합니다.");
@@ -118,14 +143,30 @@
                         })
                 }
             },
+            remove() {
+                const id = this.$route.params.id;
+                this.$axios.defaults.headers['x-access-token'] = this.token;
+                this.$axios.get(`/api/article/remove/${id}`)
+                    .then(() => {
+                        this.$router.go(-1);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            },
+            edit() {
+                const id = this.$route.params.id;
+
+                this.$router.push(`/${this.inform.type}/edit/${id}`);
+            },
             getCommentList() {
                 const id = this.$route.params.id;
 
                 this.$axios.get(`/api/comment/${id}`)
                     .then((result) => {
-                        console.log(result.data);
                         this.tableData = result.data;
-                        this.tableData.map(dt => dt.date = `${dt.date.split('T')[0]} ${dt.date.split('T')[1].split('.')[0]}`)
+                        this.tableData.map(dt => dt.date = `${dt.date.split('T')[0]} ${dt.date.split('T')[1].split('.')[0]}`);
+                        this.tableData.map(dt => dt['flag'] = dt.userId === Number(this.userId));
                     })
                     .catch((err) => {
                         console.log(err);
@@ -134,7 +175,8 @@
         },
         computed: mapGetters({
             token: "getToken",
-            username: "getUsername"
+            username: "getUsername",
+            userId: "getUserId"
         })
     }
 </script>
@@ -235,6 +277,13 @@
     }
     .list-button > button {
         float: left;
+    }
+    .remove {
+        float: right;
+        margin-right: 5px;
+    }
+    .edit {
+        float: right;
     }
     .article-comment {
         width: 880px;

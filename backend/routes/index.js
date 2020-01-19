@@ -17,6 +17,16 @@ router.get('/test', function(req, res) {
   })
 });
 
+router.get('/count', function(req, res) {
+   controller.problem.count()
+       .then((result) => {
+           res.send(result[0]);
+       })
+       .catch((err) => {
+           res.send(err);
+       })
+});
+
 router.get('/chapter/:grade', function(req, res) {
   const { grade } = req.params;
 

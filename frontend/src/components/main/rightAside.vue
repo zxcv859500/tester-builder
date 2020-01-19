@@ -25,10 +25,18 @@
             <img src="@/assets/성적표.png">
         </div>
         <div class="menu-total">
-            <img src="@/assets/총응시자.png">
+            <span class="desc">총 응시자</span>
+            <span class="total">{{ total }}</span>
+            <div class="icon">
+                <i class="el-icon-notebook-1"></i>
+            </div>
         </div>
         <div class="menu-average">
-            <img src="@/assets/평균.png">
+            <span class="desc">평균</span>
+            <span class="total">87점</span>
+            <div class="icon">
+                <i class="el-icon-notebook-2"></i>
+            </div>
         </div>
     </div>
 </template>
@@ -38,6 +46,22 @@
 
     export default {
         name: "rightAside",
+        data() {
+            return {
+                total: 0
+            }
+        },
+        mounted() {
+            this.$axios.get('/api/count')
+                .then((result) => {
+                    this.total = result.data.cnt;
+                    this.total = this.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    this.total += "명";
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        },
         methods: {
             goQuestion() {
                 this.$router.push('/question')
@@ -96,10 +120,59 @@
 </script>
 
 <style scoped>
+    @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
     .main-page-right-aside > div > img {
         display: block;
     }
     .astext {
         cursor: pointer;
+    }
+    .menu-total {
+        width: 221px;
+        height: 77px;
+        background-color: #ffde5b;
+        font-family: 'NanumSquare';
+        font-weight: 600;
+        font-size: 13pt;
+        text-align: left;
+    }
+    .desc {
+        margin-top: 20px;
+        display: inline-block;
+    }
+    .menu-total > span {
+        margin-left: 32px;
+    }
+    .total {
+        display: block;
+    }
+    .el-icon-notebook-1 {
+        float: right;
+        font-size: 1.5rem;
+        display: contents;
+    }
+    .el-icon-notebook-2 {
+        float: right;
+        font-size: 1.5rem;
+        display: contents;
+    }
+    .icon {
+        position: relative;
+        bottom: 32px;
+        left: 180px;
+    }
+    .menu-average {
+        width: 221px;
+        height: 77px;
+        background-color: #333333;
+        font-family: 'NanumSquare';
+        font-weight: 600;
+        font-size: 13pt;
+        text-align: left;
+        color: white;
+    }
+    .menu-average > span {
+        margin-left: 32px;
     }
 </style>

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.use('/notice/write', auth);
 router.post('/notice/write', function(req, res) {
-    const { username } = req.decoded;
+    const { username, name, userId } = req.decoded;
     const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     const { title, content } = req.body;
 
@@ -13,11 +13,12 @@ router.post('/notice/write', function(req, res) {
         res.status(403).send("Not admin");
     } else {
         controller.article.write({
-            author: username,
+            author: `${name}(${username})`,
             title: title,
             content: content,
             date: date,
-            type: "notice"
+            type: "notice",
+            id: userId
         })
             .then(() => {
                 res.status(200).send("Post writing complete");
@@ -54,16 +55,17 @@ router.get('/notice/count', function(req, res) {
 
 router.use('/question/write', auth);
 router.post('/question/write', function(req, res) {
-    const { username } = req.decoded;
+    const { username, name, userId } = req.decoded;
     const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     const { title, content } = req.body;
 
     controller.article.write({
-        author: username,
+        author: `${name}(${username})`,
         title: title,
         content: content,
         date: date,
-        type: "question"
+        type: "question",
+        id: userId
     })
         .then(() => {
             res.status(200).send("Post writing complete");
@@ -99,16 +101,17 @@ router.get('/question/count', function(req, res) {
 
 router.use('/video/write', auth);
 router.post('/video/write', function(req, res) {
-    const { username } = req.decoded;
+    const { username, name, userId } = req.decoded;
     const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     const { title, content } = req.body;
 
     controller.article.write({
-        author: username,
+        author: `${name}(${username})`,
         title: title,
         content: content,
         date: date,
-        type: "video"
+        type: "video",
+        id: userId
     })
         .then(() => {
             res.status(200).send("Post writing complete");
@@ -147,6 +150,34 @@ router.get('/:id', function(req, res) {
     controller.article.getArticle({ id: id })
         .then((result) => {
             res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+});
+
+router.use('/remove/:id', auth);
+router.get('/remove/:id', function(req, res) {
+    const { id } = req.params;
+    const { userId } = req.decoded;
+
+    controller.article.remove({id: id, userId: userId})
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+});
+
+router.use('/:type/:edit', auth);
+router.post('/:type/:edit', function(req, res) {
+    const { userId } = req.decoded;
+    const { title, content, id } = req.body;
+
+    controller.article.edit({ id: id, userId: userId, title: title, content: content})
+        .then(() => {
+            res.sendStatus(200);
         })
         .catch((err) => {
             res.send(err);

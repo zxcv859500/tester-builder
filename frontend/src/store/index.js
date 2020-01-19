@@ -12,6 +12,7 @@ const store = new Vuex.Store({
         problem: '',
         token: localStorage.getItem('token'),
         username: localStorage.getItem('username'),
+        userId: localStorage.getItem('userId'),
         mode: 0,
         problemRand: 0,
         printState: 0
@@ -33,6 +34,10 @@ const store = new Vuex.Store({
             state.username = localStorage.getItem('username');
             return state.username;
         },
+        getUserId(state) {
+            state.userId = localStorage.getItem('userId');
+            return state.userId;
+        },
         getMode(state) {
             return state.mode;
         },
@@ -51,14 +56,18 @@ const store = new Vuex.Store({
         setToken (state, payload) {
             localStorage.setItem('token', payload.token);
             localStorage.setItem('username', payload.username);
+            localStorage.setItem('userId', payload.userId);
             state.token = localStorage.getItem('token');
             state.username = localStorage.getItem('username');
+            state.userId = localStorage.getItem('userId');
         },
         delToken (state) {
             localStorage.removeItem('token');
             localStorage.removeItem('username');
+            localStorage.removeItem('userId');
             state.token = null;
             state.username = null;
+            state.userId = null;
         },
         setMode(state, payload) {
             state.mode = payload.mode;

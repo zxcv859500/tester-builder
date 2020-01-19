@@ -29,27 +29,42 @@
             return {
                 title: '',
                 content: '',
-                type: ''
+                type: '',
+                mode: ''
             }
         },
         mounted() {
             this.type = window.location.href.split('/')[4];
-            console.log(this.type);
+            this.mode = window.location.href.split('/')[5];
+            if (this.mode === "edit") {
+                const id = this.$route.params.id;
+
+                this.$axios.get(`/api/article/${id}`)
+                    .then((result) => {
+                        this.title = result.data.title;
+                        this.content = result.data.content;
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            }
         },
         methods: {
             writeCancel() {
                 this.$router.go(-1);
             },
             saveContent() {
+                const id = this.$route.params.id;
                 this.$axios.defaults.headers['x-access-token'] = this.token;
                 if (this.token === null) {
                     alert("로그인 되어있지 않습니다.");
                 } else if (this.title === '' || this.content === '') {
                     alert("글과 내용은 필수항목입니다.");
                 } else {
-                    this.$axios.post(`/api/article/${this.type}/write`, {
+                    this.$axios.post(`/api/article/${this.type}/${this.mode}`, {
                         title: this.title,
-                        content: this.content
+                        content: this.content,
+                        id: id
                     })
                         .then(() => {
                             this.$router.push(`/${this.type}`)

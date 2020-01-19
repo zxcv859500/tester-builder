@@ -2,7 +2,7 @@ const knex = require('./knexfile');
 
 module.exports = {
     async write(params) {
-        const { title, content, author, type, date } = params;
+        const { title, content, author, type, date, id } = params;
 
         return knex('article')
             .insert({
@@ -10,7 +10,8 @@ module.exports = {
                 content: content,
                 author: author,
                 type: type,
-                date: date
+                date: date,
+                userId: id
             })
     },
 
@@ -52,5 +53,30 @@ module.exports = {
             .where('id', id);
 
         return article[0];
+    },
+
+    async remove(params) {
+        const { id, userId } = params;
+
+        return knex('article')
+            .where({
+                id: id,
+                userId: userId
+            })
+            .del();
+    },
+
+    async edit(params) {
+        const { id, title, content, userId } = params;
+
+        return knex('article')
+            .where({
+                id: id,
+                userId: userId
+            })
+            .update({
+                title: title,
+                content: content
+            })
     }
 };

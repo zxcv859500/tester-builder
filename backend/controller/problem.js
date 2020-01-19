@@ -22,5 +22,9 @@ module.exports = {
         return  knex('problem_vars')
             .select('json', 'number')
             .where('problemId', problemId);
+    },
+    async count() {
+        return knex('problem')
+            .count('problemId as cnt')
     }
 };
