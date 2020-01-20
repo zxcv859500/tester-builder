@@ -290,7 +290,7 @@
         text-align: left;
     }
     img {
-        width: 100%;
+        max-width: 100%;
     }
     .list-button {
         width: 100%;

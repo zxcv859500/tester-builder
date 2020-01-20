@@ -17,11 +17,11 @@
                         empty-text="글이 없습니다.">
                     <el-table-column
                             prop="index"
-                            width="30">
+                            width="45">
                     </el-table-column>
                     <el-table-column
                             label="제목"
-                            width="724"
+                            width="709"
                             align="left"
                             header-align="center">
                         <template slot-scope="scope">
@@ -45,6 +45,7 @@
             <div class="pagination">
                 <el-pagination
                         layout="prev, pager, next"
+                        @current-change="pagination"
                         :total="listCount">
                 </el-pagination>
             </div>
@@ -112,6 +113,9 @@
                 } else {
                     this.$router.push(`/${this.type}/write`).catch(()=> {});
                 }
+            },
+            pagination(page) {
+                this.getList(page);
             }
         },
         computed: mapGetters({

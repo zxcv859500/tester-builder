@@ -32,7 +32,7 @@
         position: relative;
         width: 100%;
         min-height: 95%;
-        padding-bottom: 110px;
+        padding-bottom: 150px;
         box-sizing: border-box;
     }
     .header {

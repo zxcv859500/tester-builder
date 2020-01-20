@@ -34,12 +34,12 @@ module.exports = {
             }));
         for (let i = 1; i <= articleList.length; i++) articleList[i - 1]['index'] = i;
         articleList = articleList.reverse();
-        const st = (page - 1) * 10,
+        const st = (page - 1) * 10 + 1,
             ed = page * 10 > count ? count : page * 10;
 
         let result = [];
 
-        for (let i = st; i <= ed; i++) result.push(articleList[i]);
+        for (let i = st; i <= ed; i++) result.push(articleList[i - 1]);
         return result;
     },
 
