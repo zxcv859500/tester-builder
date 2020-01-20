@@ -2,6 +2,9 @@ const auth = require('../../middlewares/auth');
 const controller = require('../../controller');
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+
+const upload = multer({dest : "uploads/images/"});
 
 router.use('/notice/write', auth);
 router.post('/notice/write', function(req, res) {
@@ -182,6 +185,11 @@ router.post('/:type/:edit', function(req, res) {
         .catch((err) => {
             res.send(err);
         })
+});
+
+router.post('/imageUpload', upload.single('file'), function(req, res) {
+    console.log(1);
+    res.send({ url: `/api/uploads/images/${req.file.filename}`});
 });
 
 module.exports = router;

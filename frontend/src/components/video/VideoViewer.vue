@@ -14,12 +14,20 @@
                     <h4 class="title">{{ inform.title }}</h4>
                 </div>
                 <div class="article-date-wrap">
-                    <small class="article-date">작성일: {{ inform.date }}</small>
+                    <small class="article-date">작성일2: {{ inform.date }}</small>
                 </div>
                 <div class="article-viewer-wrap">
-                    <vimeo-player ref="player"
-                                  player-width="880px"
-                                  :video-id="this.src"></vimeo-player>
+                    <template v-if="src">
+                        <iframe
+                                :src="this.src"
+                                :width="videoWidth"
+                                :height="videoHeight"
+                                frameborder="0"
+                                title="{video_title}"
+                                webkitallowfullscreen m
+                                ozallowfullscreen
+                                allowfullscreen></iframe>
+                    </template>
                 </div>
             </div>
             <div class="list-button">
@@ -61,7 +69,7 @@
                     </el-table-column>
                     <el-table-column
                             prop="content"
-                            width="550"
+                            width="515"
                             text-align="left">
                     </el-table-column>
                     <el-table-column
@@ -90,21 +98,33 @@
         name: "VideoViewer",
         data() {
             return {
-                inform: null,
+                inform: {
+                    title: '',
+                    date: '',
+                    content: ''
+                },
                 comment: '',
                 tableData: [],
-                src: ''
+                src: null,
+                videoWidth: 0,
+                videoHeight: 0
             }
         },
-        mounted() {
+        created() {
             const id = this.$route.params.id;
-
             this.$axios.get(`/api/article/${id}`)
                 .then((result) => {
                     this.inform = result.data;
                     this.inform.date = this.inform.date.split('T')[0];
                     this.getCommentList();
                     this.src = this.inform.content.split('/')[2];
+                    this.$axios.get(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${this.src}`)
+                        .then((result) => {
+                            console.log(result);
+                            this.videoWidth = result.data.width;
+                            this.videoHeight = result.data.height;
+                            this.src = `https://player.vimeo.com/video/${this.src}`
+                        });
                 })
                 .catch((err) => {
                     console.log(err);
@@ -112,7 +132,7 @@
         },
         methods: {
             goList() {
-                this.$router.push('/video')
+                this.$router.push('/video').catch(() => {})
             },
             writeComment() {
                 if (this.username === undefined || this.username === '') {
@@ -136,21 +156,23 @@
                 }
             },
             removeComment(id) {
-                this.$axios.defaults.headers['x-access-token'] = this.token;
-                this.$axios.get(`/api/comment/remove/${id}`)
-                    .then(() => {
-                        this.getCommentList();
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+                const r = confirm("정말 삭제하시겠습니까?");
+                if (r) {
+                    this.$axios.defaults.headers['x-access-token'] = this.token;
+                    this.$axios.get(`/api/comment/remove/${id}`)
+                        .then(() => {
+                            this.getCommentList();
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                }
             },
             getCommentList() {
                 const id = this.$route.params.id;
 
                 this.$axios.get(`/api/comment/${id}`)
                     .then((result) => {
-                        console.log(result.data);
                         this.tableData = result.data;
                         this.tableData.map(dt => dt.date = `${dt.date.split('T')[0]} ${dt.date.split('T')[1].split('.')[0]}`)
                         this.tableData.map(dt => dt['flag'] = dt.userId === Number(this.userId));
@@ -160,15 +182,19 @@
                     })
             },
             remove() {
-                const id = this.$route.params.id;
-                this.$axios.defaults.headers['x-access-token'] = this.token;
-                this.$axios.get(`/api/article/remove/${id}`)
-                    .then(() => {
-                        this.$router.push('/video');
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+                const r = confirm("정말 삭제하시겠습니까?");
+                if (r) {
+                    const id = this.$route.params.id;
+                    this.$axios.defaults.headers['x-access-token'] = this.token;
+                    this.$axios.get(`/api/article/remove/${id}`)
+                        .then(() => {
+                            this.$router.push('/video').catch(() => {
+                            });
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                }
             }
         },
         computed: mapGetters({
@@ -181,18 +207,19 @@
 
 <style scoped>
     .article {
-        width: 100%;
+        max-width: 874px;
         text-align: center;
         display: inline-block;
+        box-sizing: border-box;
+        padding: 15px;
     }
     .article-container {
-        width: 1400px;
         text-align: center;
         margin: 0 auto;
         display: inline-block;
     }
     .article-title {
-        width: 880px;
+        width: 100%;
         border-bottom: 2px solid #bcbcbc;
         margin: 0 auto;
         display: inline-block;
@@ -210,7 +237,7 @@
         color: #333;
     }
     .article-demonstrate {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
     }
     .demonstration {
@@ -227,7 +254,7 @@
         float: left;
     }
     .article-main {
-        width: 880px;
+        width: 100%;
         margin: 20px auto;
         content: "";
         display: flow-root;
@@ -238,8 +265,9 @@
     }
     .article-header-wrap {
         padding: 15px 15px 0;
-        width: 95%;
+        width: 100%;
         display: inline-block;
+        box-sizing: border-box;
     }
     .article-header-wrap > .title {
         text-align: left;
@@ -266,10 +294,12 @@
     .article-viewer-wrap {
         padding: 20px;
         float: left;
-        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
     }
     .list-button {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
         display: inline-block;
     }
@@ -280,12 +310,12 @@
         float: right;
     }
     .article-comment {
-        width: 880px;
+        width: 100%;
         margin: 20px auto;
         display: inline-block;
     }
     .comment-button {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
         display: inline-block;
     }
@@ -293,8 +323,12 @@
         float: right;
     }
     .comment-table {
-        width: 880px;
+        width: 100%;
         margin: 30px auto;
         display: inline-block;
+    }
+    .player {
+        width: 100%;
+        margin: 0 auto;
     }
 </style>

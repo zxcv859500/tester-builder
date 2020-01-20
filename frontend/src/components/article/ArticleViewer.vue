@@ -3,11 +3,11 @@
         <div class="article-container">
             <div class="article-title">
                 <div class="name-wrapper">
-                    <h3>공지사항</h3>
+                    <h3>{{ this.name }}</h3>
                 </div>
             </div>
             <div class="article-demonstrate">
-                <li class="demonstration">A아이연산의 신규/업데이트 소식 및 이벤트 관련 소식을 알려 드립니다.</li>
+                <li class="demonstration">{{ this.description }}</li>
             </div>
             <div class="article-main">
                 <div class="article-header-wrap">
@@ -61,7 +61,7 @@
                     </el-table-column>
                     <el-table-column
                             prop="content"
-                            width="550"
+                            width="515"
                             text-align="left">
                     </el-table-column>
                     <el-table-column
@@ -90,9 +90,15 @@
         name: "ArticleViewer",
         data() {
             return {
-                inform: null,
+                inform: {
+                    title: '',
+                    date: '',
+                    content: ''
+                },
                 comment: '',
-                tableData: []
+                tableData: [],
+                name: '공지사항',
+                description: "A아이연산의 신규/업데이트 소식 및 이벤트 관련 소식을 알려 드립니다."
             }
         },
         mounted() {
@@ -103,6 +109,10 @@
                     this.inform = result.data;
                     this.inform.date = this.inform.date.split('T')[0];
                     this.getCommentList();
+                    if (this.inform.type === "question") {
+                        this.name = "질문하기";
+                        this.description = "질문 게시판입니다.";
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
@@ -113,14 +123,17 @@
                 this.$router.push('/notice')
             },
             removeComment(id) {
-                this.$axios.defaults.headers['x-access-token'] = this.token;
-                this.$axios.get(`/api/comment/remove/${id}`)
-                    .then(() => {
-                        this.getCommentList();
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+                const r = confirm("정말 삭제하시겠습니까?");
+                if (r) {
+                    this.$axios.defaults.headers['x-access-token'] = this.token;
+                    this.$axios.get(`/api/comment/remove/${id}`)
+                        .then(() => {
+                            this.getCommentList();
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                }
             },
             writeComment() {
                 if (this.username === undefined || this.username === '') {
@@ -144,15 +157,18 @@
                 }
             },
             remove() {
-                const id = this.$route.params.id;
-                this.$axios.defaults.headers['x-access-token'] = this.token;
-                this.$axios.get(`/api/article/remove/${id}`)
-                    .then(() => {
-                        this.$router.go(-1);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
+                const r = confirm("정말 삭제하시겠습니까?");
+                if (r) {
+                    const id = this.$route.params.id;
+                    this.$axios.defaults.headers['x-access-token'] = this.token;
+                    this.$axios.get(`/api/article/remove/${id}`)
+                        .then(() => {
+                            this.$router.go(-1);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                }
             },
             edit() {
                 const id = this.$route.params.id;
@@ -181,20 +197,21 @@
     }
 </script>
 
-<style scoped>
+<style>
     .article {
-        width: 100%;
+        max-width: 874px;
         text-align: center;
         display: inline-block;
+        box-sizing: border-box;
+        padding: 15px;
     }
     .article-container {
-        width: 1400px;
         text-align: center;
         margin: 0 auto;
         display: inline-block;
     }
     .article-title {
-        width: 880px;
+        width: 100%;
         border-bottom: 2px solid #bcbcbc;
         margin: 0 auto;
         display: inline-block;
@@ -212,7 +229,7 @@
         color: #333;
     }
     .article-demonstrate {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
     }
     .demonstration {
@@ -229,7 +246,7 @@
         float: left;
     }
     .article-main {
-        width: 880px;
+        width: 100%;
         margin: 20px auto;
         content: "";
         display: inline-block;
@@ -240,8 +257,9 @@
     }
     .article-header-wrap {
         padding: 15px 15px 0;
-        width: 95%;
+        width: 100%;
         display: inline-block;
+        box-sizing: border-box;
     }
     .article-header-wrap > .title {
         text-align: left;
@@ -266,12 +284,16 @@
         padding: 10px;
     }
     .article-viewer-wrap {
+        max-width: 833px;
         padding: 20px;
         float: left;
         text-align: left;
     }
+    img {
+        width: 100%;
+    }
     .list-button {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
         display: inline-block;
     }
@@ -286,12 +308,12 @@
         float: right;
     }
     .article-comment {
-        width: 880px;
+        width: 100%;
         margin: 20px auto;
         display: inline-block;
     }
     .comment-button {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
         display: inline-block;
     }
@@ -299,7 +321,7 @@
         float: right;
     }
     .comment-table {
-        width: 880px;
+        width: 100%;
         margin: 30px auto;
         display: inline-block;
     }

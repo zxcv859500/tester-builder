@@ -15,6 +15,7 @@ Vue.use(Router);
 
 export default new Router({
     base: process.env.BASE_URL,
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -33,59 +34,59 @@ export default new Router({
                         {
                             path: '/testviewer/:id',
                             components: { default: TesterViewer }
+                        },
+                        {
+                            path: "/notice",
+                            name: "NoticeList",
+                            components: { default : list }
+                        },
+                        {
+                            path: '/notice/write',
+                            name: "NoticeWrite",
+                            components: { default: Editor }
+                        },
+                        {
+                            path: '/notice/edit/:id',
+                            name: "NoticeEdit",
+                            components: { default: Editor }
+                        },
+                        {
+                            path: '/article/:id',
+                            name: "Article",
+                            components: { default: ArticleViewer }
+                        },
+                        {
+                            path: "/question",
+                            name: "QuestionList",
+                            components: { default: list }
+                        },
+                        {
+                            path: "/question/write",
+                            name: "QuestionWrite",
+                            components: { default: Editor }
+                        },
+                        {
+                            path: "/question/edit/:id",
+                            name: "QuestionEdit",
+                            components: { default: Editor }
+                        },
+                        {
+                            path: "/video",
+                            name: "VideoList",
+                            components: { default: list }
+                        },
+                        {
+                            path: "/video/write",
+                            name: "VideoWrite",
+                            components: { default: VideoEditor }
+                        },
+                        {
+                            path: "/video/:id",
+                            name: "Video",
+                            components: { default: VideoViewer }
                         }
                     ]
                 },
-                {
-                    path: "/notice",
-                    name: "NoticeList",
-                    components: { default : list }
-                },
-                {
-                    path: '/notice/write',
-                    name: "NoticeWrite",
-                    components: { default: Editor }
-                },
-                {
-                    path: '/notice/edit/:id',
-                    name: "NoticeEdit",
-                    components: { default: Editor }
-                },
-                {
-                    path: '/article/:id',
-                    name: "Article",
-                    components: { default: ArticleViewer }
-                },
-                {
-                    path: "/question",
-                    name: "QuestionList",
-                    components: { default: list }
-                },
-                {
-                    path: "/question/write",
-                    name: "QuestionWrite",
-                    components: { default: Editor }
-                },
-                {
-                    path: "/question/edit/:id",
-                    name: "QuestionEdit",
-                    components: { default: Editor }
-                },
-                {
-                    path: "/video",
-                    name: "VideoList",
-                    components: { default: list }
-                },
-                {
-                    path: "/video/write",
-                    name: "VideoWrite",
-                    components: { default: VideoEditor }
-                },
-                {
-                    path: "/video/:id",
-                    name: "Video",
-                    components: { default: VideoViewer }
-                }
             ]
         },
         {

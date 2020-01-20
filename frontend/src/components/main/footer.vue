@@ -26,26 +26,28 @@
         margin: 0 auto;
         display: inline-block;
         width: 875px;
-        height: 256px;
     }
     img {
         display: inline-block;
     }
     .main-footer {
-        width: 1400px;
+        min-width: 1400px;
         margin: 0 auto;
         text-align: center;
     }
     .main-footer-bottom {
+        min-width: 880px;
         font-family: 'NanumSquare';
-        font-size: 13pt;
+        font-size: 10pt;
         text-align: left;
-        margin-top: 100px;
+        margin-top: 50px;
     }
     .img-container {
         height: 100px;
         display: inline-block;
-        margin-left: 75px;
+        margin-left: 160px;
+        position: relative;
+        bottom: 20px;
     }
     .main-footer-bottom > div > img {
         float: left;
@@ -53,6 +55,6 @@
     }
     .desc-span{
         float: right;
-        margin-right: 50px;
+        margin-right: 115px;
     }
 </style>

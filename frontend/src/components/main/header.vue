@@ -165,19 +165,19 @@
                 const randomNumber = rand.toString(16);
                 this.$store.commit("setProblemRand", { randomNumber: randomNumber});
                 const problemId = `${grade}${semester}${chapter}${problem}${randomNumber}`;
-                this.$router.push(`/testviewer/${problemId}`);
+                this.$router.push(`/testviewer/${problemId}`).catch(()=> {});
             },
             goLogin() {
                 if (this.token) {
                     this.$store.commit('delToken');
                     this.$axios.defaults.headers.common['x-access-token'] = undefined;
-                    this.$router.push('/home');
+                    this.$router.push('/home').catch(()=> {});
                 } else {
-                    this.$router.push('/login');
+                    this.$router.push('/login').catch(()=> {});
                 }
             },
             goNotice() {
-                this.$router.push('/notice');
+                this.$router.push('/notice').catch(()=> {});
             }
         },
         mounted() {
@@ -194,28 +194,32 @@
     .main-page-header {
         height: 180px;
         margin: 0 auto;
-        width: 1640px;
+        min-width: 1400px;
+        text-align: center;
     }
     .main-page-top-header {
         font-size: 10pt;
         font-family: "나눔스퀘어 Regular";
-        margin: 20px auto;
+        margin: 0px auto;
+        padding-top: 20px;
         height: 20px;
-        width: 1400px;
+        max-width: 1400px;
         text-align: center;
     }
     .container {
         margin: 0 auto;
         width: 63%;
+        min-width: 880px;
     }
     .main-page-top-header-menu{
         float: right;
+        min-width: 275px;
     }
     .main-page-bottom-header {
-        width: 100%;
         display:inline-block;
         text-align: center;
-        min-width: 1640px;
+        max-width: 1400px;
+        margin: 0 auto;
     }
     .main-page-bottom-header-menu {
         font-size: 15pt;

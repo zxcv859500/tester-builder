@@ -86,7 +86,7 @@ router.post('/upload', upload.single('file'), function (req, res) {
         },
         function (uri) {
             result = uri;
-            console.log(result);
+            fs.unlinkSync(req.file.path);
             res.send({uri: result});
         },
         function (error) {

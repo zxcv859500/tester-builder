@@ -41,7 +41,7 @@
     }
     .main-board {
         margin: 0 auto;
-        min-width: 1640px;
+        min-width: 1400px;
         text-align: center;
         display: flex;
     }
@@ -50,7 +50,7 @@
         display: inline-block;
     }
     .router-container {
-        min-width: 800px;
+        min-width: 874px;
         min-height: 657px;
     }
 </style>

@@ -39,12 +39,14 @@
         },
         data() {
             return {
-                controller: null,
-                grade: String,
-                chapter: String,
-                chapter2: String,
-                chapter2Small: String,
-                badge: String,
+                controller: {
+                    template: null
+                },
+                grade: '',
+                chapter: '',
+                chapter2: '',
+                chapter2Small: '',
+                badge: '',
                 visibleMode: true,
                 currentUrl: ''
             }
@@ -112,8 +114,9 @@
 
 <style>
     .paper {
-        width: 800px;
-        height: 1123px;
+        max-width: 874px;
+        min-height: 1123px;
+        box-sizing: border-box;
     }
     .paper-bound{
         font-family: "나눔스퀘어라운드 ExtraBold";
@@ -122,9 +125,8 @@
     }
     .paper-bound {
         border: 3px solid #dddddd;
-        width: 210mm;
+        width: 99.7%;
         height: 290mm;
-        margin: 0 auto 20px;
         position: relative;
         float: top;
     }

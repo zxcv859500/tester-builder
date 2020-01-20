@@ -21,7 +21,7 @@
                     </el-table-column>
                     <el-table-column
                             label="제목"
-                            width="760"
+                            width="724"
                             align="left"
                             header-align="center">
                         <template slot-scope="scope">
@@ -68,14 +68,14 @@
             }
         },
         mounted() {
+            this.type = window.location.href.split('/')[3];
             this.$axios.get(`/api/article/${this.type}/count`)
                 .then((result) => {
-                    this.listCount = result.articleCount;
+                    this.listCount = result.data.articleCount;
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-            this.type = window.location.href.split('/')[4];
             if (this.type === "question") {
                 this.name = "질문하기";
                 this.description = "질문 게시판입니다.";
@@ -101,16 +101,16 @@
             },
             goArticle(id) {
                 if (this.type === "video") {
-                    this.$router.push(`/video/${id}`)
+                    this.$router.push(`/video/${id}`).catch(()=> {})
                 } else {
-                    this.$router.push(`/article/${id}`)
+                    this.$router.push(`/article/${id}`).catch(()=> {})
                 }
             },
             goWrite() {
                 if (this.token === null || this.token === '') {
                     alert("로그인이 필요합니다");
                 } else {
-                    this.$router.push(`/${this.type}/write`);
+                    this.$router.push(`/${this.type}/write`).catch(()=> {});
                 }
             }
         },
@@ -123,18 +123,20 @@
 
 <style scoped>
     .article-list {
-        width: 100%;
+        max-width: 874px;
         text-align: center;
         display: inline-block;
+        box-sizing: border-box;
+        padding: 15px;
     }
     .article-container {
-        width: 1400px;
+        width: 100%;
         text-align: center;
         margin: 0 auto;
         display: inline-block;
     }
     .article-title {
-        width: 880px;
+        width: 100%;
         border-bottom: 2px solid #bcbcbc;
         margin: 0 auto;
         display: inline-block;
@@ -152,7 +154,7 @@
         color: #333;
     }
     .article-demonstrate {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
         display: inline-block;
     }
@@ -170,7 +172,7 @@
         float: left;
     }
     .article-table {
-        width: 880px;
+        width: 100%;
         margin: 30px auto;
         display: inline-block;
     }
@@ -186,7 +188,7 @@
         cursor: pointer;
     }
     .write-buttons {
-        width: 880px;
+        width: 100%;
         margin: 0 auto;
         display: inline-block;
     }

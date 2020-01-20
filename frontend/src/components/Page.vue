@@ -4,7 +4,7 @@
             <mainHeader></mainHeader>
         </div>
         <router-view :key="$route.fullPath"></router-view>
-        <div class="footer">
+        <div class="main-footer">
             <main-footer></main-footer>
         </div>
     </div>
@@ -26,10 +26,21 @@
 <style scoped>
     .main > div {
         display: inline-block;
+        box-sizing: border-box;
     }
     .page {
+        position: relative;
+        width: 100%;
+        min-height: 95%;
+        padding-bottom: 110px;
+        box-sizing: border-box;
     }
     .header {
-        clear: both;
+        box-sizing: border-box;
+    }
+    .main-footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
     }
 </style>

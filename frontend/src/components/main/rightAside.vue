@@ -64,10 +64,10 @@
         },
         methods: {
             goQuestion() {
-                this.$router.push('/question')
+                this.$router.push('/question').catch(()=> {})
             },
             goVideo() {
-                this.$router.push('/video')
+                this.$router.push('/video').catch(()=> {})
             },
             answerMode() {
                 const path = window.location.href.split('/')[4];
@@ -99,7 +99,7 @@
                     }
                     this.$store.commit("setProblemRand", {randomNumber : randomNumber});
                     const problemId = `${grade}${semester}${chapter}${problem}${randomNumber}`;
-                    this.$router.push(`/testviewer/${problemId}`)
+                    this.$router.push(`/testviewer/${problemId}`).catch(()=> {})
                 }
             },
             printProblem() {
@@ -114,7 +114,7 @@
         computed: mapGetters({
             mode: 'getMode',
             inform: 'getState',
-            randomNumber: 'getProblemRandom'
+            randomNumber: 'getProblemRand'
         })
     }
 </script>

@@ -42,6 +42,7 @@ module.exports = class controller {
             margin: 5px;
             width: ${compJson['problemWidth'] * 2 / 3}px;
             height: ${compJson['problemHeight'] * 2 / 3}px;
+            z-index: -1;
         } 
         .number {
             position: absolute;
