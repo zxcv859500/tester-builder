@@ -190,7 +190,6 @@ router.post('/:type/:edit', function(req, res) {
 });
 
 router.post('/imageUpload', upload.single('file'), function(req, res) {
-    console.log(1);
     res.send({ url: `/api/uploads/images/${req.file.filename}`});
 });
 

@@ -98,7 +98,6 @@
                 this.$axios.post('/api/article/imageUpload', formData)
                     .then((result) => {
                         let url = result.data.url;
-                        console.log(url);
                         Editor.insertEmbed(cursorLocation, "image", url);
                         resetUploader();
                     })

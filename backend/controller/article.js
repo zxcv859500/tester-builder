@@ -4,7 +4,6 @@ const moment = require('moment-timezone');
 module.exports = {
     async write(params) {
         const { title, content, author, type, date, id } = params;
-        console.log(date);
         return knex('article')
             .insert({
                 title: title,
