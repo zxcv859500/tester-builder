@@ -70,7 +70,7 @@
                 this.$router.push('/video').catch(()=> {})
             },
             answerMode() {
-                const path = window.location.href.split('/')[4];
+                const path = window.location.href.split('/')[3];
                 if (path !== "testviewer") {
                     alert("문제지를 선택해주세요.");
                 } else {
@@ -78,7 +78,7 @@
                 }
             },
             problemAgain() {
-                const path = window.location.href.split('/')[4];
+                const path = window.location.href.split('/')[3];
                 if (path !== "testviewer") {
                     alert("문제지를 선택해주세요.");
                 } else {
@@ -86,7 +86,7 @@
                 }
             },
             twinProblem() {
-                const path = window.location.href.split('/')[4];
+                const path = window.location.href.split('/')[3];
                 if (path !== "testviewer") {
                     alert("문제지를 선택해주세요.");
                 } else {
@@ -103,7 +103,7 @@
                 }
             },
             printProblem() {
-                const path = window.location.href.split('/')[4];
+                const path = window.location.href.split('/')[3];
                 if (path !== "testviewer") {
                     alert("문제지를 선택해주세요.");
                 } else {

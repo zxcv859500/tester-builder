@@ -3,15 +3,16 @@ const controller = require('../../controller');
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const moment = require('moment-timezone');
 
 const upload = multer({dest : "uploads/images/"});
 
 router.use('/notice/write', auth);
 router.post('/notice/write', function(req, res) {
     const { username, name, userId } = req.decoded;
-    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    const date = moment.tz(new Date(), 'Asia/Seoul').format('YYYY-MM-DD hh-mm-ss');
     const { title, content } = req.body;
-
+    console.log(date);
     if (username !== 'edumaster' && username !== 'zxcv859500@naver.com') {
         res.status(403).send("Not admin");
     } else {
@@ -152,7 +153,8 @@ router.get('/:id', function(req, res) {
     const { id } = req.params;
     controller.article.getArticle({ id: id })
         .then((result) => {
-            res.send(result);
+            let temp = result;
+            res.send(temp);
         })
         .catch((err) => {
             res.send(err);

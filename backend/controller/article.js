@@ -1,9 +1,10 @@
 const knex = require('./knexfile');
+const moment = require('moment-timezone');
 
 module.exports = {
     async write(params) {
         const { title, content, author, type, date, id } = params;
-
+        console.log(date);
         return knex('article')
             .insert({
                 title: title,
@@ -24,7 +25,13 @@ module.exports = {
 
         let articleList = await knex('article')
             .select('id', 'date', 'author', 'title')
-            .where('type', type);
+            .where('type', type)
+            .map(r => ({
+                id: r.id,
+                author: r.author,
+                title: r.title,
+                date: moment.tz(r.date, 'Asia/Seoul').format()
+            }));
         for (let i = 1; i <= articleList.length; i++) articleList[i - 1]['index'] = i;
         articleList = articleList.reverse();
         const st = (page - 1) * 10,
@@ -50,7 +57,16 @@ module.exports = {
 
         const article = await knex('article')
             .select('*')
-            .where('id', id);
+            .where('id', id)
+            .map(r => ({
+                id: r.id,
+                author: r.id,
+                title: r.title,
+                content: r.content,
+                type: r.type,
+                date: moment.tz(r.date, 'Asia/Seoul').format(),
+                userId: r.userId
+            }));
 
         return article[0];
     },
