@@ -36,13 +36,21 @@ router.get('/chapter/:grade', function(req, res) {
       })
 });
 
+router.get('/make/:grade/:semester/:chapter/:problemNumber', function(req, res) {
+    const { grade, chapter, semester, problemNumber } = req.params;
+
+    controller.problem.makeProblem(grade, chapter, semester, problemNumber)
+        .then(() => {
+            res.send();
+        })
+});
 router.get('/problems/:grade/:semester/:chapter', function(req, res) {
-    const { grade, chapter, semester } = req.params;
+    const {grade, chapter, semester} = req.params;
 
     controller.problem.getProblems(grade, chapter, semester)
         .then((result) => {
             res.send(result);
-        })
+        });
 });
 
 router.get('/problem/:grade/:semester/:chapter/:problem', async function(req, res) {
@@ -70,6 +78,18 @@ router.get('/problem/:problemId', async function(req, res) {
         "varsJsons": varsJsons
     })
 });
+
+router.get('/problemId/:type', (req, res) =>{
+    const { type } = req.params;
+
+    controller.problem.getProblemId(type)
+        .then((result) => {
+            res.send({ 'problemId': result })
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+})
 
 router.post('/upload', upload.single('file'), function (req, res) {
     const filePath = req.file.path;

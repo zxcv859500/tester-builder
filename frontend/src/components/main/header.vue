@@ -160,12 +160,16 @@
                     {
                         problem: this.problemValue
                 });
-                const rand = Math.floor(Math.random() * 16);
                 const { grade, semester, chapter, problem } = this.inform;
-                const randomNumber = rand.toString(16);
-                this.$store.commit("setProblemRand", { randomNumber: randomNumber});
-                const problemId = `${grade}${semester}${chapter}${problem}${randomNumber}`;
-                this.$router.push(`/testviewer/${problemId}`).catch(()=> {});
+                const problemId = `${grade}${semester}${chapter}${problem}`;
+                this.$axios.get(`/api/make/${grade}/${semester}/${chapter}/${problem}`);
+                this.$axios.get(`/api/problemId/${problemId}`)
+                    .then((result) => {
+                        this.$router.push(`/testviewer/${result.data.problemId}`).catch(() => {})
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             },
             goLogin() {
                 if (this.token) {

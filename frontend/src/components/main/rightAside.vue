@@ -91,15 +91,16 @@
                     alert("문제지를 선택해주세요.");
                 } else {
                     this.$store.commit("setMode", { mode: 0 });
-                    const rand = Math.floor(Math.random() * 16);
                     const { grade, semester, chapter, problem } = this.inform;
-                    let randomNumber = rand.toString(16);
-                    while (randomNumber === this.randomNumber) {
-                        randomNumber = rand.toString(16);
-                    }
-                    this.$store.commit("setProblemRand", {randomNumber : randomNumber});
-                    const problemId = `${grade}${semester}${chapter}${problem}${randomNumber}`;
-                    this.$router.push(`/testviewer/${problemId}`).catch(()=> {})
+                    this.$axios.get(`/api/make/${grade}/${semester}/${chapter}/${problem}`);
+                    const problemId = `${grade}${semester}${chapter}${problem}`;
+                    this.$axios.get(`/api/problemId/${problemId}`)
+                        .then((result) => {
+                            this.$router.push(`/testviewer/${result.data.problemId}`).catch(() => {})
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
                 }
             },
             printProblem() {

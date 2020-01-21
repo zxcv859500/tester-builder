@@ -6,7 +6,7 @@
                     <right-aside></right-aside>
                 </div>
                 <div class="router-container">
-                    <router-view></router-view>
+                    <router-view :key="$route.fullPath"></router-view>
                 </div>
                 <div class="left-aside">
                     <left-aside></left-aside>

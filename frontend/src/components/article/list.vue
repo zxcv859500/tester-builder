@@ -14,7 +14,8 @@
                         :data="tableData"
                         style="width: 100%"
                         size="small"
-                        empty-text="글이 없습니다.">
+                        empty-text="글이 없습니다."
+                        @cell-click="goArticle">
                     <el-table-column
                             prop="index"
                             width="45">
@@ -25,8 +26,7 @@
                             align="left"
                             header-align="center">
                         <template slot-scope="scope">
-                            <span class="astext"
-                                  @click="goArticle(tableData[scope.$index].id)">
+                            <span class="astext">
                                 {{ tableData[scope.$index].title }}
                             </span>
                         </template>
@@ -102,9 +102,9 @@
             },
             goArticle(id) {
                 if (this.type === "video") {
-                    this.$router.push(`/video/${id}`).catch(()=> {})
+                    this.$router.push(`/video/${id.id}`).catch(()=> {})
                 } else {
-                    this.$router.push(`/article/${id}`).catch(()=> {})
+                    this.$router.push(`/article/${id.id}`).catch(()=> {})
                 }
             },
             goWrite() {
