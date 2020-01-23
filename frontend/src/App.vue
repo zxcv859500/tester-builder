@@ -20,6 +20,9 @@ export default {
     margin: 0;
     padding: 0;
   }
+  html {
+    overflow-y: scroll;
+  }
   .app {
     height: 100%;
   }

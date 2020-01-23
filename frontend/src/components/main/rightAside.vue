@@ -48,19 +48,10 @@
         name: "rightAside",
         data() {
             return {
-                total: 0
             }
         },
         mounted() {
-            this.$axios.get('/api/count')
-                .then((result) => {
-                    this.total = result.data.cnt;
-                    this.total = this.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    this.total += "명";
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
+            this.$store.commit('setTotalCount');
         },
         methods: {
             goQuestion() {
@@ -92,14 +83,12 @@
                 } else {
                     this.$store.commit("setMode", { mode: 0 });
                     const { grade, semester, chapter, problem } = this.inform;
-                    this.$axios.get(`/api/make/${grade}/${semester}/${chapter}/${problem}`);
-                    const problemId = `${grade}${semester}${chapter}${problem}`;
-                    this.$axios.get(`/api/problemId/${problemId}`)
+                    let problemId = `${grade}${semester}${chapter}${problem}`;
+                    this.$axios.get(`/api/make/${grade}/${semester}/${chapter}/${problem}`)
                         .then((result) => {
-                            this.$router.push(`/testviewer/${result.data.problemId}`).catch(() => {})
-                        })
-                        .catch((err) => {
-                            console.log(err);
+                            problemId = result.data.problemId;
+                            console.log(problemId);
+                            this.$router.push(`/testviewer/${problemId}`)
                         });
                 }
             },
@@ -115,7 +104,8 @@
         computed: mapGetters({
             mode: 'getMode',
             inform: 'getState',
-            randomNumber: 'getProblemRand'
+            randomNumber: 'getProblemRand',
+            total: 'getTotalCount'
         })
     }
 </script>

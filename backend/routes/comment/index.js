@@ -2,11 +2,12 @@ const auth = require('../../middlewares/auth');
 const controller = require('../../controller');
 const express = require('express');
 const router = express.Router();
+const moment = require('moment-timezone');
 
 router.use('/write', auth);
 router.post('/write', function(req, res) {
     const { username, name, userId } = req.decoded;
-    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    const date = moment.tz(new Date(), 'Asia/Seoul').format('YYYY-MM-DD hh-mm-ss');
     const { content, articleId } = req.body;
 
     controller.comment.write({

@@ -11,8 +11,8 @@
                 <el-button style="width:100%; margin-left: 0px">회원가입</el-button>
                 <el-divider></el-divider>
                 <div class="find">
-                    <el-button type="text">아이디 찾기</el-button>
-                    <el-button type="text">비밀번호 찾기</el-button>
+                    <!--el-button type="text">아이디 찾기</el-button-->
+                    <!--el-button type="text">비밀번호 찾기</el-button-->
                 </div>
             </div>
         </div>

@@ -7,9 +7,8 @@
                     <el-divider direction="vertical"></el-divider>
                     <span class="astext" @click="goLogin()">{{this.token ? '로그아웃' :'로그인'}}</span>
                     <el-divider direction="vertical"></el-divider>
-                    <span class="astext">회원가입</span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span class="astext">나의정보</span>
+                    <span class="astext" v-if="this.token === '' || this.token === null">회원가입</span>
+                    <span class="astext" v-if="this.token !== '' && this.token !== null">나의정보</span>
                 </div>
             </div>
         </div>

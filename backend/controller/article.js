@@ -59,7 +59,7 @@ module.exports = {
             .where('id', id)
             .map(r => ({
                 id: r.id,
-                author: r.id,
+                author: r.author,
                 title: r.title,
                 content: r.content,
                 type: r.type,

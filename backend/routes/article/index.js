@@ -12,7 +12,6 @@ router.post('/notice/write', function(req, res) {
     const { username, name, userId } = req.decoded;
     const date = moment.tz(new Date(), 'Asia/Seoul').format('YYYY-MM-DD hh-mm-ss');
     const { title, content } = req.body;
-    console.log(date);
     if (username !== 'edumaster' && username !== 'zxcv859500@naver.com') {
         res.status(403).send("Not admin");
     } else {
@@ -60,7 +59,7 @@ router.get('/notice/count', function(req, res) {
 router.use('/question/write', auth);
 router.post('/question/write', function(req, res) {
     const { username, name, userId } = req.decoded;
-    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    const date = moment.tz(new Date(), 'Asia/Seoul').format('YYYY-MM-DD hh-mm-ss');
     const { title, content } = req.body;
 
     controller.article.write({
@@ -106,7 +105,7 @@ router.get('/question/count', function(req, res) {
 router.use('/video/write', auth);
 router.post('/video/write', function(req, res) {
     const { username, name, userId } = req.decoded;
-    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    const date = moment.tz(new Date(), 'Asia/Seoul').format('YYYY-MM-DD hh-mm-ss');
     const { title, content } = req.body;
 
     controller.article.write({

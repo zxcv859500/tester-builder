@@ -1,4 +1,5 @@
 const knex = require('./knexfile');
+const moment = require('moment-timezone');
 
 module.exports = {
     async write(params) {
@@ -17,7 +18,16 @@ module.exports = {
     async list(params) {
         const { articleId } = params;
         return knex('comment')
-            .select('*').where('articleId', articleId);
+            .select('*')
+            .where('articleId', articleId)
+            .map(r => ({
+                id: r.id,
+                content: r.content,
+                author: r.author,
+                date: moment.tz(r.date, 'Asia/Seoul').format('YYYY-MM-DD hh:mm:ss'),
+                articleId: r.articleId,
+                userId: r.userId
+            }))
     },
 
     async remove(params) {

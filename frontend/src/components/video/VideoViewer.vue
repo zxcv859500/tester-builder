@@ -12,6 +12,7 @@
             <div class="article-main">
                 <div class="article-header-wrap">
                     <h4 class="title">{{ inform.title }}</h4>
+                    <h5 class="author">{{ inform.author }}</h5>
                 </div>
                 <div class="article-date-wrap">
                     <small class="article-date">작성일2: {{ inform.date }}</small>
@@ -330,5 +331,12 @@
     .player {
         width: 100%;
         margin: 0 auto;
+    }
+    .author {
+        float: right;
+        font-size: 11px;
+        line-height: 15px;
+        color: #333;
+        font-family: 나눔고딕,NanumGothic,system,sans-serif;
     }
 </style>

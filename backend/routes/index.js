@@ -40,8 +40,8 @@ router.get('/make/:grade/:semester/:chapter/:problemNumber', function(req, res) 
     const { grade, chapter, semester, problemNumber } = req.params;
 
     controller.problem.makeProblem(grade, chapter, semester, problemNumber)
-        .then(() => {
-            res.send();
+        .then((result) => {
+            res.send({ problemId: result});
         })
 });
 router.get('/problems/:grade/:semester/:chapter', function(req, res) {

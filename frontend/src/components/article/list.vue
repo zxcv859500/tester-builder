@@ -10,34 +10,43 @@
                 <li class="demonstration">{{ this.description }}</li>
             </div>
             <div class="article-table">
-                <el-table
-                        :data="tableData"
-                        style="width: 100%"
-                        size="small"
-                        empty-text="글이 없습니다."
-                        @cell-click="goArticle">
-                    <el-table-column
-                            prop="index"
-                            width="45">
-                    </el-table-column>
-                    <el-table-column
-                            label="제목"
-                            width="709"
-                            align="left"
-                            header-align="center">
-                        <template slot-scope="scope">
-                            <span class="astext">
-                                {{ tableData[scope.$index].title }}
-                            </span>
-                        </template>
-                    </el-table-column>
-                    <el-table-column
-                            prop="date"
-                            label="작성일"
-                            width="90"
-                            align="center">
-                    </el-table-column>
-                </el-table>
+                <template v-if="tableData !== null">
+                    <el-table
+                            :data="tableData"
+                            style="width: 100%"
+                            size="small"
+                            empty-text="글이 없습니다."
+                            @cell-click="goArticle"
+                            cell-style="cursor: pointer">
+                        <el-table-column
+                                prop="index"
+                                width="45">
+                        </el-table-column>
+                        <el-table-column
+                                label="제목"
+                                width="509"
+                                align="left"
+                                header-align="center">
+                            <template slot-scope="scope">
+                                <span class="astext">
+                                    {{ tableData[scope.$index].title }}
+                                </span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="author"
+                                label="작성자"
+                                width="200"
+                                header-align="center">
+                        </el-table-column>
+                        <el-table-column
+                                prop="date"
+                                label="작성일"
+                                width="90"
+                                align="center">
+                        </el-table-column>
+                    </el-table>
+                </template>
             </div>
             <div class="write-buttons">
                 <el-button v-if="flag" type="primary" @click="goWrite">글쓰기</el-button>
@@ -60,7 +69,7 @@
         name: "list",
         data() {
             return {
-                tableData: [],
+                tableData: null,
                 listCount: 0,
                 type: '',
                 flag: true,

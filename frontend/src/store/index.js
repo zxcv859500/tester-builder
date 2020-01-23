@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 
 Vue.use(Vuex);
@@ -15,7 +16,8 @@ const store = new Vuex.Store({
         userId: localStorage.getItem('userId'),
         mode: 0,
         problemRand: 0,
-        printState: 0
+        printState: 0,
+        totalCount: 0
     },
     getters: {
         getState (state) {
@@ -46,6 +48,9 @@ const store = new Vuex.Store({
         },
         getPrintState(state) {
             return state.printState;
+        },
+        getTotalCount(state) {
+            return state.totalCount;
         }
     },
     mutations: {
@@ -77,6 +82,14 @@ const store = new Vuex.Store({
         },
         setPrintState(state, payload) {
             state.printState = payload.printState;
+        },
+        setTotalCount(state) {
+            axios.get('/api/count')
+                .then((result) => {
+                    state.totalCount = result.data.cnt;
+                    state.totalCount = state.totalCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    state.totalCount += "명";
+                });
         }
     }
 });
