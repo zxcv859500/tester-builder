@@ -216,7 +216,7 @@
     }
     .main-page-top-header-menu{
         float: right;
-        min-width: 275px;
+        min-width: 0;
     }
     .main-page-bottom-header {
         display:inline-block;
