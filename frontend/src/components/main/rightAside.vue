@@ -1,28 +1,30 @@
 <template>
     <div class="main-page-right-aside">
-        <div class="menu-start">
-            <img src="@/assets/시작하기.png">
-        </div>
-        <div class="menu-again" @click="problemAgain">
-            <img class="astext" src="@/assets/다시풀기.png">
-        </div>
-        <div class="menu-twin" @click="twinProblem">
-            <img class="astext" src="@/assets/쌍둥이문제.png">
-        </div>
-        <div class="menu-print" @click="printProblem">
-            <img class="astext" src="@/assets/문제지인쇄하기.png">
-        </div>
-        <div class="menu-answer" @click="answerMode">
-            <img class="astext" src="@/assets/답안지.png">
-        </div>
-        <div class="menu-media img-div" @click="goVideo">
-            <img class="astext" src="@/assets/동영상보기.png">
-        </div>
-        <div class="menu-ask" @click="goQuestion">
-            <img class='astext' src="@/assets/질문하기.png">
-        </div>
-        <div class="menu-grade">
-            <img src="@/assets/성적표.png">
+        <div class="menu-up">
+            <div class="menu-start">
+                <img src="@/assets/시작하기.jpg">
+            </div>
+            <div class="menu-again" @click="problemAgain">
+                <img class="astext" src="@/assets/다시풀기.png">
+            </div>
+            <div class="menu-twin" @click="twinProblem">
+                <img class="astext" src="@/assets/쌍둥이문제.png">
+            </div>
+            <div class="menu-print" @click="printProblem">
+                <img class="astext" src="@/assets/문제지인쇄하기.png">
+            </div>
+            <div class="menu-answer" @click="answerMode">
+                <img class="astext" src="@/assets/답안지.png">
+            </div>
+            <div class="menu-media img-div" @click="goVideo">
+                <img class="astext" src="@/assets/동영상보기.png">
+            </div>
+            <div class="menu-ask" @click="goQuestion">
+                <img class='astext' src="@/assets/질문하기.png">
+            </div>
+            <div class="menu-grade">
+                <img src="@/assets/성적표.png">
+            </div>
         </div>
         <div class="menu-total">
             <span class="desc">총 응시자</span>

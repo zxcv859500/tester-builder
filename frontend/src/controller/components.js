@@ -14,7 +14,11 @@ module.exports = class Components {
             components[data['name']] = {};
 
             if (data.type === 'eval') {
-                components[data['name']]['value'] = this.eval_script(data['value'], data['props']);
+                try {
+                    components[data['name']]['value'] = this.eval_script(data['value'], data['props']);
+                } catch(e) {
+                    console.log(e);
+                }
                 components[data['name']]['template'] =
                     `<div class='problem${number}-components-${data['name']} '><B>${components[data['name']]['value']}</B></div>
                     <style>
@@ -102,8 +106,16 @@ module.exports = class Components {
         let defScript = '';
 
         for (const prop of props) {
-            defScript += `const ${prop} = ${this.variables[`${prop}`]};`
+            if (prop !== 'gcd') {
+                defScript += `const ${prop} = ${this.variables[`${prop}`]};`
+            }
         }
+        function gcd(a, b) {
+            if (!b)
+                return a;
+            return gcd(b, a % b);
+        }
+        gcd(1,2 );
         return eval(defScript + script);
     }
 };
