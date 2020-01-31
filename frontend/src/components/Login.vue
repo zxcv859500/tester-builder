@@ -47,7 +47,7 @@
                         .then((result) => {
                             this.$store.commit('setToken', { token: result.data.token, username: result.data.username, userId: result.data.userId });
                             this.$axios.defaults.headers.common['x-access-token'] = result.data.token;
-                            this.$router.push('/home');
+                            this.$router.push('/');
                         })
                         .catch(() => {
                             alert("이메일 혹은 비밀번호가 잘못되었습니다.")
