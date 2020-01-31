@@ -17,7 +17,8 @@ const store = new Vuex.Store({
         mode: 0,
         problemRand: 0,
         printState: 0,
-        totalCount: 0
+        totalCount: 0,
+        average: 0
     },
     getters: {
         getState (state) {
@@ -51,6 +52,9 @@ const store = new Vuex.Store({
         },
         getTotalCount(state) {
             return state.totalCount;
+        },
+        getAverage(state) {
+            return state.average;
         }
     },
     mutations: {
@@ -90,6 +94,21 @@ const store = new Vuex.Store({
                     state.totalCount = state.totalCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     state.totalCount += "명";
                 });
+        },
+        setAverage(state) {
+            if (state.token === null) {
+                state.average = 0;
+            } else {
+                axios.defaults.headers['x-access-token'] = state.token;
+                axios.get('/api/score')
+                    .then((result) => {
+                        console.log(result);
+                        state.average = result.data;
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            }
         }
     }
 });

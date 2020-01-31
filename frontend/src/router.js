@@ -20,11 +20,11 @@ export default new Router({
         {
             path: '/',
             name: 'Home',
-            redirect: { path: '/home'},
+            redirect: { path: '/'},
             components: { default: Page },
             children: [
                 {
-                    path: '/home',
+                    path: '/',
                     components: { default: Home },
                     children: [
                         {

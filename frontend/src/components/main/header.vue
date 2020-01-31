@@ -15,7 +15,7 @@
         <div class="main-page-bottom-header">
             <div class="wrapper">
                 <div class="main-page-logo img-div">
-                    <router-link to="/home"><img src="@/assets/메인로고.jpg"></router-link>
+                    <router-link to="/"><img src="@/assets/메인로고.jpg"></router-link>
                 </div>
                 <div class="main-page-bottom-header-menu">
                     <div class="menu-grade">
@@ -174,7 +174,7 @@
                 if (this.token) {
                     this.$store.commit('delToken');
                     this.$axios.defaults.headers.common['x-access-token'] = undefined;
-                    this.$router.push('/home').catch(()=> {});
+                    this.$router.push('/').catch(()=> {});
                 } else {
                     this.$router.push('/login').catch(()=> {});
                 }

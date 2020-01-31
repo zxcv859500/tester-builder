@@ -5,6 +5,7 @@ const controller = require('../controller');
 const auth = require('./auth');
 const article = require('./article');
 const comment = require('./comment');
+const score = require('./score');
 const multer = require('multer');
 const vimeo = require('vimeo').Vimeo;
 
@@ -122,5 +123,6 @@ router.post('/upload', upload.single('file'), function (req, res) {
 router.use('/auth', auth);
 router.use('/article', article);
 router.use('/comment', comment);
+router.use('/score', score);
 
 module.exports = router;

@@ -35,7 +35,7 @@
         </div>
         <div class="menu-average">
             <span class="desc">평균</span>
-            <span class="total">87점</span>
+            <span class="total">{{ average }}점</span>
             <div class="icon">
                 <i class="el-icon-notebook-2"></i>
             </div>
@@ -54,6 +54,7 @@
         },
         mounted() {
             this.$store.commit('setTotalCount');
+            this.$store.commit('setAverage');
         },
         methods: {
             goQuestion() {
@@ -107,7 +108,8 @@
             mode: 'getMode',
             inform: 'getState',
             randomNumber: 'getProblemRand',
-            total: 'getTotalCount'
+            total: 'getTotalCount',
+            average: 'getAverage'
         })
     }
 </script>
