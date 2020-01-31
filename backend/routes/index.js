@@ -17,6 +17,10 @@ router.get('/test', function(req, res) {
   })
 });
 
+router.get('/', function(req, res) {
+   res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
+
 router.get('/count', function(req, res) {
    controller.problem.count()
        .then((result) => {

@@ -1,7 +1,7 @@
 module.exports = require('knex') ({
   client: 'mysql2',
   connection: {
-    host: "localhost",
+    host: "jonathan.iptime.org",
     user: "root",
     password: "rkfaorl453!",
     database: "e8760dbserver"
