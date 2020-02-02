@@ -16,4 +16,17 @@ router.get('/', function(req, res) {
         })
 });
 
+router.use('/list', auth);
+router.get('/list', function(req, res) {
+    const { username } = req.decoded;
+
+    controller.score.getScoreList( { userId: username })
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+});
+
 module.exports = router;

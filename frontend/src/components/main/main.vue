@@ -8,7 +8,7 @@
                 <div class="footer-menu">
                     <div class="menu-container">
                         <div class="menu-understand-math img-menu">
-                            <img class="astext" src="@/assets/이해수학.png">
+                            <img class="astext" @click="goUnderstandMath" src="@/assets/이해수학.png">
                         </div>
                         <div class="menu-math-anxiety-test img-menu">
                             <img class="astext" src="@/assets/수학불안검사.png">
@@ -34,7 +34,10 @@
         name: "header.vue",
         methods: {
             openNaver() {
-                window.open("http://www.naver.com")
+                window.open("https://cafe.naver.com/m8760")
+            },
+            goUnderstandMath() {
+                window.open("http://www.8760.co.kr")
             }
         }
     }

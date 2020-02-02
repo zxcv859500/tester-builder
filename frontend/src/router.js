@@ -10,6 +10,7 @@ import list from './components/article/list';
 import ArticleViewer from "./components/article/ArticleViewer";
 import VideoEditor from "./components/video/VideoEditor";
 import VideoViewer from "./components/video/VideoViewer";
+import Score from "./components/score/score";
 
 Vue.use(Router);
 
@@ -30,6 +31,10 @@ export default new Router({
                         {
                             path: '/',
                             components: { default: MainImg }
+                        },
+                        {
+                            path: '/score',
+                            components: { default: Score }
                         },
                         {
                             path: '/testviewer/:id',

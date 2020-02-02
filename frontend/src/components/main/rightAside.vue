@@ -33,7 +33,7 @@
                 <i class="el-icon-notebook-1"></i>
             </div>
         </div>
-        <div class="menu-average">
+        <div class="menu-average astext" @click="goScore">
             <span class="desc">평균</span>
             <span class="total">{{ average }}점</span>
             <div class="icon">
@@ -62,6 +62,9 @@
             },
             goVideo() {
                 this.$router.push('/video').catch(()=> {})
+            },
+            goScore() {
+                this.$router.push('/score').catch(()=> {})
             },
             answerMode() {
                 const path = window.location.href.split('/')[3];
