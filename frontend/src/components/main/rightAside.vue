@@ -64,7 +64,12 @@
                 this.$router.push('/video').catch(()=> {})
             },
             goScore() {
-                this.$router.push('/score').catch(()=> {})
+                if (this.token === null || this.token === '') {
+                    alert("로그인 해주세요.");
+                } else {
+                    this.$router.push('/score').catch(() => {
+                    })
+                }
             },
             answerMode() {
                 const path = window.location.href.split('/')[3];
@@ -93,7 +98,6 @@
                     this.$axios.get(`/api/make/${grade}/${semester}/${chapter}/${problem}`)
                         .then((result) => {
                             problemId = result.data.problemId;
-                            console.log(problemId);
                             this.$router.push(`/testviewer/${problemId}`)
                         });
                 }
@@ -112,7 +116,8 @@
             inform: 'getState',
             randomNumber: 'getProblemRand',
             total: 'getTotalCount',
-            average: 'getAverage'
+            average: 'getAverage',
+            token: 'getToken'
         })
     }
 </script>

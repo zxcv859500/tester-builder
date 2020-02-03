@@ -102,7 +102,6 @@ const store = new Vuex.Store({
                 axios.defaults.headers['x-access-token'] = state.token;
                 axios.get('/api/score')
                     .then((result) => {
-                        console.log(result);
                         state.average = result.data;
                     })
                     .catch((err) => {

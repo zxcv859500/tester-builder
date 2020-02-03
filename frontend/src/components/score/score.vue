@@ -93,7 +93,7 @@
     }
     .article-demonstrate {
         margin: 0 auto;
-        min-width: 250px;
+        min-width: 230px;
         display: table-caption;
         vertical-align: top;
     }
