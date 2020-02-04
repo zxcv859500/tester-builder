@@ -11,13 +11,13 @@
                             <img class="astext" @click="goUnderstandMath" src="@/assets/이해수학.png">
                         </div>
                         <div class="menu-math-anxiety-test img-menu">
-                            <img class="astext" src="@/assets/수학불안검사.png">
+                            <img class="astext" @click="goMathAnxiety" src="@/assets/수학불안검사.png">
                         </div>
                         <div class="menu-qna img-menu">
-                            <img class="astext" src="@/assets/질문답변큐앤톡.png">
+                            <img class="astext" @click="goQandTalk" src="@/assets/질문답변큐앤톡.png">
                         </div>
                         <div class="menu-onschool img-menu">
-                            <img class="astext" src="@/assets/실시간화상과외온스쿨.png">
+                            <img class="astext" @click="goOnlineSchool" src="@/assets/실시간화상과외온스쿨.png">
                         </div>
                         <div class="menu-cafe img-menu">
                             <img class="astext" @click="openNaver" src="@/assets/네이버카페.png">
@@ -38,6 +38,15 @@
             },
             goUnderstandMath() {
                 window.open("http://www.8760.co.kr")
+            },
+            goQandTalk() {
+                window.open("http://www.qntalk.co.kr")
+            },
+            goMathAnxiety() {
+                window.open("http://mathanxiety.co.kr/");
+            },
+            goOnlineSchool() {
+                window.open("http://onlineschool.co.kr/");
             }
         }
     }

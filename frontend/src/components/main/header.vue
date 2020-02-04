@@ -7,8 +7,8 @@
                     <el-divider direction="vertical"></el-divider>
                     <span class="astext" @click="goLogin()">{{this.token ? '로그아웃' :'로그인'}}</span>
                     <el-divider direction="vertical"></el-divider>
-                    <span class="astext" v-if="this.token === '' || this.token === null">회원가입</span>
-                    <span class="astext" v-if="this.token !== '' && this.token !== null">나의정보</span>
+                    <span class="astext" @click="goRegister" v-if="this.token === '' || this.token === null">회원가입</span>
+                    <span class="astext" @click="goMyPage" v-if="this.token !== '' && this.token !== null">나의정보</span>
                 </div>
             </div>
         </div>
@@ -91,6 +91,12 @@
           }
         },
         methods: {
+            goRegister() {
+                window.location = "http://e8760.co.kr/student/join/joinOne";
+            },
+            goMyPage() {
+                window.location = "http://e8760.co.kr/myPage/myInfo";
+            },
             clickGrade(gradeString) {
                 let grade;
                 if (gradeString.indexOf('초') !== -1) {
