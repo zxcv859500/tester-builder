@@ -1,6 +1,7 @@
 const knex = require('./knexfile');
 const variables  = require('./variables');
 const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     async getProblemId(type) {
@@ -11,7 +12,8 @@ module.exports = {
     },
     async makeProblem(grade, chapter, semester, problemNumber) {
         let result;
-        const data = fs.readFileSync(`problemSet/${grade}/${semester}/${chapter}/${problemNumber}.json`, 'utf-8');
+        const filepath = path.resolve(__dirname, `../problemSet/${grade}/${semester}/${chapter}/${problemNumber}.json`);
+        const data = fs.readFileSync(filepath, 'utf-8');
         const obj = JSON.parse(data);
         let compObj = JSON.parse(data);
         const width = compObj['width'];
