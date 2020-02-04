@@ -16,6 +16,7 @@
                 <vue-editor class="wysiwyg-editor"
                             v-model="content"
                             useCustomImageHandler
+                            :editor-toolbar="toolbar"
                             @image-added="handleImageAdded"></vue-editor>
             </div>
             <div class="buttons-wrapper">
@@ -42,7 +43,23 @@
                 type: '',
                 mode: '',
                 name: '공지사항',
-                description: "A아이연산의 신규/업데이트 소식 및 이벤트 관련 소식을 알려 드립니다."
+                description: "A아이연산의 신규/업데이트 소식 및 이벤트 관련 소식을 알려 드립니다.",
+                toolbar: [
+                    [{ 'font': [] }],
+                    [{ 'header': [false, 1, 2, 3, 4, 5, 6, ] }],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{'align': ''}, {'align': 'center'}, {'align': 'right'}, {'align': 'justify'}],
+                    [{ 'header': 1 }, { 'header': 2 }],
+                    ['blockquote', 'code-block'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+                    [{ 'script': 'sub'}, { 'script': 'super' }],
+                    [{ 'indent': '-1'}, { 'indent': '+1' }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    ['image', 'formula'],
+                    [{ 'direction': 'rtl' }],
+                    ['clean'],
+                ]
             }
         },
         mounted() {
@@ -114,6 +131,9 @@
 </script>
 
 <style scoped>
+    .ql-video {
+        display: none;
+    }
     .editor {
         max-width: 874px;
         margin: 0 auto;
