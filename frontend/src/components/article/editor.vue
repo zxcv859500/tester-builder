@@ -63,11 +63,11 @@
             }
         },
         mounted() {
+            this.type = window.location.href.split('/')[3];
             if (this.type === "question") {
                 this.name = "질문하기";
                 this.description = "질문 게시판입니다.";
             }
-            this.type = window.location.href.split('/')[3];
             this.mode = window.location.href.split('/')[4];
             if (this.mode === "edit") {
                 const id = this.$route.params.id;
